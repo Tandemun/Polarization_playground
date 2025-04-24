@@ -17,7 +17,7 @@ $$
 
 ## Interactive Applet
 
-<div id="ggb-hwp" style="width: 100%; height: 500px;"></div>
+<div id="ggbApplet1"></div>
 
 <script>
   var params1 = {
@@ -53,8 +53,7 @@ $$
   	// use this instead of ggbBase64 to load a material from geogebra.org
   	"material_id":"pts6vg4r",
   	// use this instead of ggbBase64 to load a .ggb file
-  	// "filename":"myfile.ggb",
-  
+  	// "filename":"myfile.ggb",  
   };
   
   var applet1 = new GGBApplet(params1, true);
