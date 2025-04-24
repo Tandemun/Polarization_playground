@@ -1,8 +1,14 @@
-<!-- MathJax for LaTeX -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
 
-<!-- Geogebra -->
-<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <!-- Подключаем стандартную тему (Minima) -->
+  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+
+  <!-- Подключаем MathJax для LaTeX -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
