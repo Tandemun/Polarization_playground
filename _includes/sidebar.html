@@ -25,28 +25,33 @@
   </nav>
 </div>
 <script>
-  document.querySelectorAll('.sidebar nav ul li').forEach(function(item) {
-  const menuId = item.querySelector('a').innerText.trim(); // Получаем текст пункта меню
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.sidebar nav ul li > a').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        var subMenu = link.nextElementSibling;
 
-  // Проверяем, если состояние подменю сохранено в localStorage
-  if (localStorage.getItem(menuId) === 'open') {
-    item.querySelector('ul').style.display = 'block'; // Разворачиваем подменю
-  } else {
-    item.querySelector('ul').style.display = 'none'; // Скрываем подменю
-  }
+        if (subMenu && subMenu.tagName === 'UL') {
+          event.preventDefault();
 
-  // Обработчик клика по ссылке
-  item.querySelector('a').addEventListener('click', function(event) {
-    const subMenu = item.querySelector('ul');
-    if (subMenu) {
-      const isVisible = subMenu.style.display === 'block';
-      
-      // Сохраняем состояние в localStorage
-      localStorage.setItem(menuId, isVisible ? 'closed' : 'open');
+          if (subMenu.style.display === 'block') {
+            subMenu.style.display = 'none';
+            localStorage.setItem(link.href, 'closed');
+          } else {
+            subMenu.style.display = 'block';
+            localStorage.setItem(link.href, 'open');
+          }
+        }
+      });
 
-      // Переключаем видимость подменю
-      subMenu.style.display = isVisible ? 'none' : 'block';
-    }
+      var subMenu = link.nextElementSibling;
+      if (subMenu && subMenu.tagName === 'UL') {
+        var savedState = localStorage.getItem(link.href);
+        if (savedState === 'open') {
+          subMenu.style.display = 'block';
+        } else {
+          subMenu.style.display = 'none';
+        }
+      }
+    });
   });
-});
 </script>
