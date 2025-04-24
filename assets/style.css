@@ -15,6 +15,7 @@
 .sidebar nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar nav ul li {
@@ -35,30 +36,23 @@
   background-color: #555;
 }
 
-/* submenu */
+/* Подменю — всегда видно */
 .sidebar nav ul li ul {
   list-style: none;
   padding-left: 20px;
-  display: none; /* Подменю скрыто по умолчанию */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Класс для отображения подменю */
-.sidebar nav ul li ul.open {
   display: block;
-  opacity: 1;
 }
 
-/* submenu links customization */
+/* Кастомизация ссылок в подменю */
 .sidebar nav ul li ul li a {
-  padding-left: 20px; /* Отступ для подменю */
+  padding-left: 20px;
 }
 
-/* submenu effects */
+/* Эффект наведения на подменю */
 .sidebar nav ul li ul li a:hover {
   background-color: #666;
 }
+
 
 /* Main content */
 .container {
