@@ -9,6 +9,7 @@
   padding-top: 20px;
   color: white;
   font-family: Arial, sans-serif;
+  overflow-y: auto;
 }
 
 .sidebar nav ul {
@@ -34,6 +35,27 @@
   background-color: #555;
 }
 
+/* Подменю */
+.sidebar nav ul li ul {
+  list-style: none;
+  padding-left: 20px;
+  display: none; /* Подменю скрыто по умолчанию */
+}
+
+.sidebar nav ul li:hover > ul {
+  display: block; /* Показываем подменю при наведении */
+}
+
+/* Кастомизация ссылок в подменю */
+.sidebar nav ul li ul li a {
+  padding-left: 20px; /* Отступ для подменю */
+}
+
+/* Эффекты для подменю */
+.sidebar nav ul li ul li a:hover {
+  background-color: #666;
+}
+
 /* Основной контент */
 .container {
   display: flex;
@@ -44,4 +66,3 @@ main {
   width: 100%;
   padding: 20px;
 }
-
