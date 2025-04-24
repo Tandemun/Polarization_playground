@@ -1,0 +1,47 @@
+/* Стили для бокового меню */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding-top: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  padding: 10px;
+  text-align: left;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Основной контент */
+.container {
+  display: flex;
+  margin-left: 250px; /* Отступ для бокового меню */
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+}
+
