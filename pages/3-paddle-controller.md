@@ -93,7 +93,7 @@ title: 3-Paddle Polarization Controller
   } 
   
   var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "pts6vg4r"), true);
-  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "hdmsanwn",{enableRightClick: false}), true);
+  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "hdmsanwn",{enableRightClick: true}), true);
   window.onload = function() {
 	  applet1.inject('ggbApplet1');
 	  applet2.inject('ggbApplet2');
