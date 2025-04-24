@@ -6,5 +6,5 @@ title: Home
 
 This interactive textbook explores how optical components affect polarization using the Poincaré sphere.
 
-- [Half-Wave Plate](/pages/half-wave-plate.html)
-- [Quarter-Wave Plate](/pages/quarter-wave-plate.html)
+- [Half-Wave Plate](/pages/half-wave-plate.md)
+- [Quarter-Wave Plate](/pages/quarter-wave-plate.md)
