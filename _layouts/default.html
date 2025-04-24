@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  {% include head.html %}
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/pages/half-wave-plate.html">Half-Wave Plate</a> |
+    <a href="/pages/quarter-wave-plate.html">Quarter-Wave Plate</a>
+  </nav>
+  <main>
+    {{ content }}
+  </main>
+</body>
+</html>
