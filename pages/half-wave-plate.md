@@ -5,7 +5,7 @@ title: Half-Wave Plate
 
 # Half-Wave Plate on the Poincaré Sphere
 
-A **half-wave plate (HWP)** introduces a phase shift of $\pi$ between fast and slow axes.
+A **half-wave plate (HWP)** introduces a phase shift of \(\pi\) between fast and slow axes.
 
 $$
 M_{\text{HWP}}(\theta) =
