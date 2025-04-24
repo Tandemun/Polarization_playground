@@ -68,7 +68,12 @@ document.querySelectorAll('.sidebar nav ul li > a').forEach((link, index) => {
 });
 
 // Восстанавливаем состояние меню при загрузке страницы
-window.addEventListener('DOMContentLoaded', restoreMenuState);
+window.onload = function() {
+  setTimeout(function() {
+    restoreMenuState();
+  }, 100); // Немного задержки перед применением стилей
+};
+
 
 
 </script>
