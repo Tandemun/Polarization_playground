@@ -1,19 +1,30 @@
+<!-- _layouts/default.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/assets/style.css">
-  {% include head.html %}
+  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+
+  <!-- Подключаем MathJax для LaTeX -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a> |
-    <a href="/pages/half-wave-plate.html">Half-Wave Plate</a> |
-    <a href="/pages/quarter-wave-plate.html">Quarter-Wave Plate</a>
-  </nav>
-  <main>
-    {{ content }}
-  </main>
+  <div class="container">
+    <!-- Боковое меню -->
+    <aside>
+      {% include sidebar.html %}
+    </aside>
+
+    <!-- Основной контент -->
+    <main>
+      {{ content }}
+    </main>
+  </div>
 </body>
 </html>
