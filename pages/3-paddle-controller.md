@@ -15,7 +15,7 @@ title: 3-Paddle Polarization Controller
 		margin-bottom: 40px;
 	}
 
-	.container {
+	.container1 {
 		display: flex;
 		justify-content: center;
 		gap: 20px;
@@ -54,7 +54,7 @@ title: 3-Paddle Polarization Controller
 
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
 
-<div class="container">
+<div class="container1">
   <!-- Left column -->
   <div class="column">
     <div class="text-block">
