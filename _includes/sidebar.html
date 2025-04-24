@@ -24,45 +24,4 @@
     </ul>
   </nav>
 </div>
-<script>
-// Сохранение состояния подменю в localStorage
-function saveMenuState() {
-  const expandedMenus = [];
-  document.querySelectorAll('.sidebar nav ul li > a').forEach((link, index) => {
-    const submenu = link.nextElementSibling;
-    if (submenu && submenu.classList.contains('open')) {
-      expandedMenus.push(index);
-    }
-  });
-  localStorage.setItem('expandedMenus', JSON.stringify(expandedMenus));
-}
 
-// Восстановление состояния подменю из localStorage
-function restoreMenuState() {
-  const expandedMenus = JSON.parse(localStorage.getItem('expandedMenus')) || [];
-  document.querySelectorAll('.sidebar nav ul li > a').forEach((link, index) => {
-    const submenu = link.nextElementSibling;
-    if (expandedMenus.includes(index)) {
-      submenu.classList.add('open');
-    }
-  });
-}
-
-// Переключение состояния подменю
-document.querySelectorAll('.sidebar nav ul li > a').forEach((link, index) => {
-  link.addEventListener('click', function(event) {
-    const submenu = link.nextElementSibling;
-    if (submenu && submenu.tagName === 'UL') {
-      event.preventDefault();
-      // Переключаем класс open (открыть/закрыть подменю)
-      submenu.classList.toggle('open');
-      saveMenuState(); // Сохраняем состояние меню
-    }
-  });
-});
-
-// Восстанавливаем состояние меню при загрузке страницы
-window.addEventListener('DOMContentLoaded', restoreMenuState);
-
-
-</script>
