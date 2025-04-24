@@ -22,7 +22,7 @@ $$
 <script>
   var applet = new GGBApplet({
     "id": "ggb-hwp",
-    "material_id": "your-applet-id",  // ← вставь свой
+    "material_id": "aw9fezvv",  // ← вставь свой
     "width": 800,
     "height": 500,
     "showToolbar": false,
