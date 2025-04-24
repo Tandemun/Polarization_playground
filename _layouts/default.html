@@ -8,20 +8,22 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
 
-  <!-- Подключаем MathJax для LaTeX -->
+  <!-- Include MathJax for LaTeX -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <!-- Include Geogebra -->
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 </head>
 <body>
   <div class="container">
-    <!-- Боковое меню -->
+    <!-- Sidebar -->
     <aside>
       {% include sidebar.html %}
     </aside>
 
-    <!-- Основной контент -->
+    <!-- Main content -->
     <main>
       {{ content }}
     </main>
