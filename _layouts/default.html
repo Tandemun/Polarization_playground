@@ -2,33 +2,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
-
-  <!-- Include MathJax for LaTeX -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  {% include head.html %}
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside>
+        {% include sidebar.html %}
+      </aside>
   
-  <!-- Include Geogebra -->
-  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/geogebra-common.js"></script>
-</head>
-<body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside>
-      {% include sidebar.html %}
-    </aside>
-
-    <!-- Main content -->
-    <main>
-      {{ content }}
-    </main>
-  </div>
-</body>
+      <!-- Main content -->
+      <main>
+        {{ content }}
+      </main>
+    </div>
+  </body>
 </html>
