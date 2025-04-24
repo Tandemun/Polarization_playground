@@ -4,11 +4,6 @@ title: 3-Paddle Polarization Controller
 ---
 
 <style>
-  body {
-	  font-family: sans-serif;
-	  margin: 20px;
-		line-height: 1.6;
-	}
 
 	h1 {
 		text-align: center;
