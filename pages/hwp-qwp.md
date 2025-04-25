@@ -27,7 +27,7 @@ function abcListener(objName) {
 
   try {
     const coords = ggbApplet1.getCoords(objName);
-    console.log(`Coordinates of ${objName}: {coords}`);
+    console.log(`Coordinates of ${objName}`: coords);
 
     if (objName === "P0") {
       ggbApplet2.setCoords("S", coords);
@@ -38,6 +38,7 @@ function abcListener(objName) {
     } else if (objName === "P2") {
       ggbApplet4.setCoords("S", coords);
       console.log(`Updated vector S in applet4`);
+    } 
   } catch (e) {
     console.error("Error in abcListener:", e);
   }
