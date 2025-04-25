@@ -64,7 +64,7 @@ title: 3-Paddle Polarization Controller
         syncCoords(poincare, "P1", ellips1, "S");
         syncCoords(poincare, "P2", ellips2, "S");
         syncCoords(poincare, "P3", ellips3, "S");
-      }, 1000); // Увеличенная задержка 3 секунды
+      }, 300); // Увеличенная задержка 3 секунды
     }
   }
 
