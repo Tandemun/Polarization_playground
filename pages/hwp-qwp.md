@@ -5,7 +5,7 @@ title: 3-Paddle Polarization Controller
 <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
   <div id="poincare"></div>
 </div>
-<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+<div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
   <div id="ellips0"></div>
   <div id="ellips1"></div>
   <div id="ellips2"></div>
@@ -44,6 +44,6 @@ title: 3-Paddle Polarization Controller
     applet2.inject("ellips0");
     applet3.inject("ellips1");
     applet4.inject("ellips2");
-    applet4.inject("ellips3");
+    applet5.inject("ellips3");
   };
 </script>
