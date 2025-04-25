@@ -23,7 +23,7 @@
 
   function syncColor(sourceObjectName, targetApplet) {
     try {
-      const hexColor = poincare.getColor(sourceObjectName);
+      const hexColor = applet1.getColor(sourceObjectName);
       const [r, g, b] = hexToRgb(hexColor);
       targetApplet.setColor("ellips", r, g, b);
       console.log(`Synced color from ${sourceObjectName} to ${targetApplet}: RGB(${r}, ${g}, ${b})`);
