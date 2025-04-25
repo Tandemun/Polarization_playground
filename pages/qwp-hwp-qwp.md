@@ -111,8 +111,9 @@ title: 3-Paddle Polarization Controller
 
   function syncValue(sourceApplet, sourceObjectName, targetApplet,targetObjectName) {
     // get value from controller and set value in poincare
-	  const value = 2*sourceApplet.getValue(sourceObjectName);/* Multiple by 2 due to double of angles on the Poincare sphere */
-	  targetApplet.setValue(targetObjectName, value);		
+	const value = 2*sourceApplet.getValue(sourceObjectName);/* Multiple by 2 due to double of angles on the Poincare sphere */
+	targetApplet.setValue(targetObjectName, value);
+	console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
   } 
   
   function ggbOnInit(param) {
