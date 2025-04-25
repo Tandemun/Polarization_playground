@@ -23,7 +23,7 @@
 
   function syncColor(sourceObjectName, targetApplet) {
     try {
-      const hexColor = applet1.getColor(sourceObjectName);
+      const hexColor = poincare.getColor(sourceObjectName);
       const [r, g, b] = hexToRgb(hexColor);
       targetApplet.setColor("ellips", r, g, b);
       console.log(`Synced color from ${sourceObjectName} to ${targetApplet}: RGB(${r}, ${g}, ${b})`);
@@ -67,15 +67,15 @@
     applet5.inject("ellips3");
 
     setTimeout(() => {
-      syncColor("P0", applet2);
-      syncColor("P1", applet3);
-      syncColor("P2", applet4);
-      syncColor("P3", applet5);
+      syncColor("P0", ellips0);
+      syncColor("P1", ellips1);
+      syncColor("P2", ellips2);
+      syncColor("P3", ellips3);
 
-      syncCoords("P0", applet2);
-      syncCoords("P1", applet3);
-      syncCoords("P2", applet4);
-      syncCoords("P3", applet5);
+      syncCoords("P0", ellips0);
+      syncCoords("P1", ellips1);
+      syncCoords("P2", ellips2);
+      syncCoords("P3", ellips3);
     }, 1000);
   };
 </script>
