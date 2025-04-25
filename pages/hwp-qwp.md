@@ -52,16 +52,19 @@ title: 3-Paddle Polarization Controller
       poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));
       poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
 
-      // Инициализация синхронизации цветов и координат
-      syncColor(poincare, "P0", ellips0, "ellips");
-      syncColor(poincare, "P1", ellips1, "ellips");
-      syncColor(poincare, "P2", ellips2, "ellips");
-      syncColor(poincare, "P3", ellips3, "ellips");
+      // Увеличение времени ожидания перед синхронизацией
+      setTimeout(() => {
+        // Инициализация синхронизации цветов и координат
+        syncColor(poincare, "P0", ellips0, "ellips");
+        syncColor(poincare, "P1", ellips1, "ellips");
+        syncColor(poincare, "P2", ellips2, "ellips");
+        syncColor(poincare, "P3", ellips3, "ellips");
 
-      syncCoords(poincare, "P0", ellips0, "S");
-      syncCoords(poincare, "P1", ellips1, "S");
-      syncCoords(poincare, "P2", ellips2, "S");
-      syncCoords(poincare, "P3", ellips3, "S");
+        syncCoords(poincare, "P0", ellips0, "S");
+        syncCoords(poincare, "P1", ellips1, "S");
+        syncCoords(poincare, "P2", ellips2, "S");
+        syncCoords(poincare, "P3", ellips3, "S");
+      }, 3000); // Увеличенная задержка 3 секунды
     }
   }
 
