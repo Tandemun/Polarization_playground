@@ -18,7 +18,7 @@ title: 3-Paddle Polarization Controller
       poincare.registerObjectUpdateListener("P0", () => syncVector("P0", ellips0));
       poincare.registerObjectUpdateListener("P1", () => syncVector("P1", ellips1));
       poincare.registerObjectUpdateListener("P2", () => syncVector("P2", ellips2));
-      poincare.registerObjectUpdateListener("P3", () => syncVector("P2", ellips3));
+      poincare.registerObjectUpdateListener("P3", () => syncVector("P3", ellips3));
     }
   }
 
@@ -34,10 +34,10 @@ title: 3-Paddle Polarization Controller
     }
   }
   var applet1 = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
-  var applet2 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3",{width: 200, height: 200}), true);
-  var applet3 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3",{width: 200, height: 200}), true);
-  var applet4 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3",{width: 200, height: 200}), true);
-  var applet5 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3",{width: 200, height: 200}), true);
+  var applet2 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3",{width: 150, height: 150}), true);
+  var applet3 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3",{width: 150, height: 150}), true);
+  var applet4 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3",{width: 150, height: 150}), true);
+  var applet5 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3",{width: 150, height: 150}), true);
 
   window.onload = function () {
     applet1.inject("poincare");
