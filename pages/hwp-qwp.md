@@ -31,12 +31,12 @@ function abcListener(objName) {
       ggbApplet2.setValue("i", x);
       ggbApplet2.setValue("j", y);
       ggbApplet2.setValue("k", z);
-      console.log(`Updated vector P in applet2`);
+      console.log(`Updated vector ijk in applet2`);
     } else if (objName === "P1") {
       ggbApplet3.setValue("i", x);
       ggbApplet3.setValue("j", y);
       ggbApplet3.setValue("k", z);
-      console.log(`Updated vector P in applet3`);
+      console.log(`Updated vector ijk in applet3`);
     }
 
   } catch (e) {
