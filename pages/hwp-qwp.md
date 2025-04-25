@@ -2,56 +2,48 @@
 layout: default
 title: 3-Paddle Polarization Controller
 ---
-
-<div id="ggbApplet1"></div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-  <div id="ggbApplet2"></div>
-  <div id="ggbApplet3"></div>
-  <div id="ggbApplet4"></div>
+  <div id="poincare"></div>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <div id="ellips0"></div>
+  <div id="ellips1"></div>
+  <div id="ellips2"></div>
+  <div id="ellips3"></div>
 </div>
 
 <script>
   function ggbOnInit(param) {
-    if (param === "ggbApplet1") {
-      ggbApplet1.registerObjectUpdateListener("P0", "abcListener");
-      ggbApplet1.registerObjectUpdateListener("P1", "abcListener");
-      ggbApplet1.registerObjectUpdateListener("P2", "abcListener");
+    if (param === "poincare") {
+      poincare.registerObjectUpdateListener("P0", () => syncVector("P0", ellips0));
+      poincare.registerObjectUpdateListener("P1", () => syncVector("P1", ellips1));
+      poincare.registerObjectUpdateListener("P2", () => syncVector("P2", ellips2));
+      poincare.registerObjectUpdateListener("P3", () => syncVector("P2", ellips3));
     }
   }
 
-  function abcListener(objName) {
-    console.log("abcListener triggered for:", objName);
-
+  function syncVector(pointName, targetApplet) {
     try {
-      const x = ggbApplet1.getXcoord(objName);
-      const y = ggbApplet1.getYcoord(objName);
-      const z = ggbApplet1.getZcoord(objName);
-      console.log(`Coordinates of ${objName}: [${x}, ${y}, ${z}]`);
-
-      if (objName === "P0") {
-        ggbApplet2.setCoords("S", x, y, z);
-        console.log("Updated vector S in applet2");
-      } else if (objName === "P1") {
-        ggbApplet3.setCoords("S", x, y, z);
-        console.log("Updated vector S in applet3");
-      } else if (objName === "P2") {
-        ggbApplet4.setCoords("S", x, y, z);
-        console.log("Updated vector S in applet4");
-      }
+      const x = poincare.getXcoord(pointName);
+      const y = poincare.getYcoord(pointName);
+      const z = poincare.getZcoord(pointName);
+      console.log(`${pointName} updated: [${x}, ${y}, ${z}]`);
+      targetApplet.setCoords("S", x, y, z);
     } catch (e) {
-      console.error("Error in abcListener:", e);
+      console.error(`Error syncing ${pointName} to target applet:`, e);
     }
   }
-
-  var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "hdmsanwn"), true);
-  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "ar9nzxm3",{width: 200, height: 200}), true);
-  var applet3 = new GGBApplet(createGGBParams("ggbApplet3", "ar9nzxm3",{width: 200, height: 200}), true);
-  var applet4 = new GGBApplet(createGGBParams("ggbApplet4", "ar9nzxm3",{width: 200, height: 200}), true);
+  var applet1 = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
+  var applet2 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3",{width: 200, height: 200}), true);
+  var applet3 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3",{width: 200, height: 200}), true);
+  var applet4 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3",{width: 200, height: 200}), true);
+  var applet5 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3",{width: 200, height: 200}), true);
 
   window.onload = function () {
-    applet1.inject("ggbApplet1");
-    applet2.inject("ggbApplet2");
-    applet3.inject("ggbApplet3");
-    applet4.inject("ggbApplet4");
+    applet1.inject("poincare");
+    applet2.inject("ellips0");
+    applet3.inject("ellips1");
+    applet4.inject("ellips2");
+    applet4.inject("ellips3");
   };
 </script>
