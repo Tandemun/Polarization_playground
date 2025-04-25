@@ -48,18 +48,18 @@ title: 3-Paddle Polarization Controller
       console.error(`Error syncing ${pointName} to target applet:`, e);
     }
   }
-  var applet1 = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
-  var applet2 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3",{width: 150, height: 150}), true);
-  var applet3 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3",{width: 150, height: 150}), true);
-  var applet4 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3",{width: 150, height: 150}), true);
-  var applet5 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3",{width: 150, height: 150}), true);
+  var poincare = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
+  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3",{width: 150, height: 150}), true);
+  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3",{width: 150, height: 150}), true);
+  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3",{width: 150, height: 150}), true);
+  var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3",{width: 150, height: 150}), true);
 
   window.onload = function () {
-    applet1.inject("poincare");
-    applet2.inject("ellips0");
-    applet3.inject("ellips1");
-    applet4.inject("ellips2");
-    applet5.inject("ellips3");
+    poincare.inject("poincare");
+    ellips0.inject("ellips0");
+    ellips1.inject("ellips1");
+    ellips2.inject("ellips2");
+    ellips3.inject("ellips3");
     
     // Подождать немного, пока все апплеты инициализируются
     setTimeout(() => {
