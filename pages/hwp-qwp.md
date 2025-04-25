@@ -28,14 +28,14 @@ function abcListener(objName) {
     console.log(`Coordinates of ${objName}: x=${x}, y=${y}, z=${z}`);
 
     if (objName === "P0") {
-      ggbApplet2.setValue("x(P)", x);
-      ggbApplet2.setValue("y(P)", y);
-      ggbApplet2.setValue("z(P)", z);
+      ggbApplet2.setValue("i", x);
+      ggbApplet2.setValue("j", y);
+      ggbApplet2.setValue("k", z);
       console.log(`Updated vector P in applet2`);
     } else if (objName === "P1") {
-      ggbApplet3.setValue("x(P)", x);
-      ggbApplet3.setValue("y(P)", y);
-      ggbApplet3.setValue("z(P)", z);
+      ggbApplet3.setValue("i", x);
+      ggbApplet3.setValue("j", y);
+      ggbApplet3.setValue("k", z);
       console.log(`Updated vector P in applet3`);
     }
 
