@@ -23,17 +23,19 @@ title: 3-Paddle Polarization Controller
     console.log("abcListener triggered for:", objName);
 
     try {
-      const coords = ggbApplet1.getCoords(objName);
-      console.log(`Coordinates of ${objName}:`, coords);
+      const x = ggbApplet1.getXcoord(objName);
+      const y = ggbApplet1.getYcoord(objName);
+      const z = ggbApplet1.getZcoord(objName);
+      console.log(`Coordinates of ${objName}: [${x}, ${y}, ${z}]`);
 
       if (objName === "P0") {
-        ggbApplet2.setCoords("S", coords);
+        ggbApplet2.setCoords("S", x, y, z);
         console.log("Updated vector S in applet2");
       } else if (objName === "P1") {
-        ggbApplet3.setCoords("S", coords);
+        ggbApplet3.setCoords("S", x, y, z);
         console.log("Updated vector S in applet3");
       } else if (objName === "P2") {
-        ggbApplet4.setCoords("S", coords);
+        ggbApplet4.setCoords("S", x, y, z);
         console.log("Updated vector S in applet4");
       }
     } catch (e) {
