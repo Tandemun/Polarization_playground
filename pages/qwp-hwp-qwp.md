@@ -117,8 +117,8 @@ title: 3-Paddle Polarization Controller
   } 
   
   function ggbOnInit(param) {
-	  if (param == "controller") {
-		  // init update listeners for controller
+  	if (param == "controller") {
+    // init update listeners for controller
       controller.registerObjectUpdateListener("α", () => syncValue(controller, "α", poincare, "α"));
       controller.registerObjectUpdateListener("β", () => syncValue(controller, "β", poincare, "β"));
       controller.registerObjectUpdateListener("γ", () => syncValue(controller, "γ", poincare, "γ"));
@@ -131,10 +131,14 @@ title: 3-Paddle Polarization Controller
       poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));
       poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
 
-      // Увеличение времени ожидания перед синхронизацией
+      // Wait a little before setup
       setTimeout(() => {
-        // Инициализация синхронизации цветов и координат
-        syncColor(poincare, "P0", ellips0, "ellips");
+	      // initial setup
+	      syncValue(controller, "α", poincare, "α"));
+      	syncValue(controller, "β", poincare, "β"));
+      	syncValue(controller, "γ", poincare, "γ"));
+	
+	      syncColor(poincare, "P0", ellips0, "ellips");
         syncColor(poincare, "P1", ellips1, "ellips");
         syncColor(poincare, "P2", ellips2, "ellips");
         syncColor(poincare, "P3", ellips3, "ellips");
