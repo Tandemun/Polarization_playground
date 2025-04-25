@@ -22,7 +22,7 @@ title: 3-Paddle Polarization Controller
     // get value from applet1 and set value in applet2 and applet3	 
 	  var changedValue = ggbApplet1.getValue(objName);
 	  switch(objName) {
-		  case "PO": ggbApplet2.setValue("P", changedValue);
+		  case "P0": ggbApplet2.setValue("P", changedValue);
 		    break;
 		  case "P1": ggbApplet3.setValue("P", changedValue);
 		}			
