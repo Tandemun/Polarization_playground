@@ -64,16 +64,16 @@ title: 3-Paddle Polarization Controller
     // Подождать немного, пока все апплеты инициализируются
     setTimeout(() => {
       // Синхронизация цвета при загрузке страницы
-      syncColor("poincare", "P0", ellips0, "ellips");
-      syncColor("poincare", "P1", ellips1, "ellips");
-      syncColor("poincare", "P2", ellips2, "ellips");
-      syncColor("poincare", "P3", ellips3, "ellips");
+      syncColor(poincare, "P0", ellips0, "ellips");
+      syncColor(poincare, "P1", ellips1, "ellips");
+      syncColor(poincare, "P2", ellips2, "ellips");
+      syncColor(poincare, "P3", ellips3, "ellips");
 
       //Синхронизируем координаты P0, P1 и P2 при загрузке
-      syncVector("P0", ellips0, "S");
-      syncVector("P1", ellips1, "S");
-      syncVector("P2", ellips2, "S");
-      syncVector("P3", ellips3, "S");
+      syncVector("P0", ellips0);
+      syncVector("P1", ellips1);
+      syncVector("P2", ellips2);
+      syncVector("P3", ellips3);
     }, 1000); // 1 секунда задержки на загрузку — можно уменьшить/увеличить
   };
 </script>
