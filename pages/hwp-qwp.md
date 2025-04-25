@@ -21,8 +21,8 @@ title: 3-Paddle Polarization Controller
     return [r, g, b];
   }  
 
-  function syncColor(pointName, targetApplet, targetObject) {
-    const hexColor = ggbApplet1.getColor(pointName);  // Получаем цвет в HEX
+  function syncColor(sourceApplet, pointName, targetApplet, targetObject) {
+    const hexColor = sourceApplet.getColor(pointName);  // Получаем цвет в HEX
     const rgbColor = hexToRgb(hexColor);  // Преобразуем в RGB
     targetApplet.setColor(targetObject, rgbColor[0], rgbColor[1], rgbColor[2]);
     console.log(`Synced color for ${pointName} to ${targetObject}: RGB(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]})`);
@@ -64,12 +64,12 @@ title: 3-Paddle Polarization Controller
     // Подождать немного, пока все апплеты инициализируются
     setTimeout(() => {
       // Синхронизация цвета при загрузке страницы
-      syncColor("P0", ellips0, "ellips");
-      syncColor("P1", ellips1, "ellips");
-      syncColor("P2", ellips2, "ellips");
-      syncColor("P3", ellips3, "ellips");
+      syncColor("poincare", "P0", ellips0, "ellips");
+      syncColor("poincare", "P1", ellips1, "ellips");
+      syncColor("poincare", "P2", ellips2, "ellips");
+      syncColor("poincare", "P3", ellips3, "ellips");
 
-      // Инициализация листенеров для точек P0, P1 и P2
+      //Синхронизируем координаты P0, P1 и P2 при загрузке
       syncVector("P0", ellips0, "S");
       syncVector("P1", ellips1, "S");
       syncVector("P2", ellips2, "S");
