@@ -13,6 +13,21 @@ title: 3-Paddle Polarization Controller
 </div>
 
 <script>
+  function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+    return [r, g, b];
+  }  
+
+  function syncColor(pointName, targetApplet, targetObject) {
+    const hexColor = ggbApplet1.getColor(pointName);  // Получаем цвет в HEX
+    const rgbColor = hexToRgb(hexColor);  // Преобразуем в RGB
+    targetApplet.setColor(targetObject, rgbColor[0], rgbColor[1], rgbColor[2]);
+    console.log(`Synced color for ${pointName} to ${targetObject}: RGB(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]})`);
+  }
+  
   function ggbOnInit(param) {
     if (param === "poincare") {
       poincare.registerObjectUpdateListener("P0", () => syncVector("P0", ellips0));
@@ -45,5 +60,20 @@ title: 3-Paddle Polarization Controller
     applet3.inject("ellips1");
     applet4.inject("ellips2");
     applet5.inject("ellips3");
+    
+    // Подождать немного, пока все апплеты инициализируются
+    setTimeout(() => {
+      // Синхронизация цвета при загрузке страницы
+      syncColor("P0", ellips0, "ellips");
+      syncColor("P1", ellips1, "ellips");
+      syncColor("P2", ellips2, "ellips");
+      syncColor("P3", ellips3, "ellips");
+
+      // Инициализация листенеров для точек P0, P1 и P2
+      syncVector("P0", ellips0, "S");
+      syncVector("P1", ellips1, "S");
+      syncVector("P2", ellips2, "S");
+      syncVector("P3", ellips3, "S");
+    }, 1000); // 1 секунда задержки на загрузку — можно уменьшить/увеличить
   };
 </script>
