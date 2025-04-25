@@ -53,15 +53,15 @@
     applet5.inject("ellips3");
 
     setTimeout(() => {
-      syncColor("P0", ellips0);
-      syncColor("P1", ellips1);
-      syncColor("P2", ellips2);
-      syncColor("P3", ellips3);
+      syncColor("P0", applet2);
+      syncColor("P1", applet3);
+      syncColor("P2", applet4);
+      syncColor("P3", applet5);
 
-      syncCoords("P0", ellips0);
-      syncCoords("P1", ellips1);
-      syncCoords("P2", ellips2);
-      syncCoords("P3", ellips3);
+      syncCoords("P0", applet2);
+      syncCoords("P1", applet3);
+      syncCoords("P2", applet4);
+      syncCoords("P3", applet5);
     }, 1000);
   };
 </script>
