@@ -56,7 +56,14 @@ title: 3-Paddle Polarization Controller
       <h2>3-Paddle Polarization Controller</h2>
       <p>This is a model of a classical manual 3-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
     </div>
-    <div id="ggbApplet1" class="applet"></div>
+    <div id="controller"></div>
+    <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
+      <div id="ellips0"></div>
+      <div id="ellips1"></div>
+      <div id="ellips2"></div>
+      <div id="ellips3"></div>
+    </div>    
+
   </div>
 
   <!-- Right column -->
@@ -65,41 +72,98 @@ title: 3-Paddle Polarization Controller
       <h2>State of Polarization</h2>
       <p>This visualization shows the evolution of the state of polarization (SOP) at different stages within the controller. The top displays the Poincaré sphere, while the bottom shows the corresponding polarization ellipses.</p>
     </div>
-    <div id="ggbApplet2" class="applet"></div>
+    <div id="poincare"></div>
   </div>
 </div>
 
-<div id="ggbApplet1"></div>
 
 <script>
-  function ggbOnInit(param) {
-	  if (param == "ggbApplet1") {
-		  // init update listeners for ggbApplet1
-		  ggbApplet1.registerObjectUpdateListener("α", "abcListener");
-		  ggbApplet1.registerObjectUpdateListener("β", "abcListener");
-		  ggbApplet1.registerObjectUpdateListener("γ", "abcListener");
-	  }
+  function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+    return [r, g, b];
   }
 
-  function abcListener(objName) {
-    // get value from applet1 and set value in applet2	
-	  var changedValue = 2*ggbApplet1.getValue(objName);/* Multiple by 2 due to double of angles on the Poincare sphere */
-	  ggbApplet2.setValue(objName, changedValue);		
+  function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
+    try {
+      const hexColor = sourceApplet.getColor(sourceObjectName); // Получаем цвет
+      const [r, g, b] = hexToRgb(hexColor); // Преобразуем в RGB
+      targetApplet.setColor(targetObjectName, r, g, b); // Синхронизируем цвет
+      console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
+    } catch (e) {
+      console.error(`Error syncing color:`, e);
+    }
+  }
+
+  function syncCoords(sourceApplet, sourcePointName, targetApplet, targetObjectName) {
+    try {
+      const x = sourceApplet.getXcoord(sourcePointName);
+      const y = sourceApplet.getYcoord(sourcePointName);
+      const z = sourceApplet.getZcoord(sourcePointName);
+      targetApplet.setCoords(targetObjectName, x, y, z);
+      console.log(`Synced coords from ${sourcePointName} to ${targetObjectName}: [${x}, ${y}, ${z}]`);
+    } catch (e) {
+      console.error(`Error syncing coords:`, e);
+    }
+  }
+
+  function syncValue(sourceApplet, sourceObjectName, targetApplet,targetObjectName) {
+    // get value from controller and set value in poincare
+	  const value = 2*sourceApplet.getValue(sourceObjectName);/* Multiple by 2 due to double of angles on the Poincare sphere */
+	  targetApplet.setValue(targetObjectName, value);		
   } 
   
-  var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "pts6vg4r"), true);
-  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "hdmsanwn",{enableRightClick: true}), true);
-  window.onload = function() {
-	  applet1.inject('ggbApplet1');
-	  applet2.inject('ggbApplet2');
-	  // Запрет прокрутки мыши (зум колесиком)
-	  document.getElementById('ggbApplet2').addEventListener('wheel', function (e) {
-	    e.preventDefault();
-	    }, { passive: false });
-	
-	  // Запрет пинча на мобильных
-	  document.getElementById('ggbApplet2').addEventListener('touchmove', function (e) {
-	    if (e.touches.length > 1) e.preventDefault();
-	    }, { passive: false });
-};
+  function ggbOnInit(param) {
+	  if (param == "controller") {
+		  // init update listeners for controller
+      controller.registerObjectUpdateListener("α", () => syncValue(controller, "α", poincare, "α"));
+      controller.registerObjectUpdateListener("β", () => syncValue(controller, "β", poincare, "β"));
+      controller.registerObjectUpdateListener("γ", () => syncValue(controller, "γ", poincare, "γ"));
+	  }    
+    
+    if (param === "poincare") {
+      // Регистрация listener'ов для обновления
+      poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+      poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+      poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));
+      poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
+
+      // Увеличение времени ожидания перед синхронизацией
+      setTimeout(() => {
+        // Инициализация синхронизации цветов и координат
+        syncColor(poincare, "P0", ellips0, "ellips");
+        syncColor(poincare, "P1", ellips1, "ellips");
+        syncColor(poincare, "P2", ellips2, "ellips");
+        syncColor(poincare, "P3", ellips3, "ellips");
+
+        syncCoords(poincare, "P0", ellips0, "S");
+        syncCoords(poincare, "P1", ellips1, "S");
+        syncCoords(poincare, "P2", ellips2, "S");
+        syncCoords(poincare, "P3", ellips3, "S");
+      }, 30); // delay 30 ms to upload all
+    }
+  }
+  
+  // Создание апплетов с уникальными идентификаторами
+  var controller = new GGBApplet(createGGBParams("ggbApplet1", "pts6vg4r"), true);
+  var poincare = new GGBApplet(createGGBParams("poincare", "hdmsanwn",{enableRightClick: true}), true);
+  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3", {width: 150, height: 150}), true);
+
+  window.onload = function () {
+    // Вставка апплетов на страницу
+    controller.inject("controller")
+    poincare.inject("poincare");
+    ellips0.inject("ellips0");
+    ellips1.inject("ellips1");
+    ellips2.inject("ellips2");
+    ellips3.inject("ellips3");
+  };
+  
+
 </script>
+
