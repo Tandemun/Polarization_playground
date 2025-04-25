@@ -46,9 +46,9 @@ function abcListener(objName) {
 
   
   var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "hdmsanwn"), true);
-  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "ar9nzxm3",{width: 200, height:200}), true);
-	var applet3 = new GGBApplet(createGGBParams("ggbApplet3", "ar9nzxm3",{width: 200, height:200}), true);
-	var applet4 = new GGBApplet(createGGBParams("ggbApplet4", "ar9nzxm3",{width: 200, height:200}), true);
+  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "ar9nzxm3"), true);
+	var applet3 = new GGBApplet(createGGBParams("ggbApplet3", "ar9nzxm3"), true);
+	var applet4 = new GGBApplet(createGGBParams("ggbApplet4", "ar9nzxm3"), true);
   window.onload = function() {
 	  applet1.inject('ggbApplet1');
 	  applet2.inject('ggbApplet2');
