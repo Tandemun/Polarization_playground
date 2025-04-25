@@ -118,8 +118,8 @@ title: 3-Paddle Polarization Controller
   function ggbOnInit(param) {
   	if (param == "controller") {
     // init update listeners for controller
-      controller.registerObjectUpdateListener("α", () => syncValue(controller, "α", poincare, "α"));
-      controller.registerObjectUpdateListener("β", () => syncValue(controller, "β", poincare, "β"));
+      controller.registerObjectUpdateListener("α", () => syncValue(controller, "α", poincare, "th1"));
+      controller.registerObjectUpdateListener("β", () => syncValue(controller, "β", poincare, "th2"));
 	  }    
     
     if (param === "poincare") {
@@ -131,9 +131,8 @@ title: 3-Paddle Polarization Controller
       // Wait a little before setup
       setTimeout(() => {
 	// initial setup
-	syncValue(controller, "α", poincare, "α");
-      	syncValue(controller, "β", poincare, "β");
-      	syncValue(controller, "γ", poincare, "γ");
+	syncValue(controller, "α", poincare, "th1");
+      	syncValue(controller, "β", poincare, "th2");
 	
 	syncColor(poincare, "P0", ellips0, "ellips");
         syncColor(poincare, "P1", ellips1, "ellips");
@@ -148,7 +147,7 @@ title: 3-Paddle Polarization Controller
   
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
-  var poincare = new GGBApplet(createGGBParams("poincare", "hdmsanwn",{enableRightClick: true}), true);
+  var poincare = new GGBApplet(createGGBParams("poincare", "whv59uhb",{enableRightClick: true}), true);
   var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
