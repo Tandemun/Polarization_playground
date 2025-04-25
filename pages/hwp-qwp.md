@@ -5,7 +5,7 @@ title: 3-Paddle Polarization Controller
 
 
 <div id="ggbApplet1"></div>
-<div style="display: flex; gap: 1px; flex-wrap: wrap; justify-content: center;">
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
   <div id="ggbApplet2"></div>
   <div id="ggbApplet3"></div>
   <div id="ggbApplet4"></div>
@@ -52,6 +52,6 @@ function abcListener(objName) {
 	  applet1.inject('ggbApplet1');
 	  applet2.inject('ggbApplet2');
 		applet3.inject('ggbApplet3');
-		applet4.inject('ggbApplet3');
+		applet4.inject('ggbApplet4');
 };
 </script>
