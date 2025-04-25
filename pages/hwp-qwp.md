@@ -66,6 +66,7 @@ title: 3-Paddle Polarization Controller
       <p>This visualization shows the evolution of the state of polarization (SOP) at different stages within the controller. The top displays the Poincaré sphere, while the bottom shows the corresponding polarization ellipses.</p>
     </div>
     <div id="ggbApplet2" class="applet"></div>
+		<div id="ggbApplet3" class="applet"></div>
   </div>
 </div>
 
@@ -75,31 +76,29 @@ title: 3-Paddle Polarization Controller
   function ggbOnInit(param) {
 	  if (param == "ggbApplet1") {
 		  // init update listeners for ggbApplet1
-		  ggbApplet1.registerObjectUpdateListener("α", "abcListener");
-		  ggbApplet1.registerObjectUpdateListener("β", "abcListener");
-		  ggbApplet1.registerObjectUpdateListener("γ", "abcListener");
+		  ggbApplet1.registerObjectUpdateListener("P0", "abcListener");
+		  ggbApplet1.registerObjectUpdateListener("P1", "abcListener");
+		  ggbApplet1.registerObjectUpdateListener("P2", "abcListener");
 	  }
   }
 
   function abcListener(objName) {
     // get value from applet1 and set value in applet2	
-	  var changedValue = 2*ggbApplet1.getValue(objName);/* Multiple by 2 due to double of angles on the Poincare sphere */
-	  ggbApplet2.setValue(objName, changedValue);		
+	  var changedValue = ggbApplet1.getValue(objName);
+	  switch(objName) {
+		  case "PO": ggbApplet2.setValue("P", changedValue);
+		    break;
+		  case "P1": ggbApplet3.setValue("P", changedValue);
+		}
+					
   } 
   
-  var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "pts6vg4r"), true);
-  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "hdmsanwn",{enableRightClick: true}), true);
+  var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "hdmsanwn"), true);
+  var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "ar9nzxm3"), true);
+	var applet3 = new GGBApplet(createGGBParams("ggbApplet3", "ar9nzxm3"), true);
   window.onload = function() {
 	  applet1.inject('ggbApplet1');
 	  applet2.inject('ggbApplet2');
-	  // Запрет прокрутки мыши (зум колесиком)
-	  document.getElementById('ggbApplet2').addEventListener('wheel', function (e) {
-	    e.preventDefault();
-	    }, { passive: false });
-	
-	  // Запрет пинча на мобильных
-	  document.getElementById('ggbApplet2').addEventListener('touchmove', function (e) {
-	    if (e.touches.length > 1) e.preventDefault();
-	    }, { passive: false });
+		applet3.inject('ggbApplet3');
 };
 </script>
