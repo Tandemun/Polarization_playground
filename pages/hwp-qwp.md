@@ -1,16 +1,16 @@
 ---
- layout: default
- title: 3-Paddle Polarization Controller
- ---
- <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-   <div id="poincare"></div>
- </div>
- <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
-   <div id="ellips0"></div>
-   <div id="ellips1"></div>
-   <div id="ellips2"></div>
-   <div id="ellips3"></div>
- </div>
+layout: default
+title: 3-Paddle Polarization Controller
+---
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <div id="poincare"></div>
+</div>
+<div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
+  <div id="ellips0"></div>
+  <div id="ellips1"></div>
+  <div id="ellips2"></div>
+  <div id="ellips3"></div>
+</div>
 
 <script>
   function hexToRgb(hex) {
@@ -21,24 +21,24 @@
     return [r, g, b];
   }
 
-  function syncColor(sourceObjectName, targetApplet) {
+  function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
     try {
-      const hexColor = poincare.getColor(sourceObjectName);
-      const [r, g, b] = hexToRgb(hexColor);
-      targetApplet.setColor("ellips", r, g, b);
-      console.log(`Synced color from ${sourceObjectName} to ${targetApplet}: RGB(${r}, ${g}, ${b})`);
+      const hexColor = sourceApplet.getColor(sourceObjectName); // Получаем цвет
+      const [r, g, b] = hexToRgb(hexColor); // Преобразуем в RGB
+      targetApplet.setColor(targetObjectName, r, g, b); // Синхронизируем цвет
+      console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
     } catch (e) {
       console.error(`Error syncing color:`, e);
     }
   }
 
-  function syncCoords(sourcePointName, targetApplet) {
+  function syncCoords(sourceApplet, sourcePointName, targetApplet, targetObjectName) {
     try {
-      const x = poincare.getXcoord(sourcePointName);
-      const y = poincare.getYcoord(sourcePointName);
-      const z = poincare.getZcoord(sourcePointName);
-      targetApplet.setCoords("S", x, y, z);
-      console.log(`Synced coords from ${sourcePointName} to ${targetApplet}: [${x}, ${y}, ${z}]`);
+      const x = sourceApplet.getXcoord(sourcePointName);
+      const y = sourceApplet.getYcoord(sourcePointName);
+      const z = sourceApplet.getZcoord(sourcePointName);
+      targetApplet.setCoords(targetObjectName, x, y, z);
+      console.log(`Synced coords from ${sourcePointName} to ${targetObjectName}: [${x}, ${y}, ${z}]`);
     } catch (e) {
       console.error(`Error syncing coords:`, e);
     }
@@ -46,36 +46,38 @@
 
   function ggbOnInit(param) {
     if (param === "poincare") {
-      poincare.registerObjectUpdateListener("P0", () => syncCoords("P0", ellips0));
-      poincare.registerObjectUpdateListener("P1", () => syncCoords("P1", ellips1));
-      poincare.registerObjectUpdateListener("P2", () => syncCoords("P2", ellips2));
-      poincare.registerObjectUpdateListener("P3", () => syncCoords("P3", ellips3));
+      // Регистрация listener'ов для обновления
+      poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+      poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+      poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));
+      poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
+
+      // Инициализация синхронизации цветов и координат
+      syncColor(poincare, "P0", ellips0, "ellips");
+      syncColor(poincare, "P1", ellips1, "ellips");
+      syncColor(poincare, "P2", ellips2, "ellips");
+      syncColor(poincare, "P3", ellips3, "ellips");
+
+      syncCoords(poincare, "P0", ellips0, "S");
+      syncCoords(poincare, "P1", ellips1, "S");
+      syncCoords(poincare, "P2", ellips2, "S");
+      syncCoords(poincare, "P3", ellips3, "S");
     }
   }
 
-  var applet1 = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
-  var applet2 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
-  var applet3 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
-  var applet4 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
-  var applet5 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3", {width: 150, height: 150}), true);
+  // Создание апплетов с уникальными идентификаторами
+  var poincare = new GGBApplet(createGGBParams("poincare", "hdmsanwn"), true);
+  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3", {width: 150, height: 150}), true);
 
   window.onload = function () {
-    applet1.inject("poincare");
-    applet2.inject("ellips0");
-    applet3.inject("ellips1");
-    applet4.inject("ellips2");
-    applet5.inject("ellips3");
-
-    setTimeout(() => {
-      syncColor("P0", ellips0);
-      syncColor("P1", ellips1);
-      syncColor("P2", ellips2);
-      syncColor("P3", ellips3);
-
-      syncCoords("P0", ellips0);
-      syncCoords("P1", ellips1);
-      syncCoords("P2", ellips2);
-      syncCoords("P3", ellips3);
-    }, 1000);
+    // Вставка апплетов на страницу
+    poincare.inject("poincare");
+    ellips0.inject("ellips0");
+    ellips1.inject("ellips1");
+    ellips2.inject("ellips2");
+    ellips3.inject("ellips3");
   };
 </script>
