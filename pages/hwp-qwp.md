@@ -18,30 +18,32 @@ title: 3-Paddle Polarization Controller
 	  }
   }
 
-  function abcListener(objName) {
-    console.log("abcListener triggered for:", objName);
+function abcListener(objName) {
+  console.log("abcListener triggered for:", objName);
 
-    // Пытаемся получить значение
-    try {
-      const changedValue = ggbApplet1.getValue(objName);
-      console.log("Changed value from ggbApplet1:", objName, "=", changedValue);
+  try {
+    const x = ggbApplet1.getXcoord(objName);
+    const y = ggbApplet1.getYcoord(objName);
+    const z = ggbApplet1.getZcoord(objName);
+    console.log(`Coordinates of ${objName}: x=${x}, y=${y}, z=${z}`);
 
-      switch (objName) {
-        case "P0":
-          ggbApplet2.setValue("P", changedValue);
-          console.log("Updated ggbApplet2 P =", changedValue);
-          break;
-        case "P1":
-          ggbApplet3.setValue("P", changedValue);
-          console.log("Updated ggbApplet3 P =", changedValue);
-          break;
-        default:
-          console.log("No action for:", objName);
-      }
-    } catch (e) {
-      console.error("Error in abcListener:", e);
+    if (objName === "P0") {
+      ggbApplet2.setValue("x(P)", x);
+      ggbApplet2.setValue("y(P)", y);
+      ggbApplet2.setValue("z(P)", z);
+      console.log(`Updated vector P in applet2`);
+    } else if (objName === "P1") {
+      ggbApplet3.setValue("x(P)", x);
+      ggbApplet3.setValue("y(P)", y);
+      ggbApplet3.setValue("z(P)", z);
+      console.log(`Updated vector P in applet3`);
     }
+
+  } catch (e) {
+    console.error("Error in abcListener:", e);
   }
+}
+
   
   var applet1 = new GGBApplet(createGGBParams("ggbApplet1", "hdmsanwn"), true);
   var applet2 = new GGBApplet(createGGBParams("ggbApplet2", "ar9nzxm3"), true);
