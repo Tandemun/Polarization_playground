@@ -148,7 +148,7 @@ title: 3-Paddle Polarization Controller
   }
   
   // Создание апплетов с уникальными идентификаторами
-  var controller = new GGBApplet(createGGBParams("ggbApplet1", "pts6vg4r"), true);
+  var controller = new GGBApplet(createGGBParams("controller", "pts6vg4r"), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "hdmsanwn",{enableRightClick: true}), true);
   var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
