@@ -97,3 +97,17 @@ function setMode(applet, modeName) {
     mode.true.forEach(objName => applet.setVisible(objName, true));
     mode.false.forEach(objName => applet.setVisible(objName, false));
   }
+
+function ggbOnInit(param) {
+	console.log(`Апплет загружен: ${param}`);
+	if (param in appletsLoaded) {
+        appletsLoaded[param] = true;	
+	    checkAllAppletsLoaded();
+    }
+}
+function checkAllAppletsLoaded() {
+    if (Object.values(appletsLoaded).every(loaded => loaded)) {
+        console.log("Все апплеты загружены! Запускаю настройку...");
+        setupAll();
+  }
+}  
