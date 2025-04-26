@@ -120,38 +120,8 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
 	console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
   } 
   
-  // Глобальная переменная, чтобы следить за загрузкой апплетов
-let appletsLoaded = {
-  controller: false,
-  poincare: false,
-  ellips0: false,
-  ellips1: false,
-  ellips2: false
-};
+
 	
-function ggbOnInit(param) {
-    if (param == "controller") {// init update listeners for controller
-      controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
-      controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
-	}    
-    
-    if (param === "poincare") {// Регистрация listener'ов для обновления
-      poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
-      poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
-      poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));
-    }
-	console.log(`Апплет загружен: ${param}`);
-	if (param in appletsLoaded) {
-        appletsLoaded[param] = true;	
-	    checkAllAppletsLoaded();
-    }
-}
-function checkAllAppletsLoaded() {
-    if (Object.values(appletsLoaded).every(loaded => loaded)) {
-        console.log("Все апплеты загружены! Запускаю настройку...");
-        setupAll();
-  }
-}
 	
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
@@ -169,7 +139,29 @@ function checkAllAppletsLoaded() {
     ellips2.inject("ellips2");
   };
 
-  
+  // Глобальная переменная, чтобы следить за загрузкой апплетов
+let appletsLoaded = {
+  controller: false,
+  poincare: false,
+  ellips0: false,
+  ellips1: false,
+  ellips2: false
+};
+
+function ggbOnInit(param) {
+	console.log(`Апплет загружен: ${param}`);
+	if (param in appletsLoaded) {
+        appletsLoaded[param] = true;	
+	    checkAllAppletsLoaded();
+    }
+}
+function checkAllAppletsLoaded() {
+    if (Object.values(appletsLoaded).every(loaded => loaded)) {
+        console.log("Все апплеты загружены! Запускаю настройку...");
+        setupAll();
+  }
+}    
+
 function setupAll() {	
     poincare.setColor("P0", 0,0,0)
     poincare.setValue("phi1", 90)
@@ -192,14 +184,17 @@ function setupAll() {
       { applet: ellips2,    name: "ellips"},  
     ], 100,100,80);    
 	      
-    
-    
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");  
-
+    controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
+    controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
+    
     syncCoords(poincare, "P0", ellips0, "S");
     syncCoords(poincare, "P1", ellips1, "S");
     syncCoords(poincare, "P2", ellips2, "S"); 
+    poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+    poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+    poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
 }
 
 </script>
