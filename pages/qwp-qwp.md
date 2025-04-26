@@ -2,7 +2,7 @@
 layout: default
 title: 3-Paddle Polarization Controller
 ---
-```html
+
 <style>
 
 	h1 {
@@ -74,8 +74,8 @@ title: 3-Paddle Polarization Controller
     <div id="poincare"></div>
   </div>
 </div>
-```html
-```javascript
+
+
 <script>	
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
@@ -151,4 +151,4 @@ function setupAll() {
     poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
 }
 </script>
-```javascript
+
