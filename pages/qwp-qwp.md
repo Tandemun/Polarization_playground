@@ -161,7 +161,7 @@ title: 3-Paddle Polarization Controller
   poincare.setColor("P2", 200, 100, 80)
   ellips2.setColor("ellips", 200, 100, 80)
 	      
-	syncColor(poincare, "P0", ellips0, "ellips");
+  syncColor(poincare, "P0", ellips0, "ellips");
   syncColor(poincare, "P1", ellips1, "ellips");
   syncColor(poincare, "P2", ellips2, "ellips");
 
