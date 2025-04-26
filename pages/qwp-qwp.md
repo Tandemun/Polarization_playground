@@ -92,10 +92,10 @@ function setColors(mapping, r, g, b) {
   
 function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
     try {
-      const hexColor = sourceApplet.getColor(sourceObjectName); // Получаем цвет
-      const [r, g, b] = hexToRgb(hexColor); // Преобразуем в RGB
-      targetApplet.setColor(targetObjectName, r, g, b); // Синхронизируем цвет
-      console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
+      const hexColor = sourceApplet.getColor(sourceObjectName);
+      const [r, g, b] = hexToRgb(hexColor); 
+      targetApplet.setColor(targetObjectName, r, g, b);
+      //console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
     } catch (e) {
       console.error(`Error syncing color:`, e);
     }
@@ -107,7 +107,7 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
       const y = sourceApplet.getYcoord(sourcePointName);
       const z = sourceApplet.getZcoord(sourcePointName);
       targetApplet.setCoords(targetObjectName, x, y, z);
-      console.log(`Synced coords from ${sourcePointName} to ${targetObjectName}: [${x}, ${y}, ${z}]`);
+      //console.log(`Synced coords from ${sourcePointName} to ${targetObjectName}: [${x}, ${y}, ${z}]`);
     } catch (e) {
       console.error(`Error syncing coords:`, e);
     }
@@ -115,13 +115,11 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
 
   function syncValue(sourceApplet, sourceObjectName, targetApplet,targetObjectName) {
     // get value from controller and set value in poincare
-	const value = 2*sourceApplet.getValue(sourceObjectName);/* Multiple by 2 due to double of angles on the Poincare sphere */
+	const value = sourceApplet.getValue(sourceObjectName);
 	targetApplet.setValue(targetObjectName, value);
-	console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
+	//console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
   } 
   
-
-	
 	
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
