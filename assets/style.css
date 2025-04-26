@@ -64,6 +64,7 @@ main {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  font-family: "Helvetica Neue", sans-serif;
   background-color: var(--base3);
   min-height: 100vh;
 }
@@ -78,10 +79,8 @@ main {
 }
 
 .applet {
-  flex: 0 1 600px;
   background-color: var(--base2);
   border: 1px solid var(--base1);
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
