@@ -2,7 +2,7 @@
 layout: default
 title: 3-Paddle Polarization Controller
 ---
-
+```html
 <style>
 
 	h1 {
@@ -74,7 +74,7 @@ title: 3-Paddle Polarization Controller
     <div id="poincare"></div>
   </div>
 </div>
-
+```html
 ```javascript
 <script>	
   // Создание апплетов с уникальными идентификаторами
