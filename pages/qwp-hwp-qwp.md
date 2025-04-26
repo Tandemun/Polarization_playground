@@ -21,7 +21,7 @@ title: 3-Paddle Polarization Controller
 <div class="applets">
     <div>
         <div class="applet" id="controller"></div>
-        <div class="applets">
+        <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
             <div id="ellips0"></div>
             <div id="ellips1"></div>
             <div id="ellips2"></div>
