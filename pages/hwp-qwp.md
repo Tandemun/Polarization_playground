@@ -133,7 +133,10 @@ title: 3-Paddle Polarization Controller
 	// initial setup
 	syncValue(controller, "th1", poincare, "th1");
       	syncValue(controller, "th2", poincare, "th2");
-	
+
+	controller.setColor("paddle1", 0, 100, 255)      
+	controller.setColor("paddle2", 200, 100, 80)
+	      
 	syncColor(poincare, "P0", ellips0, "ellips");
         syncColor(poincare, "P1", ellips1, "ellips");
         syncColor(poincare, "P2", ellips2, "ellips");
