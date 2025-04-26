@@ -77,7 +77,7 @@ title: 3-Paddle Polarization Controller
 
 
 <script>  
-  var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
+  var controller = new GGBApplet(createGGBParams("controller", "hqfm9sqy", {width: 600, height: 450}), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
   var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
@@ -113,7 +113,7 @@ function setupAll() {
       { applet: poincare,   name: "P1" },
       { applet: poincare,   name: "P0P1"},
       { applet: ellips1,    name: "ellips"},  
-    ], 38,139,210);
+    ], "orange");
 
     setColors([
       { applet: controller, name: "paddle2" },
@@ -121,7 +121,7 @@ function setupAll() {
       { applet: poincare,   name: "P2" },
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
-    ], 203,75,22);    
+    ], "orange");    
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");  
