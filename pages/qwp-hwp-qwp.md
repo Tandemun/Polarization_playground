@@ -91,7 +91,7 @@ title: 3-Paddle Polarization Controller
     ellips0.inject("ellips0");
     ellips1.inject("ellips1");
     ellips2.inject("ellips2");
-	ellips3.inject("ellips2");
+    ellips3.inject("ellips3");
   };
 
 let appletsLoaded = {
