@@ -76,10 +76,36 @@ title: 3-Paddle Polarization Controller
 </div>
 
 
-<script>	
+<script>
+    const modes = {
+      full: {
+        true: ["P0", "P1", "P2", "P3", "P0P1","P1P2", "P2P3","A11","A12","A21","A22","A31","A32"],
+        false: []
+      },
+      threePoints: {
+        true: ["P0", "P1", "P2", "P0P1","P1P2", "A11","A12","A21","A22"],
+        false: ["P3", "P2P3","A31","A32"]
+      },
+      twoPoints: {
+        true: ["P0", "P1", "P0P1","A11","A12"],
+        false: ["P2", "P3", "P1P2", "P2P3","A21","A22","A31","A32"]
+      }
+    };
+
+  function setMode(applet, modeName) {
+  const mode = modes[modeName];
+  if (!mode) {
+    console.error(`Режим ${modeName} не найден`);
+    return;
+  }
+
+  mode.true.forEach(objName => applet.setVisible(objName, true));
+  mode.false.forEach(objName => applet.setVisible(objName, false));
+  }  
+
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
-  var poincare = new GGBApplet(createGGBParams("poincare", "whv59uhb",{enableRightClick: true}), true);
+  var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
   var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
   var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
@@ -117,9 +143,10 @@ function checkAllAppletsLoaded() {
 }    
 
 function setupAll() {	
-    poincare.setColor("P0", 0,0,0)
+    setMode(poincare, "threePoints");
     poincare.setValue("phi1", 90)
     poincare.setValue("phi2", 90)
+    poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
 
     setColors([
@@ -128,7 +155,7 @@ function setupAll() {
       { applet: poincare,   name: "P1" },
       { applet: poincare,   name: "P0P1"},
       { applet: ellips1,    name: "ellips"},  
-    ], 0,100,255);
+    ], 38,139,210);
 
     setColors([
       { applet: controller, name: "paddle2" },
@@ -136,7 +163,7 @@ function setupAll() {
       { applet: poincare,   name: "P2" },
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
-    ], 100,100,80);    
+    ], 203,75,22);    
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");  
