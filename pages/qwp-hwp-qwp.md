@@ -129,11 +129,11 @@ function setupAll() {
     ], "blue");    
 
     setColors([
-      { applet: controller, name: "paddle2" },
-      { applet: controller, name: "th2" },
-      { applet: poincare,   name: "P2" },
-      { applet: poincare,   name: "P1P2"},
-      { applet: ellips2,    name: "ellips"},  
+      { applet: controller, name: "paddle3" },
+      { applet: controller, name: "th3" },
+      { applet: poincare,   name: "P3" },
+      { applet: poincare,   name: "P2P3"},
+      { applet: ellips3,    name: "ellips"},  
     ], "orange"); 
 	      
     syncValue(controller, "th1", poincare, "th1");
@@ -141,7 +141,7 @@ function setupAll() {
     syncValue(controller, "th3", poincare, "th3");
     controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
     controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
-    controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th3", poincare, "th3"));
+    controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
     
     syncCoords(poincare, "P0", ellips0, "S");
     syncCoords(poincare, "P1", ellips1, "S");
