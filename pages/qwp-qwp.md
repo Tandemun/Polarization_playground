@@ -75,52 +75,8 @@ title: 3-Paddle Polarization Controller
   </div>
 </div>
 
-
-<script>
-  function hexToRgb(hex) {
-    hex = hex.replace('#', '');
-    let r = parseInt(hex.substring(0, 2), 16);
-    let g = parseInt(hex.substring(2, 4), 16);
-    let b = parseInt(hex.substring(4, 6), 16);
-    return [r, g, b];
-  }
-function setColors(mapping, r, g, b) {
-  mapping.forEach(function(item) {
-    item.applet.setColor(item.name, r, g, b);
-  });
-}
-  
-function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
-    try {
-      const hexColor = sourceApplet.getColor(sourceObjectName);
-      const [r, g, b] = hexToRgb(hexColor); 
-      targetApplet.setColor(targetObjectName, r, g, b);
-      //console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
-    } catch (e) {
-      console.error(`Error syncing color:`, e);
-    }
-  }
-
-  function syncCoords(sourceApplet, sourcePointName, targetApplet, targetObjectName) {
-    try {
-      const x = sourceApplet.getXcoord(sourcePointName);
-      const y = sourceApplet.getYcoord(sourcePointName);
-      const z = sourceApplet.getZcoord(sourcePointName);
-      targetApplet.setCoords(targetObjectName, x, y, z);
-      //console.log(`Synced coords from ${sourcePointName} to ${targetObjectName}: [${x}, ${y}, ${z}]`);
-    } catch (e) {
-      console.error(`Error syncing coords:`, e);
-    }
-  }
-
-  function syncValue(sourceApplet, sourceObjectName, targetApplet,targetObjectName) {
-    // get value from controller and set value in poincare
-	const value = sourceApplet.getValue(sourceObjectName);
-	targetApplet.setValue(targetObjectName, value);
-	//console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
-  } 
-  
-	
+```javascript
+<script>	
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "whv59uhb",{enableRightClick: true}), true);
@@ -137,7 +93,7 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
     ellips2.inject("ellips2");
   };
 
-  // Глобальная переменная, чтобы следить за загрузкой апплетов
+// Глобальная переменная, чтобы следить за загрузкой апплетов
 let appletsLoaded = {
   controller: false,
   poincare: false,
@@ -194,5 +150,5 @@ function setupAll() {
     poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
     poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
 }
-
 </script>
+```javascript
