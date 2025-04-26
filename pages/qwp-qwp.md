@@ -171,7 +171,9 @@ function checkAllAppletsLoaded() {
 
   
 function setupAll() {	
-    poincare.setColor("P0",0,0,0)
+    poincare.setColor("P0", 0,0,0)
+    poincare.setValue("phi1", 90)
+    poincare.setValue("phi2", 90)
     ellips0.setColor("ellips", 0, 0, 0)
 
     setColors([
@@ -190,12 +192,14 @@ function setupAll() {
       { applet: ellips2,    name: "ellips"},  
     ], 100,100,80);    
 	      
-  syncValue(controller, "th1", poincare, "th1");
-  syncValue(controller, "th2", poincare, "th2");  
+    
+    
+    syncValue(controller, "th1", poincare, "th1");
+    syncValue(controller, "th2", poincare, "th2");  
 
-  syncCoords(poincare, "P0", ellips0, "S");
-  syncCoords(poincare, "P1", ellips1, "S");
-  syncCoords(poincare, "P2", ellips2, "S"); 
+    syncCoords(poincare, "P0", ellips0, "S");
+    syncCoords(poincare, "P1", ellips1, "S");
+    syncCoords(poincare, "P2", ellips2, "S"); 
 }
 
 </script>
