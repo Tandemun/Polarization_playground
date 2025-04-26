@@ -77,8 +77,6 @@ title: 3-Paddle Polarization Controller
 
 
 <script>  
-
-  // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
   var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
@@ -86,7 +84,6 @@ title: 3-Paddle Polarization Controller
   var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
 
   window.onload = function () {
-    // Вставка апплетов на страницу
     controller.inject("controller")
     poincare.inject("poincare");
     ellips0.inject("ellips0");
@@ -94,7 +91,6 @@ title: 3-Paddle Polarization Controller
     ellips2.inject("ellips2");
   };
 
-// Глобальная переменная, чтобы следить за загрузкой апплетов
 let appletsLoaded = {
   controller: false,
   poincare: false,
@@ -103,19 +99,7 @@ let appletsLoaded = {
   ellips2: false
 };
 
-function ggbOnInit(param) {
-	console.log(`Апплет загружен: ${param}`);
-	if (param in appletsLoaded) {
-        appletsLoaded[param] = true;	
-	    checkAllAppletsLoaded();
-    }
-}
-function checkAllAppletsLoaded() {
-    if (Object.values(appletsLoaded).every(loaded => loaded)) {
-        console.log("Все апплеты загружены! Запускаю настройку...");
-        setupAll();
-  }
-}    
+  
 
 function setupAll() {	
     setMode(poincare, "threePoints");
