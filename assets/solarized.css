@@ -1,0 +1,48 @@
+:root {
+  /* Базовые цвета фона и текста */
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0:  #839496;
+  --base1:  #93a1a1;
+  --base2:  #eee8d5;
+  --base3:  #fdf6e3;
+
+  /* Акцентные цвета */
+  --yellow:  #b58900;
+  --orange:  #cb4b16;
+  --red:     #dc322f;
+  --magenta: #d33682;
+  --violet:  #6c71c4;
+  --blue:    #268bd2;
+  --cyan:    #2aa198;
+  --green:   #859900;
+}
+
+/* Пример применения */
+body {
+  background-color: var(--base3); /* светлый фон */
+  color: var(--base00);            /* основной цвет текста */
+  font-family: sans-serif;
+}
+
+h1, h2, h3 {
+  color: var(--blue);              /* заголовки синие */
+}
+
+code {
+  background-color: var(--base2);
+  color: var(--red);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+a {
+  color: var(--cyan);
+}
+
+a:hover {
+  color: var(--blue);
+}
+ыдшк
