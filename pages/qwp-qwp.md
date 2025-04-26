@@ -76,32 +76,7 @@ title: 3-Paddle Polarization Controller
 </div>
 
 
-<script>
-    const modes = {
-      full: {
-        true: ["P0", "P1", "P2", "P3", "P0P1","P1P2", "P2P3","A11","A12","A21","A22","A31","A32"],
-        false: []
-      },
-      threePoints: {
-        true: ["P0", "P1", "P2", "P0P1","P1P2", "A11","A12","A21","A22"],
-        false: ["P3", "P2P3","A31","A32"]
-      },
-      twoPoints: {
-        true: ["P0", "P1", "P0P1","A11","A12"],
-        false: ["P2", "P3", "P1P2", "P2P3","A21","A22","A31","A32"]
-      }
-    };
-
-  function setMode(applet, modeName) {
-  const mode = modes[modeName];
-  if (!mode) {
-    console.error(`Режим ${modeName} не найден`);
-    return;
-  }
-
-  mode.true.forEach(objName => applet.setVisible(objName, true));
-  mode.false.forEach(objName => applet.setVisible(objName, false));
-  }  
+<script>  
 
   // Создание апплетов с уникальными идентификаторами
   var controller = new GGBApplet(createGGBParams("controller", "kfrkrdcp", {width: 600, height: 450}), true);
