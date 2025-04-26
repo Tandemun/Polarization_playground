@@ -33,6 +33,25 @@ function createGGBParams(id, material_id, overrides = {}) {
   };
 }
 
+const solarizedColors = {
+  base03: "#002b36",
+  base02: "#073642",
+  base01: "#586e75",
+  base00: "#657b83",
+  base0:  "#839496",
+  base1:  "#93a1a1",
+  base2:  "#eee8d5",
+  base3:  "#fdf6e3",
+  yellow: "#b58900",
+  orange: "#cb4b16",
+  red:    "#dc322f",
+  magenta:"#d33682",
+  violet: "#6c71c4",
+  blue:   "#268bd2",
+  cyan:   "#2aa198",
+  green:  "#859900"
+};
+
 function hexToRgb(hex) {
     hex = hex.replace('#', '');
     let r = parseInt(hex.substring(0, 2), 16);
@@ -40,10 +59,16 @@ function hexToRgb(hex) {
     let b = parseInt(hex.substring(4, 6), 16);
     return [r, g, b];
   }
-function setColors(mapping, r, g, b) {
-  mapping.forEach(function(item) {
-    item.applet.setColor(item.name, r, g, b);
-  });
+function setColors(mapping, color) {
+    let hexColor = color.startsWith('#') ? color : solarizedColors[color];
+    if (!hexColor) {
+      console.error(`Неизвестный цвет: ${color}`);
+      return;
+    }
+    const [r, g, b] = hexToRgb(hexColor);
+    mapping.forEach(function(item) {
+        item.applet.setColor(item.name, r, g, b);
+    });
 }
   
 function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
