@@ -172,25 +172,24 @@ function checkAllAppletsLoaded() {
   
 function setupAll() {	
     poincare.setColor("P0",0,0,0)
-  ellips0.setColor("ellips", 0, 0, 0)
+    ellips0.setColor("ellips", 0, 0, 0)
 
-  poincare.setColor("P1",0,100,255)
-  controller.setColor("paddle1", 0, 100, 255)
-  controller.setColor("th1",0,100,255)
-  poincare.setColor("P0P1",0,100,255)  
-  poincare.setColor("P1",0,100,255)
-  ellips1.setColor("ellips", 0,100,255)
+    setColors([
+      { applet: controller, name: "paddle1" },
+      { applet: controller, name: "th1" },
+      { applet: poincare,   name: "P1" },
+      { applet: poincare,   name: "P0P1"},
+      { applet: ellips1,    name: "ellips"},  
+    ], 0,100,255);
 
-  controller.setColor("paddle2", 200, 100, 80)
-  controller.setColor("th2", 200, 100, 80)
-  poincare.setColor("P1P2", 200, 100, 80)  
-  poincare.setColor("P2", 200, 100, 80)
-  ellips2.setColor("ellips", 200, 100, 80)
+    setColors([
+      { applet: controller, name: "paddle2" },
+      { applet: controller, name: "th2" },
+      { applet: poincare,   name: "P2" },
+      { applet: poincare,   name: "P1P2"},
+      { applet: ellips2,    name: "ellips"},  
+    ], 100,100,80);    
 	      
-  syncColor(poincare, "P0", ellips0, "ellips");
-  syncColor(poincare, "P1", ellips1, "ellips");
-  syncColor(poincare, "P2", ellips2, "ellips");
-
   syncValue(controller, "th1", poincare, "th1");
   syncValue(controller, "th2", poincare, "th2");  
 
