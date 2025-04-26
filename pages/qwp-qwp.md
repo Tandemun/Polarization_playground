@@ -99,7 +99,6 @@ let appletsLoaded = {
   ellips2: false
 };
 
-  
 
 function setupAll() {	
     setMode(poincare, "threePoints");
