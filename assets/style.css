@@ -1,10 +1,10 @@
 
 
 /* Main content */
-	h1 {
-		text-align: center;
-		margin-bottom: 40px;
-	}
+h1 {
+    text-align: center;
+	margin-bottom: 40px;
+}
 
 .container {
   display: flex;
@@ -21,7 +21,7 @@ main {
   min-height: 100vh;
 }
 
-/* Контейнер для апплетов */
+/* ggb applets container */
 .applets {
   display: flex;
   flex-wrap: wrap;
@@ -34,20 +34,4 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Адаптивность */
-@media (max-width: 800px) {
-  .container {
-    margin-left: 0;
-  }
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-  .applets {
-    flex-direction: column;
-    align-items: center;
-  }
 }
