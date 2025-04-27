@@ -47,13 +47,14 @@ let appletsLoaded = {
 
 
 function setupAll() {	
+    console.log("1");
     setMode(poincare, "full");
     poincare.setValue("phi1", 90)
     poincare.setValue("phi2", 180)
     poincare.setValue("phi3", 90)
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
-
+console.log("2");
     const [r,g,b] = hexToRgb("red")
     controller.setBackgroundColor(r,g,b);
     poincare.setBackgroundColor(r,g,b);
@@ -61,7 +62,7 @@ function setupAll() {
     ellips1.setBackgroundColor(r,g,b);
     ellips2.setBackgroundColor(r,g,b);
     ellips3.setBackgroundColor(r,g,b);
-
+console.log("3");
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
@@ -71,7 +72,7 @@ function setupAll() {
       { applet: poincare,   name: "A12"},
       { applet: ellips1,    name: "ellips"},  
     ], "orange");
-
+console.log("4");
     setColors([
       { applet: controller, name: "paddle2" },
       { applet: controller, name: "th2" },
