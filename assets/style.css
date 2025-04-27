@@ -42,7 +42,18 @@ main {
   align-items: center;
   justify-content: center;
 }
+/* Убираем рамки и фон у апплетов GeoGebra */
+.GeoGebraFrame {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
 
+/* Дополнительно: чтобы у canvas не было серой подложки */
+.EuclidianPanel {
+  background: transparent !important;
+}
 
 a {
   color: var(--cyan);
