@@ -27,12 +27,12 @@ title: 3-Paddle Polarization Controller
 
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
-        <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
-            <div id="ellips0"></div>
-            <div id="ellips1"></div>
-            <div id="ellips2"></div>
-            <div id="ellips3"></div>
-        </div>
+<div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
+    <div id="ellips0"></div>
+    <div id="ellips1"></div>
+    <div id="ellips2"></div>
+    <div id="ellips3"></div>
+</div>
 
 
 <script>  
@@ -75,7 +75,7 @@ function setupAll() {
       { applet: controller, name: "th1" },
       { applet: poincare,   name: "P1" },
       { applet: poincare,   name: "P0P1"},
-	  { applet: poincare,   name: "A11"},
+      { applet: poincare,   name: "A11"},
       { applet: poincare,   name: "A12"},
       { applet: ellips1,    name: "ellips"},  
     ], "orange");
@@ -84,7 +84,7 @@ function setupAll() {
       { applet: controller, name: "paddle2" },
       { applet: controller, name: "th2" },
       { applet: poincare,   name: "P2" },
-	  { applet: poincare,   name: "A21"},
+      { applet: poincare,   name: "A21"},
       { applet: poincare,   name: "A22"},        
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
@@ -95,7 +95,7 @@ function setupAll() {
       { applet: controller, name: "th3" },
       { applet: poincare,   name: "P3" },
       { applet: poincare,   name: "P2P3"},
-	  { applet: poincare,   name: "A31"},
+      { applet: poincare,   name: "A31"},
       { applet: poincare,   name: "A32"},        
       { applet: ellips3,    name: "ellips"},  
     ], "orange"); 
