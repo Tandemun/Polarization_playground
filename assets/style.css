@@ -20,7 +20,7 @@ main {
   margin: 0 auto;
   color: var(--base00);
   font-family: "Helvetica Neue", sans-serif;
-  background-color: white;
+  background-color: var(--base03);
   min-height: 100vh;
 }
 
