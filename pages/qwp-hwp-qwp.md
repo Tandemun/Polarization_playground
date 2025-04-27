@@ -57,8 +57,8 @@ function setupAll() {
     
     console.log("Set background colors for applets");
     const bgColor = getCssVariable("--base03")
-    controller.setGraphicsOptions(T,{"bgColor":bgColor});
-    controller.setGraphicsOptions(G,{"bgColor":bgColor});
+    controller.setGraphicsOptions("T",{"bgColor":bgColor});
+    controller.setGraphicsOptions("G",{"bgColor":bgColor});
     poincare.setGraphicsOptions(T,{"bgColor":bgColor});
     poincare.setGraphicsOptions(G,{"bgColor":bgColor});
     ellips0.setGraphicsOptions(G,{"bgColor":bgColor});
