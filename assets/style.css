@@ -62,7 +62,7 @@
 main {
   width: 100%;
   padding: 2rem;
-  max-width: 1240px;
+  max-width: 800px;
   margin: 0 auto;
   font-family: "Helvetica Neue", sans-serif;
   background-color: var(--base3);
@@ -73,7 +73,7 @@ main {
 .applets {
   display: flex;
   flex-wrap: wrap;
-  /*gap: 2rem;/*
+  /*gap: 2rem;*/
   justify-content: center;
   margin-top: 2rem;
 }
