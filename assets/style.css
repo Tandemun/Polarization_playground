@@ -13,14 +13,17 @@ h1, h2, h3 {
   margin-left: 250px;
 }
 
+body{
+    color: var(--base00);
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: var(--base3);
+}
+
 main {
   width: 100%;
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  color: var(--base00);
-  font-family: "Helvetica Neue", sans-serif;
-  background-color: var(--base03);
   min-height: 100vh;
 }
 
