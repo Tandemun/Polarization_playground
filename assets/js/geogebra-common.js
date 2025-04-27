@@ -1,8 +1,8 @@
 function createGGBParams(id, material_id, overrides = {}) {
   return {
     id,
-    width: 600,
-    height: 600,
+    //width: 600,
+    //height: 600,
     showMenuBar: false,
     showAlgebraInput: false,
     showToolBar: false,
