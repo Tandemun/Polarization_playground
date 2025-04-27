@@ -3,8 +3,6 @@ layout: default
 title: 3-Paddle Polarization Controller
 ---
 
-
-
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
 <h2>3-Paddle Polarization Controller</h2>
 <p>This is a model of a classical manual 2-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
@@ -49,13 +47,23 @@ function setupAll() {
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
 
+    console.log("Set background colors for applets");
+    const bgColor = getCssVariable("--base3")
+    controller.setGraphicsOptions(-1,{"bgColor":bgColor});
+    controller.setGraphicsOptions(1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
+	
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
       { applet: poincare,   name: "P1" },
       { applet: poincare,   name: "P0P1"},
       { applet: ellips1,    name: "ellips"},  
-    ], "blue");
+    ], "--blue");
 
     setColors([
       { applet: controller, name: "paddle2" },
@@ -63,7 +71,7 @@ function setupAll() {
       { applet: poincare,   name: "P2" },
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
-    ], "orange");    
+    ], "--orange");    
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");  
@@ -78,3 +86,5 @@ function setupAll() {
     poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
 }
 </script>
+
+
