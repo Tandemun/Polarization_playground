@@ -89,7 +89,7 @@ console.log("4");
 
     setColors([
       { applet: controller, name: "paddle3" },
-      //{ applet: controller, name: "th3" },
+      { applet: controller, name: "th3" },
       { applet: poincare,   name: "P3" },
       { applet: poincare,   name: "P2P3"},
       { applet: poincare,   name: "A31"},
