@@ -5,7 +5,9 @@ h1 {
     text-align: center;
 	margin-bottom: 40px;
 }
-
+h1, h2, h3 {
+  color: var(--blue);              /* заголовки синие */
+}
 .container {
   display: flex;
   margin-left: 250px;
@@ -16,6 +18,7 @@ main {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  color: var(--base00);
   font-family: "Helvetica Neue", sans-serif;
   background-color: var(--base3);
   min-height: 100vh;
@@ -34,4 +37,13 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+a {
+  color: var(--cyan);
+}
+
+a:hover {
+  color: var(--blue);
 }
