@@ -4,7 +4,10 @@ title: 3-Paddle Polarization Controller
 ---
 
 <style>
-
+    body {
+        background-color: white;
+        color: var(--base00);
+    }
 	h1 {
 		text-align: center;
 		margin-bottom: 40px;
