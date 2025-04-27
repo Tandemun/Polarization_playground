@@ -1,1 +1,53 @@
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--base02);
+  padding-top: 20px;
+  color: var(--base2);
+  font-family: Arial, sans-serif;
+  overflow-y: auto;
+}
 
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  padding: 10px;
+  text-align: left;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: var(--base2);
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: var(--base01);
+}
+
+/* Подменю — всегда видно */
+.sidebar nav ul li ul {
+  list-style: none;
+  padding-left: 20px;
+  display: block;
+}
+
+/* Кастомизация ссылок в подменю */
+.sidebar nav ul li ul li a {
+  padding-left: 20px;
+}
+
+.sidebar nav ul li ul li a:hover {
+  background-color: var(--base00);
+}
