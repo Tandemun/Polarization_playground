@@ -56,7 +56,10 @@ function setupAll() {
     ellips0.setColor("ellips", 0, 0, 0)
 console.log("2");
     //const [r,g,b] = hexToRgb("red")
-    controller.setGraphicsOptions(1,{"bgColor":"#FFF000"});
+    controller.setGraphicsOptions(0,{"bgColor":"#FFF000"});
+	controller.setGraphicsOptions(1,{"bgColor":"#FFF000"});
+	controller.setGraphicsOptions(2,{"bgColor":"#FFF000"});
+	controller.setGraphicsOptions(3,{"bgColor":"#FFF000"});
 console.log("3");
     setColors([
       { applet: controller, name: "paddle1" },
