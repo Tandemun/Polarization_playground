@@ -54,10 +54,13 @@ function setupAll() {
     poincare.setValue("phi3", 90)
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
-console.log("2");
-    //const [r,g,b] = hexToRgb("red")
+    
+    console.log("2");
+    const [r,g,b] = hexToRgb("--base03")
     controller.setGraphicsOptions(-1,{"bgColor":"#FFF000"});
-console.log("3");
+
+	
+	console.log("3");
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
