@@ -56,7 +56,7 @@ function setupAll() {
     ellips0.setColor("ellips", 0, 0, 0)
     
     console.log("Set background colors for applets");
-    const bgColor = getCssVariable("--base03")
+    const bgColor = getCssVariable("--base3")
     controller.setGraphicsOptions(-1,{"bgColor":bgColor});
     controller.setGraphicsOptions(1,{"bgColor":bgColor});
     poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
@@ -75,7 +75,7 @@ function setupAll() {
       { applet: poincare,   name: "A11"},
       { applet: poincare,   name: "A12"},
       { applet: ellips1,    name: "ellips"},  
-    ], "orange");
+    ], "--orange");
 console.log("4");
     setColors([
       { applet: controller, name: "paddle2" },
@@ -85,7 +85,7 @@ console.log("4");
       { applet: poincare,   name: "A22"},        
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
-    ], "blue");    
+    ], "--blue");    
 
     setColors([
       { applet: controller, name: "paddle3" },
@@ -95,7 +95,7 @@ console.log("4");
       { applet: poincare,   name: "A31"},
       { applet: poincare,   name: "A32"},        
       { applet: ellips3,    name: "ellips"},  
-    ], "orange"); 
+    ], "--orange"); 
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");
