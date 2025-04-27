@@ -73,14 +73,12 @@ main {
 .applets {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  /*gap: 2rem;/*
   justify-content: center;
   margin-top: 2rem;
 }
 
 .applet {
-  background-color: var(--base2);
-  border: 1px solid var(--base1);
   display: flex;
   align-items: center;
   justify-content: center;
