@@ -26,11 +26,11 @@ title: 3-Paddle Polarization Controller
 
  
 <script>  
-  var controller = new GGBApplet(createGGBParams("controller", "hqfm9sqy", {width: 600, height: 450}), true);
+  var controller = new GGBApplet(createGGBParams("controller", "hqfm9sqy",), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
-  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3", {width: 150, height: 150}), true);
-  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3", {width: 150, height: 150}), true);
-  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3", {width: 150, height: 150}), true);
+  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
+  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
+  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
 
   window.onload = function () {
     controller.inject("controller")
