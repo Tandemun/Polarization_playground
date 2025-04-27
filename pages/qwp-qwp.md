@@ -56,15 +56,22 @@ function setupAll() {
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
 
-    const solarizedBase3 = "#fdf6e3";
-const [r, g, b] = hexToRgb(solarizedBase3);
-
-controller.setBackgroundColor(r, g, b);
+    console.log("Set background colors for applets");
+    const bgColor = getCssVariable("--base3")
+    controller.setGraphicsOptions(-1,{"bgColor":bgColor});
+    controller.setGraphicsOptions(1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
 	
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
       { applet: poincare,   name: "P1" },
+      { applet: poincare,   name: "A11" },
+      { applet: poincare,   name: "A12" },
       { applet: poincare,   name: "P0P1"},
       { applet: ellips1,    name: "ellips"},  
     ], "orange");
@@ -73,6 +80,8 @@ controller.setBackgroundColor(r, g, b);
       { applet: controller, name: "paddle2" },
       { applet: controller, name: "th2" },
       { applet: poincare,   name: "P2" },
+      { applet: poincare,   name: "A21" },
+      { applet: poincare,   name: "A22" },
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
     ], "orange");    
