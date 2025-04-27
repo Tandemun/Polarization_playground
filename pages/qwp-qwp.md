@@ -10,72 +10,21 @@ title: 3-Paddle Polarization Controller
 		margin-bottom: 40px;
 	}
 
-	.container1 {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		align-items: flex-start;
-		flex-wrap: wrap;
-	}
-
-	.column {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 600px;
-	}
-
-	.text-block {
-		height: 150px; /* Alignment by height of headings+text */
-		margin-bottom: 10px;
-	}
-
-	.applet {
-		width: 600px;
-		height: 600px;
-	}
-
-	@media (max-width: 1260px) {
-		.container {
-		  flex-direction: column;
-		  align-items: center;
-		}
-
-		.text-block {
-		  height: auto;
-		}
-	}
 </style>
 
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
+<h2>3-Paddle Polarization Controller</h2>
+<p>This is a model of a classical manual 2-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
 
-<div class="container1">
-  <!-- Left column -->
-  <div class="column">
-    <div class="text-block">
-      <h2>3-Paddle Polarization Controller</h2>
-      <p>This is a model of a classical manual 2-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
-    </div>
-    <div id="controller"></div>
-    <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
-      <div id="ellips0"></div>
-      <div id="ellips1"></div>
-      <div id="ellips2"></div>
-    </div>    
-
-  </div>
-
-  <!-- Right column -->
-  <div class="column">
-    <div class="text-block">
-      <h2>State of Polarization</h2>
-      <p>This visualization shows the evolution of the state of polarization (SOP) at different stages within the controller. The top displays the Poincaré sphere, while the bottom shows the corresponding polarization ellipses.</p>
-    </div>
-    <div id="poincare"></div>
-  </div>
+<div id="controller"></div>
+<div id="poincare"></div>  
+<div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
+    <div id="ellips0"></div>
+    <div id="ellips1"></div>
+    <div id="ellips2"></div>
 </div>
 
-
+ 
 <script>  
   var controller = new GGBApplet(createGGBParams("controller", "hqfm9sqy", {width: 600, height: 450}), true);
   var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
