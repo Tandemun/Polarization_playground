@@ -25,18 +25,14 @@ title: 3-Paddle Polarization Controller
 <h2>State of Polarization</h2>
 <p>This visualization shows the evolution of the state of polarization (SOP) at different stages within the controller. The top displays the Poincaré sphere, while the bottom shows the corresponding polarization ellipses.</p>
 
-<div class="applets">
-    <div>
-        <div class="applet" id="controller"></div>
+<div class="applet" id="controller"></div>
+<div class="applet" id="poincare"></div>
         <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
             <div id="ellips0"></div>
             <div id="ellips1"></div>
             <div id="ellips2"></div>
             <div id="ellips3"></div>
         </div>
-    </div>
-    <div class="applet" id="poincare"></div>
-</div>
 
 
 <script>  
