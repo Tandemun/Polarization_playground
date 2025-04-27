@@ -3,14 +3,7 @@ layout: default
 title: 3-Paddle Polarization Controller
 ---
 
-<style>
 
-	h1 {
-		text-align: center;
-		margin-bottom: 40px;
-	}
-
-</style>
 
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
 <h2>3-Paddle Polarization Controller</h2>
