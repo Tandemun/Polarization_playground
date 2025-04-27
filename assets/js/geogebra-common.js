@@ -94,7 +94,7 @@ function hexToRgb(color) {
 
 
 function setColors(mapping, color) {
-    const [r, g, b] = hexToRgb(hexColor);
+    const [r, g, b] = hexToRgb(color);
     mapping.forEach(function(item) {
         item.applet.setColor(item.name, r, g, b);
     });
