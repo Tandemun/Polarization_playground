@@ -52,6 +52,10 @@ const solarizedColors = {
   green:  "#859900"
 };
 
+function getCssVariable(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
 function hexToRgb(hex) {
     hex = hex.replace('#', '');
     let r = parseInt(hex.substring(0, 2), 16);
