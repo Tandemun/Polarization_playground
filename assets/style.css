@@ -55,6 +55,10 @@ main {
   background: transparent !important;
 }
 
+.ggbTransform, .applet_scaler {
+  background: transparent !important;
+}
+
 a {
   color: var(--cyan);
 }
