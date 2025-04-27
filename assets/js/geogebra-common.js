@@ -53,10 +53,6 @@ const solarizedColors = {
 };
 
 
-function getCssVariable(name) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-}
-
 function hexToRgb(color) {
   // Если это css-переменная
   if (color.startsWith('--')) {
