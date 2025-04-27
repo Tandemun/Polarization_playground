@@ -52,23 +52,52 @@ const solarizedColors = {
   green:  "#859900"
 };
 
+
 function getCssVariable(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
 
-function hexToRgb(hex) {
-    hex = hex.replace('#', '');
-    let r = parseInt(hex.substring(0, 2), 16);
-    let g = parseInt(hex.substring(2, 4), 16);
-    let b = parseInt(hex.substring(4, 6), 16);
-    return [r, g, b];
+function hexToRgb(color) {
+  // Если это css-переменная
+  if (color.startsWith('--')) {
+    color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
   }
-function setColors(mapping, color) {
-    let hexColor = color.startsWith('#') ? color : solarizedColors[color];
-    if (!hexColor) {
-      console.error(`Неизвестный цвет: ${color}`);
-      return;
+
+  // Если это стандартное имя цвета
+  if (!color.startsWith('#') && !/^[0-9a-f]{6}$/i.test(color)) {
+    // Создаём временный элемент, чтобы спросить браузер
+    let dummy = document.createElement('div');
+    dummy.style.color = color;
+    document.body.appendChild(dummy);
+    let computedColor = getComputedStyle(dummy).color;
+    document.body.removeChild(dummy);
+
+    // computedColor будет типа "rgb(255, 255, 255)"
+    let match = computedColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    if (match) {
+      return [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])];
+    } else {
+      throw new Error(`Cannot parse color: ${color}`);
     }
+  }
+
+  // Если это hex
+  if (color.startsWith('#')) {
+    color = color.slice(1);
+  }
+
+  if (!/^[0-9a-f]{6}$/i.test(color)) {
+    throw new Error(`Invalid hex color: ${color}`);
+  }
+
+  let r = parseInt(color.substring(0, 2), 16);
+  let g = parseInt(color.substring(2, 4), 16);
+  let b = parseInt(color.substring(4, 6), 16);
+  return [r, g, b];
+}
+
+
+function setColors(mapping, color) {
     const [r, g, b] = hexToRgb(hexColor);
     mapping.forEach(function(item) {
         item.applet.setColor(item.name, r, g, b);
