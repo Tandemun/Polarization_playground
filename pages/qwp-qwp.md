@@ -56,6 +56,11 @@ function setupAll() {
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
 
+    const solarizedBase3 = "#fdf6e3";
+const [r, g, b] = hexToRgb(solarizedBase3);
+
+controller.setBackgroundColor(r, g, b);
+	
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
