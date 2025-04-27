@@ -74,7 +74,7 @@ function setupAll() {
       { applet: poincare,   name: "A12" },
       { applet: poincare,   name: "P0P1"},
       { applet: ellips1,    name: "ellips"},  
-    ], "orange");
+    ], "--orange");
 
     setColors([
       { applet: controller, name: "paddle2" },
@@ -84,7 +84,7 @@ function setupAll() {
       { applet: poincare,   name: "A22" },
       { applet: poincare,   name: "P1P2"},
       { applet: ellips2,    name: "ellips"},  
-    ], "orange");    
+    ], "--orange");    
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");  
