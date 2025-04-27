@@ -55,10 +55,16 @@ function setupAll() {
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
     
-    console.log("2");
-    const [r,g,b] = hexToRgb("--base03")
-    controller.setGraphicsOptions(-1,{"bgColor":"#FFF000"});
-
+    console.log("Set background colors for applets");
+    const bgColor = getCssVariable("--base03")
+    controller.setGraphicsOptions(T,{"bgColor":bgColor});
+    controller.setGraphicsOptions(G,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(T,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(G,{"bgColor":bgColor});
+    ellips0.setGraphicsOptions(G,{"bgColor":bgColor});
+    ellips1.setGraphicsOptions(G,{"bgColor":bgColor});
+    ellips2.setGraphicsOptions(G,{"bgColor":bgColor});
+    ellips3.setGraphicsOptions(G,{"bgColor":bgColor});
 	
 	console.log("3");
     setColors([
