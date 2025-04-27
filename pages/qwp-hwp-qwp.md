@@ -4,7 +4,11 @@ title: 3-Paddle Polarization Controller
 ---
 
 <style>
-    body {
+
+    main {
+        background-color: white;
+    }
+	body {
         background-color: white;
         color: var(--base00);
     }
