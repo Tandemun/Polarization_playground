@@ -3,22 +3,6 @@ layout: default
 title: 3-Paddle Polarization Controller
 ---
 
-<style>
-
-    main {
-        background-color: white;
-    }
-	body {
-        background-color: white;
-        color: var(--base00);
-    }
-	h1 {
-		text-align: center;
-		margin-bottom: 40px;
-	}
-
-</style>
-
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
 <h2>3-Paddle Polarization Controller</h2>
 <p>This is a model of a classical manual 3-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
