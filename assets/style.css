@@ -20,9 +20,10 @@ main {
   margin: 0 auto;
   color: var(--base00);
   font-family: "Helvetica Neue", sans-serif;
-  background-color: var(--base3);
+  background-color: white;
   min-height: 100vh;
 }
+
 
 /* ggb applets container */
 .applets {
