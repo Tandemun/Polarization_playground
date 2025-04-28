@@ -19,20 +19,6 @@ title: 3-Paddle Polarization Controller
     <div id="ellips2"></div>
     <div id="ellips3"></div>
 </div>
-<ul id="custom-menu" style="
-    position: absolute;
-    display: none;
-    list-style: none;
-    padding: 10px;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    z-index: 1500;
-">
-  <li>Пункт 1</li>
-  <li>Пункт 2</li>
-  <li>Пункт 3</li>
-</ul>
 
 
 <script>  
@@ -99,7 +85,6 @@ title: 3-Paddle Polarization Controller
         setColors(ellips1,{"--orange":["ellips"]});
         setColors(ellips2,{"--blue":  ["ellips"]});
         setColors(ellips3,{"--orange":["ellips"]});
-
 	      
         syncValue(controller, "th1", poincare, "th1");
         syncValue(controller, "th2", poincare, "th2");
@@ -116,25 +101,6 @@ title: 3-Paddle Polarization Controller
         poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
         poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
         poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
-}
-
-// Предполагаем, что ты уже загрузил апплет сюда
-const appletContainer = document.getElementById('poincare');
-const customMenu = document.getElementById('custom-menu');
-
-document.addEventListener('contextmenu', (event) => {
-    if (appletContainer.contains(event.target)) {
-        event.preventDefault();
-        customMenu.style.left = `${event.pageX}px`;
-        customMenu.style.top = `${event.pageY}px`;
-        customMenu.style.display = 'block';
-    } else {
-        customMenu.style.display = 'none';
-    }
-});
-
-document.addEventListener('click', () => {
-    customMenu.style.display = 'none';
-});	
+}	
 </script>
 
