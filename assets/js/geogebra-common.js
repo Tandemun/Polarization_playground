@@ -41,19 +41,21 @@ function getCssVariable(name) {
 
 
 function hexToRgb(color) {
-      console.log(`hexToRgb tries to extract RGB fom ${color} color`);
+      console.log(`hexToRgb tries to extract RGB fom ${color}`);
 if (color.startsWith('--')) {
     console.log(`Seems that ${color} is a css-variable`);
     color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
   }
 
   if (!/^#?[0-9a-f]{6}$/i.test(color)) {
-      console.log(`Seems that ${color} is a browser default color`);
+    console.log(`Seems that ${color} is a browser default color`);
     const ctx = document.createElement('canvas').getContext('2d');
     ctx.fillStyle = '#000';
     ctx.fillStyle = color;
     if (ctx.fillStyle === '#000000' && color.toLowerCase() !== 'black') {
-      throw new Error(`Unknown color name: ${color}`);
+      console.log(`Unknown color name: ${color}`);
+	    throw new Error(`Unknown color name: ${color}`);
+	    console.log(`If you see this message, it is mean that browser supress associated error`);
     }
     color = ctx.fillStyle;
   }
