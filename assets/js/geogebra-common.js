@@ -41,6 +41,7 @@ function getCssVariable(name) {
 
 
 function hexToRgb(color) {
+  console.log(`hexToRgb tries to extract RGB from ${color}`);
   // If css-variable
   if (color.startsWith('--')) {
     color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
