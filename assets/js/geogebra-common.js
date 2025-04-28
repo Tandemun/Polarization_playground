@@ -156,12 +156,14 @@ function createAppletControls(applet, variableNames, containerId) {
   controlsWrapper.style.display = 'flex';
   controlsWrapper.style.alignItems = 'center';
   controlsWrapper.style.gap = '2rem';
+  controlGroup.style.justifyContent = 'space-evenly';
   container.appendChild(controlsWrapper);
 
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
     controlGroup.style.display = 'flex';
-    controlGroup.style.justifyContent = 'space-evenly';
+    controlGroup.style.alignItems = 'center';
+    
 
     // Create value display
     const valueDisplay = document.createElement('div');
