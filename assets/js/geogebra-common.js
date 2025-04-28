@@ -269,7 +269,6 @@ function createPoincareControl(applet, variableNames, containerId) {
     controlGroup.style.alignItems = 'center';
     controlGroup.style.gap = '0.5rem';
 
-
     // Create checkbox
     const label = document.createElement('label');
     label.style.display = 'flex';
@@ -291,17 +290,17 @@ function createPoincareControl(applet, variableNames, containerId) {
     checkboxes.push(checkbox);
   });
 
-
   function handleCheckboxInput(index) {
     return function(event) {
-      const value = parseBoolean(event.target.value);
+      const value = event.target.checked;  // Use checked property
       const varName = variableNames[index];
       applet.setTrace(varName, value);
     };
   }
 
-  checkboxex.forEach((checkbox, i) => {
+  checkboxes.forEach((checkbox, i) => {
     checkbox.addEventListener('input', handleCheckboxInput(i));
   });
 }
+
 
