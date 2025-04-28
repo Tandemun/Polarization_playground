@@ -27,7 +27,7 @@ title: 3-Paddle Polarization Controller
     background: white;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index: 1500;
 ">
   <li>Пункт 1</li>
   <li>Пункт 2</li>
