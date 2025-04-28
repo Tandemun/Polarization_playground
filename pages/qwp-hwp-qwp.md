@@ -23,7 +23,7 @@ title: 3-Paddle Polarization Controller
 
 <script>  
     var controller = new GGBApplet(createGGBParams("controller", "twr2vny4"), true);
-    var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
+    var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: false}), true);
     var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
     var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
     var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
