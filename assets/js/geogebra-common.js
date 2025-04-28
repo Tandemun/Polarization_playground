@@ -179,7 +179,7 @@ function createAppletControls(applet, variableNames, containerId) {
     slider.max = 90;
     slider.value = 0;
     slider.id = `slider_${name}`;
-    slider.style.width = '200px';
+    slider.style.width = '160px';
 
 
 
