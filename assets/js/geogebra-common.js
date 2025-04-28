@@ -298,7 +298,7 @@ function createPoincareControl(applet, variableNames, containerId) {
       const varName = checkbox.dataset.varname;
       const appletId = checkbox.dataset.appletid;
       const value = checkbox.checked;
-      console.log(`Chekbox ${index} for applet ${applet} for ${varName} is changed to ${value}`);
+      console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
       applet.setTrace(varName, value)
   }
 }
