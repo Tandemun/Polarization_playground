@@ -22,86 +22,89 @@ title: 3-Paddle Polarization Controller
 
 
 <script>  
-  var controller = new GGBApplet(createGGBParams("controller", "twr2vny4"), true);
-  var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
-  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
-  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
-  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
-  var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3"), true);
+    var controller = new GGBApplet(createGGBParams("controller", "twr2vny4"), true);
+    var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: true}), true);
+    var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
+    var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
+    var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
+    var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3"), true);
 
-  window.onload = function () {
-    controller.inject("controller")
-    poincare.inject("poincare");
-    ellips0.inject("ellips0");
-    ellips1.inject("ellips1");
-    ellips2.inject("ellips2");
-    ellips3.inject("ellips3");
+    window.onload = function () {
+      controller.inject("controller")
+      poincare.inject("poincare");
+      ellips0.inject("ellips0");
+      ellips1.inject("ellips1");
+      ellips2.inject("ellips2");
+      ellips3.inject("ellips3");
+    };
+
+  let appletsLoaded = {
+    controller: false,
+    poincare: false,
+    ellips0: false,
+    ellips1: false,
+    ellips2: false,
+    ellips3: false  
   };
 
-let appletsLoaded = {
-  controller: false,
-  poincare: false,
-  ellips0: false,
-  ellips1: false,
-  ellips2: false,
-  ellips3: false  
-};
 
-
-function setupAll() {	
-    console.log("1");
-    setMode(poincare, "full");
-    poincare.setValue("phi1", 90)
-    poincare.setValue("phi2", 180)
-    poincare.setValue("phi3", 90)
-    poincare.setColor("P0", 0,0,0)
-    ellips0.setColor("ellips", 0, 0, 0)
-    createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
-    createPoincareControl(poincare, ['P0', 'P1', 'P2','P3'], 'controls2')
+  function setupAll() {	
+      console.log("1");
+      setMode(poincare, "full");
+      poincare.setValue("phi1", 90)
+      poincare.setValue("phi2", 180)
+      poincare.setValue("phi3", 90)
+      poincare.setColor("P0", 0,0,0)
+      ellips0.setColor("ellips", 0, 0, 0)
+      createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
+      createPoincareControl(poincare, ['P0trace', 'P1trace', 'P2trace','P3trace'], 'controls2')
 	
-    console.log("Set background colors for applets");
-    const bgColor = getCssVariable("--base3")
-    controller.setGraphicsOptions(-1,{"bgColor":bgColor});
-    controller.setGraphicsOptions(1,{"bgColor":bgColor});
-    poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
-    poincare.setGraphicsOptions(1,{"bgColor":bgColor});
-    ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
-    ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
-    ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
-    ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
+      console.log("Set background colors for applets");
+      const bgColor = getCssVariable("--base3")
+      controller.setGraphicsOptions(-1,{"bgColor":bgColor});
+      controller.setGraphicsOptions(1,{"bgColor":bgColor});
+      poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
+      poincare.setGraphicsOptions(1,{"bgColor":bgColor});
+      ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
+      ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
+      ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
+      ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
 	
-    console.log("3");
-    setColors([{ applet: poincare,   name: "sphere"}], bgColor);    
-    console.log("3.5");
-    setColors([
-      { applet: controller, name: "paddle1" },
-      { applet: controller, name: "th1" },
-      { applet: poincare,   name: "P1" },
-      { applet: poincare,   name: "P0P1"},
-      { applet: poincare,   name: "A11"},
-      { applet: poincare,   name: "A12"},
-      { applet: ellips1,    name: "ellips"},  
-    ], "--orange");
-    console.log("4");
-    setColors([
-      { applet: controller, name: "paddle2" },
-      { applet: controller, name: "th2" },
-      { applet: poincare,   name: "P2" },
-      { applet: poincare,   name: "A21"},
-      { applet: poincare,   name: "A22"},        
-      { applet: poincare,   name: "P1P2"},
-      { applet: ellips2,    name: "ellips"},  
-    ], "--blue");    
+      console.log("3");
+      setColors([{ applet: poincare,   name: "sphere"}], bgColor);    
+      console.log("3.5");
+      setColors([
+          { applet: controller, name: "paddle1" },
+          { applet: controller, name: "th1" },
+          { applet: poincare,   name: "P1" },
+          { applet: poincare,   name: "P1trace" },
+          { applet: poincare,   name: "P0P1"},
+          { applet: poincare,   name: "A11"},
+          { applet: poincare,   name: "A12"},
+          { applet: ellips1,    name: "ellips"},  
+      ], "--orange");
+      console.log("4");
+      setColors([
+          { applet: controller, name: "paddle2" },
+          { applet: controller, name: "th2" },
+          { applet: poincare,   name: "P2" },
+          { applet: poincare,   name: "P2trace" },
+          { applet: poincare,   name: "A21"},
+          { applet: poincare,   name: "A22"},        
+          { applet: poincare,   name: "P1P2"},
+          { applet: ellips2,    name: "ellips"},  
+      ], "--blue");    
 
-    setColors([
-      { applet: controller, name: "paddle3" },
-      { applet: controller, name: "th3" },
-      { applet: poincare,   name: "P3" },
-      { applet: poincare,   name: "P2P3"},
-      { applet: poincare,   name: "A31"},
-      { applet: poincare,   name: "A32"},        
-      { applet: ellips3,    name: "ellips"},  
-    ], "--orange"); 
+      setColors([
+          { applet: controller, name: "paddle3" },
+          { applet: controller, name: "th3" },
+          { applet: poincare,   name: "P3" },
+          { applet: poincare,   name: "P3trace" },
+          { applet: poincare,   name: "P2P3"},
+          { applet: poincare,   name: "A31"},
+          { applet: poincare,   name: "A32"},        
+          { applet: ellips3,    name: "ellips"},  
+      ], "--orange"); 
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");
