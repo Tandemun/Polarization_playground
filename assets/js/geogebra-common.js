@@ -278,6 +278,9 @@ function createPoincareControl(applet, variableNames, containerId) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
+    checkbox.dataset.varname = name;        // Запоминаем имя переменной
+    //checkbox.dataset.appletid = applet.id;   // Запоминаем id апплета
+    checkbox.addEventListener('input', handleCheckboxInput);
 
     const checkboxText = document.createElement('span');
     checkboxText.textContent = 'trace';
@@ -290,19 +293,14 @@ function createPoincareControl(applet, variableNames, containerId) {
     checkboxes.push(checkbox);
   });
 
-  function handleCheckboxInput(index) {
-      console.log(`Register listener for chekbox ${index}`);
-      return function(event) {
-          const value = event.target.checked;  // Use checked property
-          const varName = variableNames[index];
-	  console.log(`Chekbox ${index} for applet ${applet} for ${varName} is changed to ${value}`);
-          applet.setTrace(varName, value);
-      };
+  function handleCheckboxInput(event) {
+      const checkbox = event.target;
+      const varName = checkbox.dataset.varname;
+      const appletId = checkbox.dataset.appletid;
+      const value = checkbox.checked;
+      console.log(`Chekbox ${index} for applet ${applet} for ${varName} is changed to ${value}`);
+      applet.setTrace(varName, value)
   }
-
-  checkboxes.forEach((checkbox, i) => {
-    checkbox.addEventListener('input', handleCheckboxInput(i));
-  });
 }
 
 
