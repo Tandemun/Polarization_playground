@@ -78,17 +78,17 @@ function hexToRgb(color) {
 }
 
 
-function setColors(mapping, color) {
-    const [r, g, b] = hexToRgb(color);
+function setColors(applet, colorMapping) {
+    // Проходим по объекту colorMapping, где ключ — это цвет, а значение — массив с именами объектов
+    for (const [color, names] of Object.entries(colorMapping)) {
+        // Преобразуем цвет из hex в RGB
+        const [r, g, b] = hexToRgb(color);
 
-    mapping.forEach(item => {
-        // Для каждого элемента в объекте item, ключ - имя апплета, значение - массив с именами
-        for (const [applet, names] of Object.entries(item)) {
-            names.forEach(name => {
-                applet.setColor(name, r, g, b); // Здесь applet — это объект, а не строка
-            });
-        }
-    });
+        // Проходим по именам объектов и задаем цвет
+        names.forEach(name => {
+            applet.setColor(name, r, g, b);
+        });
+    }
 }
   
 function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
