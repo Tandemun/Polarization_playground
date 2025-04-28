@@ -247,3 +247,61 @@ function createAppletControls(applet, variableNames, containerId) {
   });
 }
 
+
+
+function createPoincareControl(applet, variableNames, containerId) {
+  const container = document.getElementById(containerId);
+
+  container.innerHTML = ''; // Clear container
+
+  const checkboxes = [];
+
+  const controlsWrapper = document.createElement('div');
+  controlsWrapper.style.display = 'flex';
+  controlsWrapper.style.alignItems = 'center';
+  controlsWrapper.style.gap = '2rem';
+  container.appendChild(controlsWrapper);
+
+  variableNames.forEach((name, index) => {
+    const controlGroup = document.createElement('div');
+    controlGroup.style.display = 'flex';
+    controlGroup.style.flexDirection = 'column';
+    controlGroup.style.alignItems = 'center';
+    controlGroup.style.gap = '0.5rem';
+
+
+    // Create checkbox
+    const label = document.createElement('label');
+    label.style.display = 'flex';
+    label.style.alignItems = 'center';
+    label.style.gap = '0.5rem';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `checkbox_${name}`;
+
+    const checkboxText = document.createElement('span');
+    checkboxText.textContent = 'trace';
+
+    label.appendChild(checkbox);
+    label.appendChild(checkboxText);
+
+    controlGroup.appendChild(label);
+    controlsWrapper.appendChild(controlGroup);
+    checkboxes.push(checkbox);
+  });
+
+
+  function handleCheckboxInput(index) {
+    return function(event) {
+      const value = parseBoolean(event.target.value);
+      const varName = variableNames[index];
+      applet.setTrace(varName, value);
+    };
+  }
+
+  checkboxex.forEach((checkbox, i) => {
+    checkbox.addEventListener('input', handleCheckboxInput(i));
+  });
+}
+
