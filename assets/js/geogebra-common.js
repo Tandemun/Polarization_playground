@@ -41,30 +41,24 @@ function getCssVariable(name) {
 
 
 function hexToRgb(color) {
-  console.log(`hexToRgb tries to extract RGB from ${color}`);
-  // If css-variable
   if (color.startsWith('--')) {
     color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
   }
 
-  // If standard color name check via canvas
-  if (!color.startsWith('#') && !/^[0-9a-f]{6}$/i.test(color)) {
+  
+
+  if (!/^#?[0-9a-f]{6}$/i.test(color)) {
     const ctx = document.createElement('canvas').getContext('2d');
-    ctx.fillStyle = '#000'; // сброс
+    ctx.fillStyle = '#000';
     ctx.fillStyle = color;
     if (ctx.fillStyle === '#000000' && color.toLowerCase() !== 'black') {
       throw new Error(`Unknown color name: ${color}`);
     }
-    color = ctx.fillStyle; // Теперь в формате "#rrggbb"
+    color = ctx.fillStyle;
   }
 
-  // If hex
   if (color.startsWith('#')) {
     color = color.slice(1);
-  }
-
-  if (!/^[0-9a-f]{6}$/i.test(color)) {
-    throw new Error(`Invalid hex color: ${color}`);
   }
 
   const r = parseInt(color.slice(0, 2), 16);
