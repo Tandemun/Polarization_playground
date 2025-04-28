@@ -80,9 +80,12 @@ function hexToRgb(color) {
 
 function setColors(mapping, color) {
     const [r, g, b] = hexToRgb(color);
-    mapping.forEach(function(item) {
-        item.applet.setColor(item.name, r, g, b);
-    });
+
+    for (const [applet, objNames] of Object.entries(mapping)) {
+        objNames.forEach(objName => {
+            applet.setColor(objName, r, g, b);
+        });
+    }
 }
   
 function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
