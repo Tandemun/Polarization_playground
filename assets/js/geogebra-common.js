@@ -41,13 +41,14 @@ function getCssVariable(name) {
 
 
 function hexToRgb(color) {
-  if (color.startsWith('--')) {
+      console.log(`hexToRgb tries to extract RGB fom ${color} color`);
+if (color.startsWith('--')) {
+    console.log(`Seems that ${color} is a css-variable`);
     color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
   }
 
-  
-
   if (!/^#?[0-9a-f]{6}$/i.test(color)) {
+      console.log(`Seems that ${color} is a browser default color`);
     const ctx = document.createElement('canvas').getContext('2d');
     ctx.fillStyle = '#000';
     ctx.fillStyle = color;
