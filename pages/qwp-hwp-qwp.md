@@ -9,6 +9,7 @@ title: 3-Paddle Polarization Controller
 <h2>State of Polarization</h2>
 <p>This visualization shows the evolution of the state of polarization (SOP) at different stages within the controller. The top displays the Poincaré sphere, while the bottom shows the corresponding polarization ellipses.</p>
 
+<div id="controls1" style="width: 800px; height: 100px;"></div>
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
 <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
@@ -54,7 +55,7 @@ function setupAll() {
     poincare.setValue("phi3", 90)
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
-    
+    createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
     console.log("Set background colors for applets");
     const bgColor = getCssVariable("--base3")
     controller.setGraphicsOptions(-1,{"bgColor":bgColor});
