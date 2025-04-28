@@ -66,7 +66,11 @@ function setupAll() {
     ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
     ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
 	
-	console.log("3");
+    console.log("3");
+    setColors([
+      { applet: poincare,   name: "a"}
+    ], "--base03");    
+	
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
@@ -76,7 +80,7 @@ function setupAll() {
       { applet: poincare,   name: "A12"},
       { applet: ellips1,    name: "ellips"},  
     ], "--orange");
-console.log("4");
+    console.log("4");
     setColors([
       { applet: controller, name: "paddle2" },
       { applet: controller, name: "th2" },
