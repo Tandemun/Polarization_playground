@@ -71,27 +71,27 @@ title: 3-Paddle Polarization Controller
         ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
 	
         console.log("3");
-        setColors([{poincare: ["sphere"]}], bgColor);    
-        console.log("3.5");
+        //setColors([{poincare: ["sphere"]}], bgColor);    
       
         console.log("4");
-        setColors({
-            controller: ["paddle1"],
-            poincare: ["P1", "P1trace", "P0P1", "A11", "A12"],
-            ellips1: ["ellips"]
-        }, "--orange");
-
-        setColors({
-            controller: ["paddle2"],
-            poincare: ["P2", "P2trace", "P1P2", "A21", "A12"],
-            ellips2: ["ellips"]
-        }, "--blue")
         
-        setColors({
-            controller: ["paddle3"],
-            poincare: ["P3", "P3trace", "P2P3", "A31", "A32"],
-            ellips3: ["ellips"]
-        }, "--blue")           
+	    setColors(controller,{
+            bgColor:    ["sphere"],
+            "--orange": ["paddle1"],
+            "--blue":   ["paddle2"],
+            "--orange": ["paddle3"]
+        });
+
+	    setColors(poincare,{
+            "--orange": ["P1", "P1trace", "P0P1", "A11", "A12"],
+            "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
+            "--orange": ["P3", "P3trace", "P2P3", "A31", "A32"]
+        });        
+	    
+        setColors(ellips1,{"--orange":["ellips"]});
+        setColors(ellips2,{"--blue":  ["ellips"]});
+        setColors(ellips3,{"--orange":["ellips"]});
+
 	      
     syncValue(controller, "th1", poincare, "th1");
     syncValue(controller, "th2", poincare, "th2");
