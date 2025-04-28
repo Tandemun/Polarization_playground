@@ -291,13 +291,13 @@ function createPoincareControl(applet, variableNames, containerId) {
   });
 
   function handleCheckboxInput(index) {
-      console.log(`Chekbox ${index} is changed`);
+      console.log(`Register listener for chekbox ${index}`);
       return function(event) {
           const value = event.target.checked;  // Use checked property
           const varName = variableNames[index];
-	  console.log(`Chekbox ${index} for ${varName} is changed to ${value}`);
-      applet.setTrace(varName, value);
-    };
+	  console.log(`Chekbox ${index} for applet ${applet} for ${varName} is changed to ${value}`);
+          applet.setTrace(varName, value);
+      };
   }
 
   checkboxes.forEach((checkbox, i) => {
