@@ -2,7 +2,13 @@
 layout: default
 title: 3-Paddle Polarization Controller
 ---
+# Welcome to the Polarization Playground
 
+This interactive textbook explores how optical components affect polarization using the Poincaré sphere.
+
+- [Half-Wave Plate](/pages/half-wave-plate.md)
+- [Quarter-Wave Plate](/pages/quarter-wave-plate.md)
+  
 <h1>Interactive Model of a 3-Paddle Polarization Controller</h1>
 <h2>3-Paddle Polarization Controller</h2>
 <p>This is a model of a classical manual 3-paddle polarization controller. Use the sliders to adjust paddle rotation angles α, β, and γ.</p>
