@@ -30,21 +30,21 @@ title: 3-Paddle Polarization Controller
     var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3"), true);
 
     window.onload = function () {
-      controller.inject("controller")
-      poincare.inject("poincare");
-      ellips0.inject("ellips0");
-      ellips1.inject("ellips1");
-      ellips2.inject("ellips2");
-      ellips3.inject("ellips3");
+        controller.inject("controller")
+        poincare.inject("poincare");
+        ellips0.inject("ellips0");
+        ellips1.inject("ellips1");
+        ellips2.inject("ellips2");
+        ellips3.inject("ellips3");
     };
 
     let appletsLoaded = {
-      controller: false,
-      poincare: false,
-      ellips0: false,
-      ellips1: false,
-      ellips2: false,
-      ellips3: false  
+        controller: false,
+        poincare: false,
+        ellips0: false,
+        ellips1: false,
+        ellips2: false,
+        ellips3: false  
     };
 
 
@@ -70,14 +70,13 @@ title: 3-Paddle Polarization Controller
 	
       
         console.log("4");
-         
-	    setColors(controller,{
+	setColors(controller,{
             "--orange": ["paddle1", "paddle3"],
             "--blue":   ["paddle2"],
         });
-	    setColors(poincare,{
-	    djkfhjkdfh:    ["sphere"],
-            black:      ["P0","P0trace"],
+	setColors(poincare,{
+	    [bgColor]:  ["sphere"],
+            "black":    ["P0","P0trace"],
             "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
             "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
         });        
@@ -88,21 +87,21 @@ title: 3-Paddle Polarization Controller
         setColors(ellips3,{"--orange":["ellips"]});
 
 	      
-    syncValue(controller, "th1", poincare, "th1");
-    syncValue(controller, "th2", poincare, "th2");
-    syncValue(controller, "th3", poincare, "th3");
-    controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
-    controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
-    controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
+        syncValue(controller, "th1", poincare, "th1");
+        syncValue(controller, "th2", poincare, "th2");
+        syncValue(controller, "th3", poincare, "th3");
+        controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
+        controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
+        controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
     
-    syncCoords(poincare, "P0", ellips0, "S");
-    syncCoords(poincare, "P1", ellips1, "S");
-    syncCoords(poincare, "P2", ellips2, "S"); 
-    syncCoords(poincare, "P3", ellips3, "S");
-    poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
-    poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
-    poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
-    poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
+        syncCoords(poincare, "P0", ellips0, "S");
+        syncCoords(poincare, "P1", ellips1, "S");
+        syncCoords(poincare, "P2", ellips2, "S"); 
+        syncCoords(poincare, "P3", ellips3, "S");
+        poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+        poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+        poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
+        poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
 }
 </script>
 
