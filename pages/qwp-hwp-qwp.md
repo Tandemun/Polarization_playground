@@ -68,7 +68,7 @@ function setupAll() {
 	
     console.log("3");
     setColors([
-      { applet: poincare,   name: "a"}
+      { applet: poincare,   name: "sphere"}
     ], "--orange");    
 	console.log("3.5");
     setColors([
