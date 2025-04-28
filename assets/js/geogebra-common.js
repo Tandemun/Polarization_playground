@@ -155,6 +155,7 @@ function checkAllAppletsLoaded() {
 
 function createAppletControls(applet, variableNames, containerId) {
   const container = document.getElementById(containerId);
+
   container.innerHTML = ''; // Clear container
 
   const sliders = [];
@@ -162,12 +163,17 @@ function createAppletControls(applet, variableNames, containerId) {
   const valueDisplays = [];
 
   const controlsWrapper = document.createElement('div');
-  controlsWrapper.className = 'controls-wrapper';
+  controlsWrapper.style.display = 'flex';
+  controlsWrapper.style.alignItems = 'center';
+  controlsWrapper.style.gap = '2rem';
   container.appendChild(controlsWrapper);
 
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
-    controlGroup.className = 'control-group';
+    controlGroup.style.display = 'flex';
+    controlGroup.style.flexDirection = 'column';
+    controlGroup.style.alignItems = 'center';
+    controlGroup.style.gap = '0.5rem';
 
     // Create slider
     const slider = document.createElement('input');
@@ -176,21 +182,23 @@ function createAppletControls(applet, variableNames, containerId) {
     slider.max = 90;
     slider.value = 0;
     slider.id = `slider_${name}`;
-    slider.className = 'applet-slider';
+    slider.style.width = '200px';
 
     // Create value display
     const valueDisplay = document.createElement('div');
     valueDisplay.textContent = '0';
-    valueDisplay.className = 'value-display';
+    valueDisplay.style.fontFamily = 'monospace';
+    valueDisplay.style.fontSize = '1rem';
 
     // Create checkbox
     const label = document.createElement('label');
-    label.className = 'checkbox-label';
+    label.style.display = 'flex';
+    label.style.alignItems = 'center';
+    label.style.gap = '0.5rem';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
-    checkbox.className = 'applet-checkbox';
 
     const checkboxText = document.createElement('span');
     checkboxText.textContent = 'Link';
@@ -238,3 +246,4 @@ function createAppletControls(applet, variableNames, containerId) {
     slider.addEventListener('input', handleSliderInput(i));
   });
 }
+
