@@ -161,7 +161,7 @@ function createAppletControls(applet, variableNames, containerId) {
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
     controlGroup.style.display = 'flex';
-    controlGroup.style.justify-content = 'space-evenly';
+    controlGroup.style.justifyContent = 'space-evenly';
 
     // Create slider
     const slider = document.createElement('input');
