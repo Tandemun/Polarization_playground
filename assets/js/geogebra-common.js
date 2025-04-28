@@ -163,6 +163,12 @@ function createAppletControls(applet, variableNames, containerId) {
     controlGroup.style.display = 'flex';
     controlGroup.style.justifyContent = 'space-evenly';
 
+    // Create value display
+    const valueDisplay = document.createElement('div');
+    valueDisplay.textContent = '0';
+    valueDisplay.style.fontFamily = 'monospace';
+    valueDisplay.style.fontSize = '1rem';
+	  
     // Create slider
     const slider = document.createElement('input');
     slider.type = 'range';
@@ -172,11 +178,7 @@ function createAppletControls(applet, variableNames, containerId) {
     slider.id = `slider_${name}`;
     slider.style.width = '200px';
 
-    // Create value display
-    const valueDisplay = document.createElement('div');
-    valueDisplay.textContent = '0';
-    valueDisplay.style.fontFamily = 'monospace';
-    valueDisplay.style.fontSize = '1rem';
+
 
     // Create checkbox
     const checkbox = document.createElement('input');
