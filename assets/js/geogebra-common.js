@@ -161,9 +161,7 @@ function createAppletControls(applet, variableNames, containerId) {
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
     controlGroup.style.display = 'flex';
-    controlGroup.style.flexDirection = 'column';
-    controlGroup.style.alignItems = 'center';
-    controlGroup.style.gap = '0.5rem';
+    controlGroup.style.justify-content = 'space-evenly';
 
     // Create slider
     const slider = document.createElement('input');
@@ -181,24 +179,14 @@ function createAppletControls(applet, variableNames, containerId) {
     valueDisplay.style.fontSize = '1rem';
 
     // Create checkbox
-    const label = document.createElement('label');
-    label.style.display = 'flex';
-    label.style.alignItems = 'center';
-    label.style.gap = '0.5rem';
-
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
 
-    const checkboxText = document.createElement('span');
-    checkboxText.textContent = 'Link';
-
-    label.appendChild(checkbox);
-    label.appendChild(checkboxText);
 
     controlGroup.appendChild(slider);
     controlGroup.appendChild(valueDisplay);
-    controlGroup.appendChild(label);
+    controlGroup.appendChild(checkbox);
     controlsWrapper.appendChild(controlGroup);
 
     sliders.push(slider);
