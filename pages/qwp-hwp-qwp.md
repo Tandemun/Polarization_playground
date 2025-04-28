@@ -67,10 +67,8 @@ function setupAll() {
     ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
 	
     console.log("3");
-    setColors([
-      { applet: poincare,   name: "sphere"}
-    ], "--orange");    
-	console.log("3.5");
+    setColors([{ applet: poincare,   name: "sphere"}], bgColor);    
+    console.log("3.5");
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
