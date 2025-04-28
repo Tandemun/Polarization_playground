@@ -75,7 +75,6 @@ title: 3-Paddle Polarization Controller
             "--orange": ["paddle1", "paddle3"],
             "--blue":   ["paddle2"],
         });
-const bgColor = getCssVariable("--base3")
 	    setColors(poincare,{
 	    djkfhjkdfh:    ["sphere"],
             black:      ["P0","P0trace"],
