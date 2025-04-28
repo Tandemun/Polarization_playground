@@ -185,10 +185,10 @@ function createAppletControls(applet, variableNames, containerId) {
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
 
-
-    controlGroup.appendChild(slider);
     controlGroup.appendChild(valueDisplay);
+    controlGroup.appendChild(slider);
     controlGroup.appendChild(checkbox);
+	  
     controlsWrapper.appendChild(controlGroup);
 
     sliders.push(slider);
