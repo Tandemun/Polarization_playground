@@ -156,7 +156,7 @@ function createAppletControls(applet, variableNames, containerId) {
   controlsWrapper.style.display = 'flex';
   controlsWrapper.style.alignItems = 'center';
   controlsWrapper.style.gap = '2rem';
-  controlGroup.style.justifyContent = 'space-evenly';
+  controlsWrapper.style.justifyContent = 'space-evenly';
   container.appendChild(controlsWrapper);
 
   variableNames.forEach((name, index) => {
