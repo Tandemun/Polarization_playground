@@ -168,6 +168,9 @@ function createAppletControls(applet, variableNames, containerId) {
     valueDisplay.textContent = '0';
     valueDisplay.style.fontFamily = 'monospace';
     valueDisplay.style.fontSize = '1rem';
+    valueDisplay.style.display = 'inline-block';
+    valueDisplay.style.width = '4ch';  // 4 символа шириной
+    valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
 	  
     // Create slider
     const slider = document.createElement('input');
