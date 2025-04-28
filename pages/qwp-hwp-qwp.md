@@ -69,8 +69,8 @@ function setupAll() {
     console.log("3");
     setColors([
       { applet: poincare,   name: "a"}
-    ], "--base03");    
-	
+    ], "--orange");    
+	console.log("3.5");
     setColors([
       { applet: controller, name: "paddle1" },
       { applet: controller, name: "th1" },
