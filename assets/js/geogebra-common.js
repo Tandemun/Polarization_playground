@@ -39,12 +39,12 @@ function getCssVariable(name) {
 }
 
 function hexToRgb(color) {
-  // Если это css-переменная
+  // In the case of css-variable
   if (color.startsWith('--')) {
     color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
   }
 
-  // Если это стандартное имя цвета
+  // In the case os standart color name
   if (!color.startsWith('#') && !/^[0-9a-f]{6}$/i.test(color)) {
     // Создаём временный элемент, чтобы спросить браузер
     let dummy = document.createElement('div');
@@ -76,6 +76,34 @@ function hexToRgb(color) {
   let b = parseInt(color.substring(4, 6), 16);
   return [r, g, b];
 }
+
+
+function hexToRgb(color) {
+  //If css-variable
+  if (color.startsWith('--')) {
+    color = getComputedStyle(document.documentElement).getPropertyValue(color).trim();
+  }
+ 
+  // In the case os standart color name Проверка через canvas (без добавления в DOM!)
+  if (!color.startsWith('#') && !/^[0-9a-f]{6}$/i.test(color)) {
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.fillStyle = '#000'; // сброс
+    ctx.fillStyle = color;
+    if (ctx.fillStyle === '#000000' && color.toLowerCase() !== 'black') {throw new Error(`Unknown color name: ${color}`); }
+    // Теперь ctx.fillStyle всегда нормализованный hex типа "#rrggbb"
+    color = ctx.fillStyle;
+     
+   //If hex
+  if (color.startsWith('#')) {color = color.slice(1);}
+
+  if (!/^[0-9a-f]{6}$/i.test(color)) {throw new Error(`Invalid hex color: ${color}`);}
+
+  let r = parseInt(color.slice(0, 2), 16);
+  let g = parseInt(color.slice(2, 4), 16);
+  let b = parseInt(color.slice(4, 6), 16);
+  return [r, g, b];
+}
+
 
 
 function setColors(applet, colorMapping) {
