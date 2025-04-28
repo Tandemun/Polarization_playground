@@ -12,6 +12,7 @@ title: 3-Paddle Polarization Controller
 <div id="controls1" style="width: 800px; height: 100px;"></div>
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
+<div id="controls2" style="width: 800px; height: 100px;"></div>
 <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
     <div id="ellips0"></div>
     <div id="ellips1"></div>
@@ -56,6 +57,8 @@ function setupAll() {
     poincare.setColor("P0", 0,0,0)
     ellips0.setColor("ellips", 0, 0, 0)
     createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
+    createPoincareControl(controller, ['P0', 'P1', 'P2','P3'], 'controls2')
+	
     console.log("Set background colors for applets");
     const bgColor = getCssVariable("--base3")
     controller.setGraphicsOptions(-1,{"bgColor":bgColor});
