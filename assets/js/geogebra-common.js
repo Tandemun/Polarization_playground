@@ -149,4 +149,72 @@ function checkAllAppletsLoaded() {
         console.log("Все апплеты загружены! Запускаю настройку...");
         setupAll();
   }
-}  
+}
+
+function createAppletControls(applet, variableNames, containerId) {
+  const container = document.getElementById(containerId);
+
+  container.innerHTML = ''; // Очистить контейнер, если что-то там было
+
+  const sliders = [];
+  const checkboxes = [];
+
+  variableNames.forEach((name, index) => {
+    const row = document.createElement('div');
+    row.style.display = 'flex';
+    row.style.alignItems = 'center';
+    row.style.gap = '10px';
+    row.style.marginBottom = '5px';
+
+    const slider = document.createElement('input');
+    slider.type = 'range';
+    slider.min = -90;
+    slider.max = 90;
+    slider.value = 0;
+    slider.id = `slider_${name}`;
+
+    const label = document.createElement('label');
+    label.textContent = 'Связать';
+    label.setAttribute('for', `checkbox_${name}`);
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `checkbox_${name}`;
+
+    row.appendChild(slider);
+    row.appendChild(label);
+    row.appendChild(checkbox);
+    container.appendChild(row);
+
+    sliders.push(slider);
+    checkboxes.push(checkbox);
+  });
+
+  function updateApplet(index, value) {
+    const varName = variableNames[index];
+    applet.setValue(varName, value);
+  }
+
+  function handleSliderInput(index) {
+    return function(event) {
+      const value = parseFloat(event.target.value);
+
+      const linkedIndices = checkboxes
+        .map((cb, i) => (cb.checked ? i : null))
+        .filter(i => i !== null);
+
+      if (linkedIndices.length > 1 && checkboxes[index].checked) {
+        linkedIndices.forEach(i => {
+          sliders[i].value = value;
+          updateApplet(i, value);
+        });
+      } else {
+        updateApplet(index, value);
+      }
+    };
+  }
+
+  sliders.forEach((slider, i) => {
+    slider.addEventListener('input', handleSliderInput(i));
+  });
+}
