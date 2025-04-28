@@ -76,7 +76,7 @@ title: 3-Paddle Polarization Controller
         console.log("4");
         
 	    setColors(controller,{
-            bgColor:    ["sphere"],
+            //bgColor:    ["sphere"],
             "--orange": ["paddle1"],
             "--blue":   ["paddle2"],
             "--orange": ["paddle3"]
