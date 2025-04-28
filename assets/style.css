@@ -6,7 +6,7 @@ h1 {
 	margin-bottom: 40px;
 }
 h1, h2, h3 {
-  color: var(--blue);              /* заголовки синие */
+  color: var(--base03);      
 }
 .container {
   display: flex;
@@ -14,7 +14,7 @@ h1, h2, h3 {
 }
 
 body{
-    color: var(--base00);
+    color: var(--base02);
     font-family: "Helvetica Neue", sans-serif;
     background-color: var(--base3);
 }
