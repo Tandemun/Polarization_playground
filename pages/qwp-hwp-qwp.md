@@ -122,16 +122,17 @@ title: 3-Paddle Polarization Controller
 const appletContainer = document.getElementById('poincare');
 const customMenu = document.getElementById('custom-menu');
 
-// Отключаем стандартное контекстное меню
-appletContainer.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-    // Позиционируем наше меню туда, куда кликнули
-    customMenu.style.left = `${event.pageX}px`;
-    customMenu.style.top = `${event.pageY}px`;
-    customMenu.style.display = 'block';
+document.addEventListener('contextmenu', (event) => {
+    if (appletContainer.contains(event.target)) {
+        event.preventDefault();
+        customMenu.style.left = `${event.pageX}px`;
+        customMenu.style.top = `${event.pageY}px`;
+        customMenu.style.display = 'block';
+    } else {
+        customMenu.style.display = 'none';
+    }
 });
 
-// Скрываем меню при клике где угодно
 document.addEventListener('click', () => {
     customMenu.style.display = 'none';
 });	
