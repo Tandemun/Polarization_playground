@@ -151,43 +151,61 @@ function checkAllAppletsLoaded() {
   }
 }
 
+
+
 function createAppletControls(applet, variableNames, containerId) {
   const container = document.getElementById(containerId);
-
-  container.innerHTML = ''; // Очистить контейнер, если что-то там было
+  container.innerHTML = ''; // Clear container
 
   const sliders = [];
   const checkboxes = [];
+  const valueDisplays = [];
+
+  const controlsWrapper = document.createElement('div');
+  controlsWrapper.className = 'controls-wrapper';
+  container.appendChild(controlsWrapper);
 
   variableNames.forEach((name, index) => {
-    const row = document.createElement('div');
-    row.style.display = 'flex';
-    row.style.alignItems = 'center';
-    row.style.gap = '10px';
-    row.style.marginBottom = '5px';
+    const controlGroup = document.createElement('div');
+    controlGroup.className = 'control-group';
 
+    // Create slider
     const slider = document.createElement('input');
     slider.type = 'range';
     slider.min = -90;
     slider.max = 90;
     slider.value = 0;
     slider.id = `slider_${name}`;
+    slider.className = 'applet-slider';
 
+    // Create value display
+    const valueDisplay = document.createElement('div');
+    valueDisplay.textContent = '0';
+    valueDisplay.className = 'value-display';
+
+    // Create checkbox
     const label = document.createElement('label');
-    label.textContent = 'Связать';
-    label.setAttribute('for', `checkbox_${name}`);
+    label.className = 'checkbox-label';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
+    checkbox.className = 'applet-checkbox';
 
-    row.appendChild(slider);
-    row.appendChild(label);
-    row.appendChild(checkbox);
-    container.appendChild(row);
+    const checkboxText = document.createElement('span');
+    checkboxText.textContent = 'Link';
+
+    label.appendChild(checkbox);
+    label.appendChild(checkboxText);
+
+    controlGroup.appendChild(slider);
+    controlGroup.appendChild(valueDisplay);
+    controlGroup.appendChild(label);
+    controlsWrapper.appendChild(controlGroup);
 
     sliders.push(slider);
     checkboxes.push(checkbox);
+    valueDisplays.push(valueDisplay);
   });
 
   function updateApplet(index, value) {
@@ -198,6 +216,7 @@ function createAppletControls(applet, variableNames, containerId) {
   function handleSliderInput(index) {
     return function(event) {
       const value = parseFloat(event.target.value);
+      valueDisplays[index].textContent = value;
 
       const linkedIndices = checkboxes
         .map((cb, i) => (cb.checked ? i : null))
@@ -206,6 +225,7 @@ function createAppletControls(applet, variableNames, containerId) {
       if (linkedIndices.length > 1 && checkboxes[index].checked) {
         linkedIndices.forEach(i => {
           sliders[i].value = value;
+          valueDisplays[i].textContent = value;
           updateApplet(i, value);
         });
       } else {
