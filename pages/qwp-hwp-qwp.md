@@ -78,7 +78,7 @@ title: 3-Paddle Polarization Controller
 
 	    setColors(poincare,{
 	        bgColor:    ["sphere"],
-            black:      ["P0","P0trace"]
+            black:      ["P0","P0trace"],
             "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
             "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
         });        
