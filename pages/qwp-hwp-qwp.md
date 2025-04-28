@@ -70,14 +70,14 @@ title: 3-Paddle Polarization Controller
 	
       
         console.log("4");
-        
+         
 	    setColors(controller,{
             "--orange": ["paddle1", "paddle3"],
             "--blue":   ["paddle2"],
         });
-
+const bgColor = getCssVariable("--base3")
 	    setColors(poincare,{
-	        bgColor:    ["sphere"],
+	    djkfhjkdfh:    ["sphere"],
             black:      ["P0","P0trace"],
             "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
             "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
