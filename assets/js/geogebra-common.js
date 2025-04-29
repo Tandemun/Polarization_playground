@@ -244,32 +244,42 @@ function createAppletControls(applet, variableNames, containerId) {
       container.appendChild(details);
 
       const summary = document.createElement('summary');
-      summary.textContent = 'Settings ▼';
+      summary.textContent = 'Settings';
+      summary.style.display = 'flex';
+      summary.style.justifyContent = 'center';
+      summary.style.alignItems = 'center';
+      summary.style.height = '30px'
       details.appendChild(summary);
 
       const menu = document.createElement('div');
+      menu.class = 'menu';
       menu.style.display = 'flex';
-      menu.style.gap = '1rem';
-      menu.style.padding = '1rem';
+      menu.style.width = '100%';
+      menu.style.border = '1px solid #ccc';
       details.appendChild(menu);
 
       const pointsSection = document.createElement('div');
+      pointSection.class = 'pointSection'
       pointsSection.style.display = 'flex';
-      pointsSection.style.gap = '1rem';
+      pointsSection.style.width = '60%';
+      pointsSection.style.gap = '2rem';
+      pointsSection.style.padding = '1rem';
       menu.appendChild(pointsSection);
 
       variableNames.forEach(name => {
-        const column = document.createElement('div');
-        column.style.display = 'flex';
-        column.style.flexDirection = 'column';
+        const pointColumn = document.createElement('div');
+        pointColumn.class = 'pointColumn';
+        pointColumn.style.display = 'flex';
+        pointColumn.style.flexDirection = 'column';
+        pointColumn.style.gap = '0.25rem';
 
         const label = document.createElement('label');
         const labelCheckbox = document.createElement('input');
         labelCheckbox.type = 'checkbox';
-        labelCheckbox.dataset.varname = name;
-        labelCheckbox.id = `label_${name}`;
+        //labelCheckbox.dataset.varname = name;
+        //labelCheckbox.id = `label_${name}`;
         labelCheckbox.addEventListener('input', () => {
-          applet.setLabelVisible?.(name, labelCheckbox.checked);
+          applet.setLabelVisible.(name, labelCheckbox.checked);
         });
         label.appendChild(labelCheckbox);
         label.appendChild(document.createTextNode(' label'));
@@ -277,10 +287,10 @@ function createAppletControls(applet, variableNames, containerId) {
         const trace = document.createElement('label');
         const traceCheckbox = document.createElement('input');
         traceCheckbox.type = 'checkbox';
-        traceCheckbox.dataset.varname = name;
-        traceCheckbox.id = `trace_${name}`;
+        //traceCheckbox.dataset.varname = name;
+        //traceCheckbox.id = `trace_${name}`;
         traceCheckbox.addEventListener('input', () => {
-          applet.setTrace?.(name, traceCheckbox.checked);
+          applet.setTrace.(name, traceCheckbox.checked);
         });
         trace.appendChild(traceCheckbox);
         trace.appendChild(document.createTextNode(' trace'));
@@ -295,32 +305,31 @@ function createAppletControls(applet, variableNames, containerId) {
       });
 
       const generalSection = document.createElement('div');
+      generalSection.class = 'generalSection'
       generalSection.style.display = 'flex';
       generalSection.style.flexDirection = 'column';
-      generalSection.style.gap = '0.5rem';
+      generalSection.style.padding = '1rem'
+      generalSection.style.borderLeft = '1px solid #ccc';
+      generalSection.style.gap = '0.25rem';
       menu.appendChild(generalSection);
 
       const clearBtn = document.createElement('button');
       clearBtn.textContent = 'Clear all traces';
       clearBtn.addEventListener('click', () => {
-        trace_checkboxes.forEach(cb => {
-          cb.checked = false;
-          const varname = cb.dataset.varname;
-          applet.setTrace?.(varname, false);
-        });
+        applet.ZoomIn(-1, 1);
       });
 
       const axisLabel = document.createElement('label');
       const axisCb = document.createElement('input');
       axisCb.type = 'checkbox';
-      axisCb.addEventListener('input', () => applet.showAxis?.(axisCb.checked));
+      axisCb.addEventListener('input', () => applet.setAxesVisible.(-1,axisCb.checked,axisCb.checked,axisCb.checked));
       axisLabel.appendChild(axisCb);
       axisLabel.appendChild(document.createTextNode(' show axis'));
 
       const gridLabel = document.createElement('label');
       const gridCb = document.createElement('input');
       gridCb.type = 'checkbox';
-      gridCb.addEventListener('input', () => applet.showGrid?.(gridCb.checked));
+      gridCb.addEventListener('input', () => applet.setGridVisible.(-1,gridCb.checked));
       gridLabel.appendChild(gridCb);
       gridLabel.appendChild(document.createTextNode(' show grid'));
 
