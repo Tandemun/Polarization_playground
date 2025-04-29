@@ -253,20 +253,13 @@ function createPoincareSettings(applet, variableNames, containerId) {
   details.appendChild(summary);
 
   
-	const menu = document.createElement('div');
+  const menu = document.createElement('div');
   menu.style.width = '100%'
   menu.style.height = '140px'
   menu.style.display = 'flex';
   details.appendChild(menu);
 	
-  const generalSection = document.createElement('div');
-  generalSection.style.width = '25%'
-  generalSection.style.borderLeft = '1px solid #ddd';
-  generalSection.style.padding = '10px';
-  generalSection.style.display = 'flex';
-  generalSection.style.flexDirection = 'column';
-  generalSection.style.justifyContent = 'center'
-  menu.appendChild(generalSection);
+
 
   const poitnsSection = document.createElement('div');
   pointsSection.style.width = '75%'
@@ -320,35 +313,54 @@ function createPoincareSettings(applet, variableNames, containerId) {
     trace_checkboxes.push(trace_checkbox);
   });
 
-  function updateApplet(index, value) {
-    const varName = variableNames[index];
-    applet.setValue(varName, value);
+  const generalSection = document.createElement('div');
+  generalSection.style.width = '25%'
+  generalSection.style.borderLeft = '1px solid #ddd';
+  generalSection.style.padding = '10px';
+  generalSection.style.display = 'flex';
+  generalSection.style.flexDirection = 'column';
+  generalSection.style.justifyContent = 'center'
+  
+  menu.appendChild(generalSection);
+  
+  const resetTraceButton = document.createElement('button');
+  resetTraceButton.textContent = 'Clear all traces'
+  
+  // Create axis checkbox
+  const axis_label = document.createElement('label');
+  axis_label.textContent = 'show axis';
+  const axis_checkbox = document.createElement('input');
+  axis_checkbox.type = 'checkbox';
+  axis_checkbox.addEventListener('input', handleGeneralCheckboxInput);
+  axis_label.appendChild(axis_checkbox);
+
+  // Create grid checkbox
+  const grid_label = document.createElement('label');
+  grid_label.textContent = 'show grid';
+  const grid_checkbox = document.createElement('input');
+  grid_checkbox.type = 'checkbox';
+  grid_checkbox.addEventListener('input', handleGeneralCheckboxInput);
+  grid_label.appendChild(grid_checkbox);
+
+  generalSection.appendChild(resetTraceButton);
+  generalSection.appendChild(axis_checkbox);
+  generalSection.appendChild(grid_checkbox);
+
+  function handleGeneralCheckboxInput(event) {
+      const checkbox = event.target;
+      const value = checkbox.checked;
+      console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
+      applet.showAxis(value)
   }
-
-  function handleSliderInput(index) {
-    return function(event) {
-      const value = parseFloat(event.target.value);
-      valueDisplays[index].textContent = value;
-
-      const linkedIndices = checkboxes
-        .map((cb, i) => (cb.checked ? i : null))
-        .filter(i => i !== null);
-
-      if (linkedIndices.length > 1 && checkboxes[index].checked) {
-        linkedIndices.forEach(i => {
-          sliders[i].value = value;
-          valueDisplays[i].textContent = value;
-          updateApplet(i, value);
-        });
-      } else {
-        updateApplet(index, value);
-      }
-    };
+  
+  function handleCheckboxInput(event) {
+      const checkbox = event.target;
+      const varName = checkbox.dataset.varname;
+      const value = checkbox.checked;
+      console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
+      applet.setTrace(varName, value)
   }
-
-  sliders.forEach((slider, i) => {
-    slider.addEventListener('input', handleSliderInput(i));
-  });
+);
 }
 
 
