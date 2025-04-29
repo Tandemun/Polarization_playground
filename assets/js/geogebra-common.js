@@ -238,57 +238,86 @@ function createPoincareSettings(applet, variableNames, containerId) {
 
   container.innerHTML = ''; // Clear container
 
-  const sliders = [];
-  const checkboxes = [];
-  const valueDisplays = [];
+  const label_checkboxes = [];
+  const trace_checkboxes = [];
 
-  const controlsWrapper = document.createElement('div');
-  controlsWrapper.style.display = 'flex';
-  controlsWrapper.style.alignItems = 'center';
-  controlsWrapper.style.gap = '2rem';
-  controlsWrapper.style.justifyContent = 'space-evenly';
-  container.appendChild(controlsWrapper);
+  const details = document.createElement('details');
+  container.appendChild(deatils);
+
+  const summary = document.createElement('summary');
+  summary.style.width = '100%'
+  summary.style.height = '30px'
+  summary.style.display = 'flex' /* also removes the list marker */
+  summary.style.justifyContent = 'center'
+  summary.style.fontWeight = 'bold'
+  details.appendChild(summary);
+
+  
+	const menu = document.createElement('div');
+  menu.style.width = '100%'
+  menu.style.height = '140px'
+  menu.style.display = 'flex';
+  details.appendChild(menu);
+	
+  const generalSection = document.createElement('div');
+  generalSection.style.width = '25%'
+  generalSection.style.borderLeft = '1px solid #ddd';
+  generalSection.style.padding = '10px';
+  generalSection.style.display = 'flex';
+  generalSection.style.flexDirection = 'column';
+  generalSection.style.justifyContent = 'center'
+  menu.appendChild(generalSection);
+
+  const poitnsSection = document.createElement('div');
+  pointsSection.style.width = '75%'
+  pointsSection.style.flex = '1';
+  pointsSection.style.display = 'flex';
+  pointsSection.style.alignItems = 'center'
+  pointsSection.style.padding = '0 10px';
+  pointsSection.style.gap = '1rem';
+  menu.appendChild(pointsSection);
 
   variableNames.forEach((name, index) => {
-    const controlGroup = document.createElement('div');
-    controlGroup.style.display = 'flex';
-    controlGroup.style.alignItems = 'center';
+    const pointColumn = document.createElement('div');
+    pointColumn.style.display = 'flex';
+    pointColumn.style.flexDirection = 'column';
+    pointColumn.style.gap = '0.25rem';
+
+    // Create point name
+    const pointName = document.createElement('div');
+    pointName.textContent = name;   
     
+    // Create show_label checkbox
+    const label_label = document.createElement('label');
+    label_label.textContent = 'show label';
+    const label_checkbox = document.createElement('input');
+    label_checkbox.type = 'checkbox';
+    label_checkbox.id = `label_${name}`;
+    label_checkbox.dataset.varname = name;        // Запоминаем имя переменной
+    //checkbox.dataset.appletid = applet.id;   // Запоминаем id апплета
+    label_checkbox.addEventListener('input', handleCheckboxInput);
+    label_label.appendChild(label_checkbox);
 
-    // Create value display
-    const valueDisplay = document.createElement('div');
-    valueDisplay.textContent = '0';
-    valueDisplay.style.fontFamily = 'monospace';
-    valueDisplay.style.fontSize = '1rem';
-    valueDisplay.style.display = 'inline-block';
-    valueDisplay.style.width = '4ch';  // 4 символа шириной
-    valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
+    // Create show_trace checkbox
+    const trace_label = document.createElement('label');
+    trace_label.textContent = 'show trace';
+    const trace_checkbox = document.createElement('input');
+    trace_checkbox.type = 'checkbox';
+    trace_checkbox.id = `trace_${name}`;
+    trace_checkbox.dataset.varname = name;        // Запоминаем имя переменной
+    //checkbox.dataset.appletid = applet.id;   // Запоминаем id апплета
+    trace_checkbox.addEventListener('input', handleCheckboxInput);
+    trace_label.appendChild(trace_checkbox);
+
+
+    pointColumn.appendChild(pointName);
+    pointColumn.appendChild(label_label);
+    pointColumn.appendChild(trace_label);
 	  
-    // Create slider
-    const slider = document.createElement('input');
-    slider.type = 'range';
-    slider.min = -90;
-    slider.max = 90;
-    slider.value = 0;
-    slider.id = `slider_${name}`;
-    slider.style.width = '160px';
+    pointsSection.appendChild(pointColumn);
 
-
-
-    // Create checkbox
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `checkbox_${name}`;
-
-    controlGroup.appendChild(valueDisplay);
-    controlGroup.appendChild(slider);
-    controlGroup.appendChild(checkbox);
-	  
-    controlsWrapper.appendChild(controlGroup);
-
-    sliders.push(slider);
-    checkboxes.push(checkbox);
-    valueDisplays.push(valueDisplay);
+    label_checkboxes.push(label_checkbox);
+    trace_checkboxes.push(trace_checkbox);
   });
 
   function updateApplet(index, value) {
