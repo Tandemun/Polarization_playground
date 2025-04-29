@@ -140,7 +140,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
         poincare.setValue("phi3", 90)
         createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
         //createPoincareControl(poincare, ['P0trace', 'P1trace', 'P2trace','P3trace'], 'controls2')
-	//createPoincareSettings(poincare, ['P0trace', 'P1trace', 'P2trace','P3trace'], 'controls2');
+	createPoincareSettings(poincare, ['P0trace', 'P1trace', 'P2trace','P3trace'], 'controls2');
 	
         console.log("Set background colors for applets");
         const bgColor = getCssVariable("--base3")
