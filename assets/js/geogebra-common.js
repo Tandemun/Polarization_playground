@@ -235,75 +235,69 @@ function createAppletControls(applet, variableNames, containerId) {
 
 function createPoincareSettings(applet, variableNames, containerId) {
   const container = document.getElementById(containerId);
-
-  container.innerHTML = ''; // Clear container
+  container.innerHTML = '';
 
   const label_checkboxes = [];
   const trace_checkboxes = [];
 
   const details = document.createElement('details');
-  container.appendChild(deatils);
+  container.appendChild(details); // исправлено здесь
 
   const summary = document.createElement('summary');
-  summary.style.width = '100%'
-  summary.style.height = '30px'
-  summary.style.display = 'flex' /* also removes the list marker */
-  summary.style.justifyContent = 'center'
-  summary.style.fontWeight = 'bold'
+  summary.textContent = 'Settings ▼';
+  summary.style.width = '100%';
+  summary.style.height = '30px';
+  summary.style.display = 'flex';
+  summary.style.justifyContent = 'center';
+  summary.style.alignItems = 'center';
+  summary.style.fontWeight = 'bold';
   details.appendChild(summary);
 
   const menu = document.createElement('div');
-  menu.style.width = '100%'
-  menu.style.height = '140px'
+  menu.style.width = '100%';
+  menu.style.height = '140px';
   menu.style.display = 'flex';
   details.appendChild(menu);
 
-  const poitnsSection = document.createElement('div');
-  pointsSection.style.width = '75%'
-  pointsSection.style.flex = '1';
+  const pointsSection = document.createElement('div');
+  pointsSection.style.width = '75%';
   pointsSection.style.display = 'flex';
-  pointsSection.style.alignItems = 'center'
+  pointsSection.style.alignItems = 'center';
   pointsSection.style.padding = '0 10px';
   pointsSection.style.gap = '1rem';
   menu.appendChild(pointsSection);
 
-  variableNames.forEach((name, index) => {
+  variableNames.forEach(name => {
     const pointColumn = document.createElement('div');
     pointColumn.style.display = 'flex';
     pointColumn.style.flexDirection = 'column';
     pointColumn.style.gap = '0.25rem';
 
-    // Create point name
     const pointName = document.createElement('div');
-    pointName.textContent = name;   
-    
-    // Create show_label checkbox
+    pointName.textContent = name;
+
     const label_label = document.createElement('label');
-    label_label.textContent = 'show label';
     const label_checkbox = document.createElement('input');
     label_checkbox.type = 'checkbox';
     label_checkbox.id = `label_${name}`;
-    label_checkbox.dataset.varname = name;        // Запоминаем имя переменной
-    //checkbox.dataset.appletid = applet.id;   // Запоминаем id апплета
+    label_checkbox.dataset.varname = name;
     label_checkbox.addEventListener('input', handleCheckboxInput);
     label_label.appendChild(label_checkbox);
+    label_label.appendChild(document.createTextNode(' label'));
 
-    // Create show_trace checkbox
     const trace_label = document.createElement('label');
-    trace_label.textContent = 'show trace';
     const trace_checkbox = document.createElement('input');
     trace_checkbox.type = 'checkbox';
     trace_checkbox.id = `trace_${name}`;
-    trace_checkbox.dataset.varname = name;        // Запоминаем имя переменной
-    //checkbox.dataset.appletid = applet.id;   // Запоминаем id апплета
+    trace_checkbox.dataset.varname = name;
     trace_checkbox.addEventListener('input', handleCheckboxInput);
     trace_label.appendChild(trace_checkbox);
-
+    trace_label.appendChild(document.createTextNode(' trace'));
 
     pointColumn.appendChild(pointName);
     pointColumn.appendChild(label_label);
     pointColumn.appendChild(trace_label);
-	  
+
     pointsSection.appendChild(pointColumn);
 
     label_checkboxes.push(label_checkbox);
@@ -311,53 +305,69 @@ function createPoincareSettings(applet, variableNames, containerId) {
   });
 
   const generalSection = document.createElement('div');
-  generalSection.style.width = '25%'
+  generalSection.style.width = '25%';
   generalSection.style.borderLeft = '1px solid #ddd';
   generalSection.style.padding = '10px';
   generalSection.style.display = 'flex';
   generalSection.style.flexDirection = 'column';
   generalSection.style.justifyContent = 'center';
-  
+  generalSection.style.gap = '0.5rem';
   menu.appendChild(generalSection);
-  
+
   const resetTraceButton = document.createElement('button');
-  resetTraceButton.textContent = 'Clear all traces'
-  
-  // Create axis checkbox
+  resetTraceButton.textContent = 'Clear all traces';
+  resetTraceButton.addEventListener('click', () => {
+    variableNames.forEach(name => applet.setTrace(name, false));
+    trace_checkboxes.forEach(cb => cb.checked = false);
+  });
+
   const axis_label = document.createElement('label');
-  axis_label.textContent = 'show axis';
   const axis_checkbox = document.createElement('input');
   axis_checkbox.type = 'checkbox';
-  axis_checkbox.addEventListener('input', handleGeneralCheckboxInput);
+  axis_checkbox.addEventListener('input', () => {
+    applet.showAxis(axis_checkbox.checked);
+  });
   axis_label.appendChild(axis_checkbox);
+  axis_label.appendChild(document.createTextNode(' show axis'));
 
-  // Create grid checkbox
   const grid_label = document.createElement('label');
-  grid_label.textContent = 'show grid';
   const grid_checkbox = document.createElement('input');
   grid_checkbox.type = 'checkbox';
-  grid_checkbox.addEventListener('input', handleGeneralCheckboxInput);
+  grid_checkbox.addEventListener('input', () => {
+    applet.showGrid(grid_checkbox.checked);
+  });
   grid_label.appendChild(grid_checkbox);
+  grid_label.appendChild(document.createTextNode(' show grid'));
+
+  const plane_label = document.createElement('label');
+  const plane_checkbox = document.createElement('input');
+  plane_checkbox.type = 'checkbox';
+  plane_checkbox.addEventListener('input', () => {
+    applet.showPlane(plane_checkbox.checked);
+  });
+  plane_label.appendChild(plane_checkbox);
+  plane_label.appendChild(document.createTextNode(' show plane'));
 
   generalSection.appendChild(resetTraceButton);
-  generalSection.appendChild(axis_checkbox);
-  generalSection.appendChild(grid_checkbox);
+  generalSection.appendChild(axis_label);
+  generalSection.appendChild(grid_label);
+  generalSection.appendChild(plane_label);
 
-  function handleGeneralCheckboxInput(event) {
-      const checkbox = event.target;
-      const value = checkbox.checked;
-      console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
-      applet.showAxis(value)
-  }
-  
   function handleCheckboxInput(event) {
-      const checkbox = event.target;
-      const varName = checkbox.dataset.varname;
-      const value = checkbox.checked;
-      console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
-      applet.setTrace(varName, value)
+    const checkbox = event.target;
+    const varName = checkbox.dataset.varname;
+    const value = checkbox.checked;
+
+    if (checkbox.id.startsWith('trace_')) {
+      applet.setTrace(varName, value);
+    } else if (checkbox.id.startsWith('label_')) {
+      applet.setLabelVisible(varName, value);
+    }
+
+    console.log(`Checkbox for ${varName}: ${value}`);
   }
 }
+
 
 
 
