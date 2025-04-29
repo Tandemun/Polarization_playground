@@ -252,14 +252,14 @@ function createAppletControls(applet, variableNames, containerId) {
       details.appendChild(summary);
 
       const menu = document.createElement('div');
-      menu.class = 'menu';
+      menu.className = 'menu';
       menu.style.display = 'flex';
       menu.style.width = '100%';
       menu.style.border = '1px solid #ccc';
       details.appendChild(menu);
 
       const pointsSection = document.createElement('div');
-      pointSection.class = 'pointSection'
+      pointsSection.className = 'pointsSection'
       pointsSection.style.display = 'flex';
       pointsSection.style.width = '60%';
       pointsSection.style.gap = '2rem';
@@ -268,7 +268,7 @@ function createAppletControls(applet, variableNames, containerId) {
 
       variableNames.forEach(name => {
         const pointColumn = document.createElement('div');
-        pointColumn.class = 'pointColumn';
+        pointColumn.className = 'pointColumn';
         pointColumn.style.display = 'flex';
         pointColumn.style.flexDirection = 'column';
         pointColumn.style.gap = '0.25rem';
@@ -295,9 +295,9 @@ function createAppletControls(applet, variableNames, containerId) {
         trace.appendChild(traceCheckbox);
         trace.appendChild(document.createTextNode(' trace'));
 
-        column.appendChild(document.createTextNode(name));
-        column.appendChild(label);
-        column.appendChild(trace);
+        pointColumn.appendChild(document.createTextNode(name));
+        pointColumn.appendChild(label);
+        pointColumn.appendChild(trace);
 
         pointsSection.appendChild(column);
         label_checkboxes.push(labelCheckbox);
@@ -305,7 +305,7 @@ function createAppletControls(applet, variableNames, containerId) {
       });
 
       const generalSection = document.createElement('div');
-      generalSection.class = 'generalSection'
+      generalSection.className = 'generalSection'
       generalSection.style.display = 'flex';
       generalSection.style.flexDirection = 'column';
       generalSection.style.padding = '1rem'
