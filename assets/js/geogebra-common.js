@@ -316,7 +316,8 @@ function createAppletControls(applet, variableNames, containerId) {
       const clearBtn = document.createElement('button');
       clearBtn.textContent = 'Clear all traces';
       clearBtn.addEventListener('click', () => {
-        applet.ZoomIn(-1, 1);
+	console.log('Trace clear button clicked')
+        //applet.ZoomIn(-1, 1);
       });
 
       const axisLabel = document.createElement('label');
