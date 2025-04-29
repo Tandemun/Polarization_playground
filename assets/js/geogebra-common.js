@@ -233,6 +233,104 @@ function createAppletControls(applet, variableNames, containerId) {
 }
 
 
+function createPoincareSettings(applet, variableNames, containerId) {
+  const container = document.getElementById(containerId);
+
+  container.innerHTML = ''; // Clear container
+
+  const sliders = [];
+  const checkboxes = [];
+  const valueDisplays = [];
+
+  const controlsWrapper = document.createElement('div');
+  controlsWrapper.style.display = 'flex';
+  controlsWrapper.style.alignItems = 'center';
+  controlsWrapper.style.gap = '2rem';
+  controlsWrapper.style.justifyContent = 'space-evenly';
+  container.appendChild(controlsWrapper);
+
+  variableNames.forEach((name, index) => {
+    const controlGroup = document.createElement('div');
+    controlGroup.style.display = 'flex';
+    controlGroup.style.alignItems = 'center';
+    
+
+    // Create value display
+    const valueDisplay = document.createElement('div');
+    valueDisplay.textContent = '0';
+    valueDisplay.style.fontFamily = 'monospace';
+    valueDisplay.style.fontSize = '1rem';
+    valueDisplay.style.display = 'inline-block';
+    valueDisplay.style.width = '4ch';  // 4 символа шириной
+    valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
+	  
+    // Create slider
+    const slider = document.createElement('input');
+    slider.type = 'range';
+    slider.min = -90;
+    slider.max = 90;
+    slider.value = 0;
+    slider.id = `slider_${name}`;
+    slider.style.width = '160px';
+
+
+
+    // Create checkbox
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `checkbox_${name}`;
+
+    controlGroup.appendChild(valueDisplay);
+    controlGroup.appendChild(slider);
+    controlGroup.appendChild(checkbox);
+	  
+    controlsWrapper.appendChild(controlGroup);
+
+    sliders.push(slider);
+    checkboxes.push(checkbox);
+    valueDisplays.push(valueDisplay);
+  });
+
+  function updateApplet(index, value) {
+    const varName = variableNames[index];
+    applet.setValue(varName, value);
+  }
+
+  function handleSliderInput(index) {
+    return function(event) {
+      const value = parseFloat(event.target.value);
+      valueDisplays[index].textContent = value;
+
+      const linkedIndices = checkboxes
+        .map((cb, i) => (cb.checked ? i : null))
+        .filter(i => i !== null);
+
+      if (linkedIndices.length > 1 && checkboxes[index].checked) {
+        linkedIndices.forEach(i => {
+          sliders[i].value = value;
+          valueDisplays[i].textContent = value;
+          updateApplet(i, value);
+        });
+      } else {
+        updateApplet(index, value);
+      }
+    };
+  }
+
+  sliders.forEach((slider, i) => {
+    slider.addEventListener('input', handleSliderInput(i));
+  });
+}
+
+
+
+
+
+
+
+
+
+
 
 function createPoincareControl(applet, variableNames, containerId) {
   const container = document.getElementById(containerId);
