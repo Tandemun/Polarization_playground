@@ -93,11 +93,11 @@ In fiber optics, the plates are sometimes replaced by loops of optical fiber und
 The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern optics, providing a simple yet powerful means of fully controlling the state of polarization. Understanding its operation is essential for engineers and researchers working in optical communications, metrology, and advanced photonics research.
 
 
-<div id="controls1" style="width: 800px; height: 40px;"></div>
+<div id="controllerSettings"></div>
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
-<div id="controls2" style="width: 800px;"></div>
-<div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
+<div id="poincareSettings"></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
     <div id="ellips0"></div>
     <div id="ellips1"></div>
     <div id="ellips2"></div>
@@ -138,9 +138,8 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
         poincare.setValue("phi1", 90)
         poincare.setValue("phi2", 180)
         poincare.setValue("phi3", 90)
-        createAppletControls(controller, ['th1', 'th2', 'th3'], 'controls1');
-        //createPoincareControl(poincare, ['P0trace', 'P1trace', 'P2trace','P3trace'], 'controls2')
-	createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'controls2');
+        createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
+	createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
 	
         console.log("Set background colors for applets");
         const bgColor = getCssVariable("--base3")
