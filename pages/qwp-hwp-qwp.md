@@ -96,7 +96,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
 <div id="controls1" style="width: 800px; height: 40px;"></div>
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
-<div id="controls2" style="width: 800px; height: 100px;"></div>
+<div id="controls2" style="width: 800px;"></div>
 <div style="display: flex; gap: 0px; flex-wrap: wrap; justify-content: center;">
     <div id="ellips0"></div>
     <div id="ellips1"></div>
