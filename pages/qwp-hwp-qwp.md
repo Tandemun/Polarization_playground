@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 3-Paddle Polarization Controller
+mathjax: true
 ---
 
 # Polarization Controller Based on a Three-Plate QWP-HWP-QWP Configuration
