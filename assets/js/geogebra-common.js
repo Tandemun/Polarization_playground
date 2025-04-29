@@ -290,7 +290,7 @@ function createAppletControls(applet, variableNames, containerId) {
         //traceCheckbox.dataset.varname = name;
         //traceCheckbox.id = `trace_${name}`;
         traceCheckbox.addEventListener('input', () => {
-          applet.setTrace.(name, traceCheckbox.checked);
+          applet.setTrace?.(name, traceCheckbox.checked);
         });
         trace.appendChild(traceCheckbox);
         trace.appendChild(document.createTextNode(' trace'));
@@ -322,14 +322,14 @@ function createAppletControls(applet, variableNames, containerId) {
       const axisLabel = document.createElement('label');
       const axisCb = document.createElement('input');
       axisCb.type = 'checkbox';
-      axisCb.addEventListener('input', () => applet.setAxesVisible.(-1,axisCb.checked,axisCb.checked,axisCb.checked));
+      axisCb.addEventListener('input', () => applet.setAxesVisible?.(-1,axisCb.checked,axisCb.checked,axisCb.checked));
       axisLabel.appendChild(axisCb);
       axisLabel.appendChild(document.createTextNode(' show axis'));
 
       const gridLabel = document.createElement('label');
       const gridCb = document.createElement('input');
       gridCb.type = 'checkbox';
-      gridCb.addEventListener('input', () => applet.setGridVisible.(-1,gridCb.checked));
+      gridCb.addEventListener('input', () => applet.setGridVisible?.(-1,gridCb.checked));
       gridLabel.appendChild(gridCb);
       gridLabel.appendChild(document.createTextNode(' show grid'));
 
