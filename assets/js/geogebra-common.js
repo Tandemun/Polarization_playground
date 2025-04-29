@@ -252,14 +252,11 @@ function createPoincareSettings(applet, variableNames, containerId) {
   summary.style.fontWeight = 'bold'
   details.appendChild(summary);
 
-  
   const menu = document.createElement('div');
   menu.style.width = '100%'
   menu.style.height = '140px'
   menu.style.display = 'flex';
   details.appendChild(menu);
-	
-
 
   const poitnsSection = document.createElement('div');
   pointsSection.style.width = '75%'
@@ -319,7 +316,7 @@ function createPoincareSettings(applet, variableNames, containerId) {
   generalSection.style.padding = '10px';
   generalSection.style.display = 'flex';
   generalSection.style.flexDirection = 'column';
-  generalSection.style.justifyContent = 'center'
+  generalSection.style.justifyContent = 'center';
   
   menu.appendChild(generalSection);
   
@@ -360,7 +357,6 @@ function createPoincareSettings(applet, variableNames, containerId) {
       console.log(`Chekbox for applet ${applet} for ${varName} is changed to ${value}`);
       applet.setTrace(varName, value)
   }
-);
 }
 
 
