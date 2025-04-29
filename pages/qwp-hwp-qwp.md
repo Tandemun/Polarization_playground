@@ -46,7 +46,7 @@ M(\theta, \delta) = R(-\theta) \cdot
 $$
 
 where:
--\\( \delta \\) is the retardation (π/2 for a QWP, π for a HWP),
+- \\( \delta \\) is the retardation (π/2 for a QWP, π for a HWP),
 - \\( R(\theta) \\) is the rotation matrix by angle \\( \\theta \\).
 
 The combined transformation of the QWP-HWP-QWP system is the product of three such matrices.
