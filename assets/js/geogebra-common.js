@@ -279,7 +279,7 @@ function createAppletControls(applet, variableNames, containerId) {
         //labelCheckbox.dataset.varname = name;
         //labelCheckbox.id = `label_${name}`;
         labelCheckbox.addEventListener('input', () => {
-          applet.setLabelVisible.(name, labelCheckbox.checked);
+          applet.setLabelVisible?.(name, labelCheckbox.checked);
         });
         label.appendChild(labelCheckbox);
         label.appendChild(document.createTextNode(' label'));
