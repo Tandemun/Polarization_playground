@@ -34,15 +34,15 @@ This sequential operation effectively allows for an arbitrary transformation bet
 
 The action of each wave plate on the SOP can be represented by a **Jones matrix** or on the **Poincaré sphere** via **rotation operators**.
 
-In the Jones formalism, the matrix for a wave plate with a fast axis at an angle \( \theta \) is:
+In the Jones formalism, the matrix for a wave plate with a fast axis at an angle $ \theta $ is:
 
-```math
+$$
 M(\theta, \delta) = R(-\theta) \cdot 
 \begin{pmatrix} 
 1 & 0 \\ 
 0 & e^{i\delta} 
 \end{pmatrix} \cdot R(\theta)
-```
+$$
 
 where:
 - \( \delta \) is the retardation (π/2 for a QWP, π for a HWP),
