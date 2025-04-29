@@ -302,7 +302,7 @@ function createAppletControls(applet, variableNames, containerId) {
         pointColumn.appendChild(label);
         pointColumn.appendChild(trace);
 
-        pointsSection.appendChild(column);
+        pointsSection.appendChild(pointColumn);
         label_checkboxes.push(labelCheckbox);
         trace_checkboxes.push(traceCheckbox);
       });
