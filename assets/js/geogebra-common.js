@@ -267,12 +267,14 @@ function createAppletControls(applet, variableNames, containerId) {
       menu.appendChild(pointsSection);
 
       variableNames.forEach(name => {
-        const pointColumn = document.createElement('div');
+        console.log('Creating column for ${name}')
+	      const pointColumn = document.createElement('div');
         pointColumn.className = 'pointColumn';
         pointColumn.style.display = 'flex';
         pointColumn.style.flexDirection = 'column';
         pointColumn.style.gap = '0.25rem';
 
+        console.log('Creating label checkbox for ${name}')
         const label = document.createElement('label');
         const labelCheckbox = document.createElement('input');
         labelCheckbox.type = 'checkbox';
@@ -284,6 +286,7 @@ function createAppletControls(applet, variableNames, containerId) {
         label.appendChild(labelCheckbox);
         label.appendChild(document.createTextNode(' label'));
 
+        console.log('Creating trace checkbox for ${name}')
         const trace = document.createElement('label');
         const traceCheckbox = document.createElement('input');
         traceCheckbox.type = 'checkbox';
