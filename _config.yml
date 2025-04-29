@@ -1,4 +1,6 @@
 title: Polarization Playground
 baseurl: "/polarization_playground"
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
 theme: minima
