@@ -133,11 +133,18 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
 
 
     function setupAll() {	
-        console.log("Staring initial setup");
-        setMode(poincare, "full");
+      console.log("Staring initial setup");
+      setMode(poincare, "full");
 
-        createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
-	      createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
+      createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
+        
+	    try {
+        createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
+      } catch (e) {
+        console.error(`Error syncing color:`, e);
+      }  
+      
+      
 	
         console.log("Set background colors for applets");
         const bgColor = getCssVariable("--base3")
