@@ -41,9 +41,7 @@ main {
 }
 
 .applet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 /* Убираем рамки и фон у апплетов GeoGebra */
 .GeoGebraFrame {
