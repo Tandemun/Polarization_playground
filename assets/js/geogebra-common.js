@@ -173,16 +173,26 @@ function createAppletControls(applet, variableNames, containerId) {
     valueDisplay.style.display = 'inline-block';
     valueDisplay.style.width = '4ch';  // 4 символа шириной
     valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
-	  
+
+    const slider = document.createElement('div');  
     // Create slider
-    const slider = document.createElement('input');
+    const sliderItself = document.createElement('input');
     slider.type = 'range';
     slider.min = -90;
     slider.max = 90;
     slider.value = 0;
     slider.id = `slider_${name}`;
     slider.style.width = '160px';
+    slider.onchange="rangevalue.value=value";
+    slider.onmousemove="rangevalue.value=value";
 
+    const rangevalue = document.createElement('output');
+    rangevalue.id = 'rangevalue';
+    slider.appendChild(sliderItself);
+    slider.appendChild(rangevalue);
+    
+
+	  
 
 
     // Create checkbox
@@ -236,9 +246,6 @@ function createAppletControls(applet, variableNames, containerId) {
     function createPoincareSettings(applet, variableNames, containerId) {
       const container = document.getElementById(containerId);
       container.innerHTML = '';
-
-      const label_checkboxes = [];
-      const trace_checkboxes = [];
 
       const details = document.createElement('details');
       container.appendChild(details);
