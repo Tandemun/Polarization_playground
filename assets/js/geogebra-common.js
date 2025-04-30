@@ -174,25 +174,14 @@ function createAppletControls(applet, variableNames, containerId) {
     valueDisplay.style.width = '4ch';  // 4 символа шириной
     valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
 
-    const slider = document.createElement('div');  
     // Create slider
     const sliderItself = document.createElement('input');
-    sliderItself.type = 'range';
-    sliderItself.min = -90;
-    sliderItself.max = 90;
-    sliderItself.value = 0;
-    sliderItself.id = `slider_${name}`;
-    sliderItself.style.width = '160px';
-    sliderItself.onchange="rangevalue.value=value";
-    sliderItself.onmousemove="rangevalue.value=value";
-
-    const rangevalue = document.createElement('output');
-    rangevalue.id = 'rangevalue';
-    slider.appendChild(sliderItself);
-    slider.appendChild(rangevalue);
-    
-
-	  
+    slider.type = 'range';
+    slider.min = -90;
+    slider.max = 90;
+    slider.value = 0;
+    slider.id = `slider_${name}`;
+    slider.style.width = '160px';
 
 
     // Create checkbox
@@ -300,7 +289,7 @@ function createAppletControls(applet, variableNames, containerId) {
         //traceCheckbox.dataset.varname = name;
         //traceCheckbox.id = `trace_${name}`;
         traceCheckbox.addEventListener('input', () => {
-          applet.setTrace?.(name, traceCheckbox.checked);
+          applet.setTrace?.(`${name}trace`, traceCheckbox.checked);
         });
         trace.appendChild(traceCheckbox);
         trace.appendChild(document.createTextNode(' trace'));
