@@ -164,18 +164,7 @@ function createAppletControls(applet, variableNames, containerId) {
 
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
-    controlGroup.style.display = 'flex';
     controlGroup.style.alignItems = 'center';
-    
-
-    // Create value display
-    const valueDisplay = document.createElement('div');
-    valueDisplay.textContent = '0';
-    valueDisplay.style.fontFamily = 'monospace';
-    valueDisplay.style.fontSize = '1rem';
-    valueDisplay.style.display = 'inline-block';
-    valueDisplay.style.width = '4ch';  // 4 символа шириной
-    valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
 
     // Create slider
     const slider = document.createElement('input');
@@ -184,17 +173,31 @@ function createAppletControls(applet, variableNames, containerId) {
     slider.max = 90;
     slider.value = 0;
     slider.id = `slider_${name}`;
-    slider.style.width = '160px';
+    slider.style.width = '100%';	
+    controlGroup.appendChild(slider);
 
+    const bottomRow = document.createElement('div');
+    bottomRow.style.alignItems = 'center';
+    bottomRow.style.display = 'flex';
+    bottomRow.style.justifyContent = 'space-between';
+    controlGroup.appendChild(bottomRow);
+    
+    // Create value display
+    const valueDisplayLabel = document.createElement('div');
+    valueDisplayLabel.textContent = 'angle: ';
+    bottomRow.appendChild(valueDisplayLabel);
+    const valueDisplay = document.createElement('output');
+    valueDisplay.textContent = '0';
+    valueDisplayLabel.appendChild(valueDisplay);
 
     // Create checkbox
+    const checkboxLabel = document.createElement('div');
+    checkboxLabel.textContent = 'bound';
+    bottomRow.appendChild(checkboxLabel);
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `checkbox_${name}`;
-
-    controlGroup.appendChild(valueDisplay);
-    controlGroup.appendChild(slider);
-    controlGroup.appendChild(checkbox);
+    checkboxLabel.appendChild(checkbox);
 	  
     controlsWrapper.appendChild(controlGroup);
 
