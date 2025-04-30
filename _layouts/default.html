@@ -5,22 +5,12 @@
   {% include head.html %}
   <body>
     <div class="container">
-       <button id="menu-toggle" class="menu-toggle">☰ Menu</button>
-      <!-- Sidebar -->
-      <aside>
-        {% include sidebar.html %}
-      </aside>
-  
-      <!-- Main content -->
-      <main>
-        {{ content }}
-      </main>
+      <button id="menu-toggle" class="menu-toggle">☰ Menu</button>
+      <aside>{% include sidebar.html %}</aside>
+      <main>{{ content }}</main>
     </div>
-  </body>
     <script>
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      console.log(`Menu button clicked`);
-      document.getElementById('sidebar').classList.toggle('active');
-    });
+      document.getElementById('menu-toggle').addEventListener('click', () => {document.getElementById('sidebar').classList.toggle('active');});
     </script>
+  </body>
 </html>
