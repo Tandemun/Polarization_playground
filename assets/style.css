@@ -66,3 +66,62 @@ a {
 a:hover {
   color: var(--blue);
 }
+
+
+/*=============================================================== Poincare setting menu =============================================================================================================================*/
+/* main menu container */
+.poincare-settings__menu {
+  display: flex;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+}
+
+/* left part with points settings */
+.poincare-settings__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  width: 60%;
+  box-sizing: border-box;
+}
+
+/* column for a single point (P0, P1...) */
+.poincare-settings__point-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 4rem;
+}
+
+/* Right part for gegneral buttons and checkboxes */
+.poincare-settings__general {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 1rem;
+  width: 40%;
+  border-left: 1px solid #ccc;
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Buttons and checkboxes styles */
+.poincare-settings__general label,
+.poincare-settings__point-column label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.poincare-settings__general button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+
+
+
