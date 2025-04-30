@@ -141,7 +141,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
 	    try {
         createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
       } catch (e) {
-        console.error(`Error syncing color:`, e);
+        console.error(`Error creating poincare menu:`, e);
       }  
       
       
