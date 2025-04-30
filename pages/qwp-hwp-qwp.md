@@ -104,105 +104,98 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
     <div id="ellips3"></div>
 </div>
 
-
 <script>  
-    var controller = new GGBApplet(createGGBParams("controller", "twr2vny4"), true);
-    var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5",{enableRightClick: false}), true);
-    var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
-    var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
-    var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
-    var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3"), true);
+  var controller = new GGBApplet(createGGBParams("controller", "twr2vny4"), true);
+  var poincare = new GGBApplet(createGGBParams("poincare", "rvbafww5"), true);
+  var ellips0 = new GGBApplet(createGGBParams("ellips0", "ar9nzxm3"), true);
+  var ellips1 = new GGBApplet(createGGBParams("ellips1", "ar9nzxm3"), true);
+  var ellips2 = new GGBApplet(createGGBParams("ellips2", "ar9nzxm3"), true);
+  var ellips3 = new GGBApplet(createGGBParams("ellips3", "ar9nzxm3"), true);
 
-    window.onload = function () {
-        controller.inject("controller")
-        poincare.inject("poincare");
-        ellips0.inject("ellips0");
-        ellips1.inject("ellips1");
-        ellips2.inject("ellips2");
-        ellips3.inject("ellips3");
-    };
+  window.onload = function () {
+      controller.inject("controller")
+      poincare.inject("poincare");
+      ellips0.inject("ellips0");
+      ellips1.inject("ellips1");
+      ellips2.inject("ellips2");
+      ellips3.inject("ellips3");
+  };
 
-    let appletsLoaded = {
-        controller: false,
-        poincare: false,
-        ellips0: false,
-        ellips1: false,
-        ellips2: false,
-        ellips3: false  
-    };
+  let appletsLoaded = {
+      controller: false,
+      poincare: false,
+      ellips0: false,
+      ellips1: false,
+      ellips2: false,
+      ellips3: false  
+  };
 
-
-    function setupAll() {	
-      console.log("Staring initial setup");
-      setMode(poincare, "full");
-
-      createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
+  function setupAll() {	
+    console.log("Staring initial setup");
+    setMode(poincare, "full");
+    createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
         
-	    try {
-        createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
-      } catch (e) {
-        console.error(`Error creating poincare menu:`, e);
-      }  
+    try {
+      createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
+    } catch (e) {
+      console.error(`Error creating poincare menu:`, e);
+    }  
+      	
+    console.log("Set background colors for applets");
+    const bgColor = getCssVariable("--base3")
+    controller.setGraphicsOptions(-1,{"bgColor":bgColor});
+    controller.setGraphicsOptions(1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
+    poincare.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
+    ellips3.setGraphicsOptions(1,{"bgColor":bgColor});	
       
-      
-	
-        console.log("Set background colors for applets");
-        const bgColor = getCssVariable("--base3")
-        controller.setGraphicsOptions(-1,{"bgColor":bgColor});
-        controller.setGraphicsOptions(1,{"bgColor":bgColor});
-        poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
-        poincare.setGraphicsOptions(1,{"bgColor":bgColor});
-        ellips0.setGraphicsOptions(1,{"bgColor":bgColor});
-        ellips1.setGraphicsOptions(1,{"bgColor":bgColor});
-        ellips2.setGraphicsOptions(1,{"bgColor":bgColor});
-        ellips3.setGraphicsOptions(1,{"bgColor":bgColor});
-	
-      
-        console.log("4");
-	      setColors(controller,{
-            "--orange": ["paddle1", "paddle3"],
-            "--blue":   ["paddle2"],
-        });
-	      setColors(poincare,{
-	        [bgColor]:  ["sphere"],
-          "black":    ["P0","P0trace"],
-          "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
-          "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
-      });        
+    console.log("4");
+    setColors(controller,{
+      "--orange": ["paddle1", "paddle3"],
+      "--blue":   ["paddle2"],
+    });
+    setColors(poincare,{
+      [bgColor]:  ["sphere"],
+      "black":    ["P0","P0trace"],
+      "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
+      "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
+    });        
 	  
-      setColors(ellips0,{"black":   ["ellips"]});
-      setColors(ellips1,{"--orange":["ellips"]});
-      setColors(ellips2,{"--blue":  ["ellips"]});
-      setColors(ellips3,{"--orange":["ellips"]});
-	      
-        
-	    poincare.setValue("phi1", 90);
-      poincare.setValue("phi2", 180);
-      poincare.setValue("phi3", 90);
+    setColors(ellips0,{"black":   ["ellips"]});
+    setColors(ellips1,{"--orange":["ellips"]});
+    setColors(ellips2,{"--blue":  ["ellips"]});
+    setColors(ellips3,{"--orange":["ellips"]});
+	        
+    poincare.setValue("phi1", 90);
+    poincare.setValue("phi2", 180);
+    poincare.setValue("phi3", 90);
 
-      [
-        [slider_th1, "th1", 5],
-        [slider_th2, "th2", 25],
-        [slider_th3, "th3", 45]
-      ].forEach(([slider, name, value]) => {
-        slider.value = value;
-        controller.setValue(name, value);
-        poincare.setValue(name, value);
-      });
+    [
+      [slider_th1, "th1", 5],
+      [slider_th2, "th2", 25],
+      [slider_th3, "th3", 45]
+    ].forEach(([slider, name, value]) => {
+      slider.value = value;
+      controller.setValue(name, value);
+      poincare.setValue(name, value);
+    });
       
         
-      controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
-      controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
-      controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
+    controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
+    controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
+    controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
     
-      syncCoords(poincare, "P0", ellips0, "S");
-      syncCoords(poincare, "P1", ellips1, "S");
-      syncCoords(poincare, "P2", ellips2, "S"); 
-      syncCoords(poincare, "P3", ellips3, "S");
-      poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
-      poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
-      poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
-      poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
+    syncCoords(poincare, "P0", ellips0, "S");
+    syncCoords(poincare, "P1", ellips1, "S");
+    syncCoords(poincare, "P2", ellips2, "S"); 
+    syncCoords(poincare, "P3", ellips3, "S");
+    poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+    poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+    poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
+    poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
 }	
 </script>
 
