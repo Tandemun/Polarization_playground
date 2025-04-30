@@ -133,9 +133,12 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
   function setupAll() {	
     console.log("Staring initial setup");
     setMode(poincare, "full");
-    createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
-        
     try {
+	    createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
+    } catch (e) {    
+	    console.error(`Error creating controller menu:`, e);
+    }
+	  try {
       createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
     } catch (e) {
       console.error(`Error creating poincare menu:`, e);
