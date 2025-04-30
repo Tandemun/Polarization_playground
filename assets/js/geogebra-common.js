@@ -105,7 +105,7 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
       const value = sourceApplet.getValue(sourceObjectName);
 	    targetApplet.setValue(targetObjectName, value);
     }catch(e){
-	    console.error(`Error syncing values:` e);
+	    console.error(`Error syncing values:`, e);
     }
   }
 
