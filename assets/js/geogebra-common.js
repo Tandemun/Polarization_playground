@@ -243,7 +243,7 @@ function createPoincareSettings(applet, variableNames, containerId) {
   container.appendChild(details);
 
   const summary = document.createElement('summary');
-	pointsSection.className = 'poincare-settings__summary'
+  summary.className = 'poincare-settings__summary'
   summary.textContent = 'Settings';
   details.appendChild(summary);
 
@@ -257,6 +257,7 @@ function createPoincareSettings(applet, variableNames, containerId) {
 
   variableNames.forEach(name => {
     console.log('Creating column for ${name}')
+    
     const pointColumn = document.createElement('div');
     pointColumn.className = 'poincare-settings__point-column';
 
