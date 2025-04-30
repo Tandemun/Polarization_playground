@@ -236,6 +236,8 @@ function createAppletControls(applet, variableNames, containerId) {
 
 
 function createPoincareSettings(applet, variableNames, containerId) {
+  console.log(`Create poincare settings for ${applet}`)
+	
   const container = document.getElementById(containerId);
   container.innerHTML = '';
 
@@ -261,17 +263,17 @@ function createPoincareSettings(applet, variableNames, containerId) {
     const pointColumn = document.createElement('div');
     pointColumn.className = 'poincare-settings__point-column';
 
-    console.log('Creating label checkbox for ${name}')
+    console.log(`Creating label checkbox for ${name}`)
     const label = document.createElement('label');
     const labelCheckbox = document.createElement('input');
     labelCheckbox.type = 'checkbox';
-    traceCheckbox.dataset.varname = name;
-    traceCheckbox.id = `trace_${name}`;
+    labelCheckbox.dataset.varname = name;
+    labelCheckbox.id = `trace_${name}`;
     labelCheckbox.addEventListener('input', () => {applet.setLabelVisible?.(name, labelCheckbox.checked); });
     label.appendChild(labelCheckbox);
     label.appendChild(document.createTextNode(' label'));
 
-    console.log('Creating trace checkbox for ${name}')
+    console.log(`Creating trace checkbox for ${name}`)
     const trace = document.createElement('label');
     const traceCheckbox = document.createElement('input');
     traceCheckbox.type = 'checkbox';
