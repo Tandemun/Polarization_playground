@@ -267,7 +267,7 @@ function createPoincareSettings(applet, variableNames, containerId) {
 
   variableNames.forEach(name => {
     console.log('Creating column for ${name}')
-	  const pointColumn = document.createElement('div');
+    const pointColumn = document.createElement('div');
     pointColumn.className = 'pointColumn';
     pointColumn.style.display = 'flex';
     pointColumn.style.flexDirection = 'column';
