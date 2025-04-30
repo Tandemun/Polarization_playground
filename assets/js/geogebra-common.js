@@ -177,14 +177,14 @@ function createAppletControls(applet, variableNames, containerId) {
     const slider = document.createElement('div');  
     // Create slider
     const sliderItself = document.createElement('input');
-    slider.type = 'range';
-    slider.min = -90;
-    slider.max = 90;
-    slider.value = 0;
-    slider.id = `slider_${name}`;
-    slider.style.width = '160px';
-    slider.onchange="rangevalue.value=value";
-    slider.onmousemove="rangevalue.value=value";
+    sliderItself.type = 'range';
+    sliderItself.min = -90;
+    sliderItself.max = 90;
+    sliderItself.value = 0;
+    sliderItself.id = `slider_${name}`;
+    sliderItself.style.width = '160px';
+    sliderItself.onchange="rangevalue.value=value";
+    sliderItself.onmousemove="rangevalue.value=value";
 
     const rangevalue = document.createElement('output');
     rangevalue.id = 'rangevalue';
