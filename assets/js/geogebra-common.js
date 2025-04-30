@@ -1,4 +1,4 @@
-function createGGBParams(id, material_id, overrides = {}) {
+function createGGBParams1(id, material_id, overrides = {}) {
   return {
     id,
     //width: 600,
@@ -33,6 +33,30 @@ function createGGBParams(id, material_id, overrides = {}) {
   };
 }
 
+function createGGBParams(id, material_id, overrides = {}) {
+  return {
+    id,
+    //width: 600,
+    //height: 600,
+    showMenuBar: false,
+    showAlgebraInput: false,
+    showToolBar: false,
+    showResetIcon: false,
+    enableLabelDrags: false,
+    enableShiftDragZoom: false,
+    enableRightClick: false,
+    errorDialogsActive: false,
+    useBrowserForJS: true,
+    preventFocus: false,
+    showZoomButtons: false,
+    showFullscreenButton: false,
+    language: "en",
+    material_id,
+    // use this instead of material_id to load a .ggb file
+	  // "filename":"myfile.ggb",
+    ...overrides
+  };
+}
 
 function getCssVariable(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
