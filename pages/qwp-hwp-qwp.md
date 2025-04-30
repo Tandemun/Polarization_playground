@@ -97,7 +97,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
 <div class="applet" id="controller"></div>
 <div class="applet" id="poincare"></div>
 <div id="poincareSettings"></div>
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; padding-top: 1rem;">
     <div id="ellips0"></div>
     <div id="ellips1"></div>
     <div id="ellips2"></div>
@@ -135,9 +135,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
     function setupAll() {	
         console.log("Staring initial setup");
         setMode(poincare, "full");
-        poincare.setValue("phi1", 90)
-        poincare.setValue("phi2", 180)
-        poincare.setValue("phi3", 90)
+
         createAppletControls(controller, ['th1', 'th2', 'th3'], 'controllerSettings');
 	createPoincareSettings(poincare, ['P0', 'P1', 'P2','P3'], 'poincareSettings');
 	
@@ -159,32 +157,45 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
             "--blue":   ["paddle2"],
         });
 	setColors(poincare,{
-	    [bgColor]:  ["sphere"],
-            "black":    ["P0","P0trace"],
-            "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
-            "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
-        });        
-	    
-        setColors(ellips0,{"black":   ["ellips"]});
-        setColors(ellips1,{"--orange":["ellips"]});
-        setColors(ellips2,{"--blue":  ["ellips"]});
-        setColors(ellips3,{"--orange":["ellips"]});
+	  [bgColor]:  ["sphere"],
+          "black":    ["P0","P0trace"],
+          "--orange": ["P1", "P1trace", "P0P1", "A11", "A12", "P3", "P3trace", "P2P3", "A31", "A32"],
+          "--blue":   ["P2", "P2trace", "P1P2", "A21", "A22"],
+      });        
+	  
+      setColors(ellips0,{"black":   ["ellips"]});
+      setColors(ellips1,{"--orange":["ellips"]});
+      setColors(ellips2,{"--blue":  ["ellips"]});
+      setColors(ellips3,{"--orange":["ellips"]});
 	      
-        syncValue(controller, "th1", poincare, "th1");
-        syncValue(controller, "th2", poincare, "th2");
-        syncValue(controller, "th3", poincare, "th3");
-        controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
-        controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
-        controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
+        
+	    poincare.setValue("phi1", 90);
+      poincare.setValue("phi2", 180);
+      poincare.setValue("phi3", 90);
+
+      [
+        [slider_th1, "th1", 5],
+        [slider_th2, "th2", 25],
+        [slider_th3, "th3", 45]
+      ].forEach(([slider, name, value]) => {
+        slider.value = value;
+        controller.setValue(name, value);
+        poincare.setValue(name, value);
+      });
+      
+        
+      controller.registerObjectUpdateListener("th1", () => syncValue(controller, "th1", poincare, "th1"));
+      controller.registerObjectUpdateListener("th2", () => syncValue(controller, "th2", poincare, "th2"));
+      controller.registerObjectUpdateListener("th3", () => syncValue(controller, "th3", poincare, "th3"));
     
-        syncCoords(poincare, "P0", ellips0, "S");
-        syncCoords(poincare, "P1", ellips1, "S");
-        syncCoords(poincare, "P2", ellips2, "S"); 
-        syncCoords(poincare, "P3", ellips3, "S");
-        poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
-        poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
-        poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
-        poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
+      syncCoords(poincare, "P0", ellips0, "S");
+      syncCoords(poincare, "P1", ellips1, "S");
+      syncCoords(poincare, "P2", ellips2, "S"); 
+      syncCoords(poincare, "P3", ellips3, "S");
+      poincare.registerObjectUpdateListener("P0", () => syncCoords(poincare, "P0", ellips0, "S"));
+      poincare.registerObjectUpdateListener("P1", () => syncCoords(poincare, "P1", ellips1, "S"));
+      poincare.registerObjectUpdateListener("P2", () => syncCoords(poincare, "P2", ellips2, "S"));   
+      poincare.registerObjectUpdateListener("P3", () => syncCoords(poincare, "P3", ellips3, "S"));
 }	
 </script>
 
