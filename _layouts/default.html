@@ -4,8 +4,11 @@
 <html lang="en">
   {% include head.html %}
   <body>
+    <header class="topbar">
+      <button id="menu-toggle" class="menu-toggle">☰ Menu &#9776;</button>
+      <h1 class="site-title">Мой сайт</h1>
+    </header>
     <div class="container">
-      <button id="menu-toggle" class="menu-toggle">☰ Menu</button>
       <aside>{% include sidebar.html %}</aside>
       <main>{{ content }}</main>
     </div>
