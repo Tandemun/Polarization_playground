@@ -17,4 +17,10 @@
       </main>
     </div>
   </body>
+    <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      console.log(`Menu button clicked`);
+      document.getElementById('sidebar').classList.toggle('active');
+    });
+    </script>
 </html>
