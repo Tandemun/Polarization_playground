@@ -10,6 +10,7 @@ h1, h2, h3 {
 }
 .container {
   display: flex;
+  margin-left: 250px;
 }
 
 body{
@@ -22,7 +23,7 @@ main {
   width: 100%;
   padding: 2rem;
   max-width: 800px;
-  margin: 250 auto;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
@@ -68,7 +69,7 @@ a:hover {
 
 .menu-toggle {
   display: none; /* Кнопка скрыта на больших экранах */
-  position: absolute;
+  position: fixed;
   top: 1rem;
   left: 1rem;
   z-index: 1000;
@@ -93,7 +94,7 @@ a:hover {
   .menu-toggle {
     display: block; /* Показываем кнопку */
   }
-  main {
+  .container {
     margin-left: auto;
     margin-right: auto;
   }
