@@ -288,8 +288,6 @@ function createPoincareSettings(applet, variableNames, containerId) {
     pointColumn.appendChild(trace);
 
     pointsSection.appendChild(pointColumn);
-    label_checkboxes.push(labelCheckbox);
-    trace_checkboxes.push(traceCheckbox);
   });
 
   const generalSection = document.createElement('div');
