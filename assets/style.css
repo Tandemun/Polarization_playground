@@ -81,7 +81,7 @@ a:hover {
 }
 
 /* Адаптация под узкий экран */
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -89,6 +89,7 @@ a:hover {
 
   .sidebar.active {
     transform: translateX(0);
+    transition: transform 0.3s ease;
   }
 
   .menu-toggle {
