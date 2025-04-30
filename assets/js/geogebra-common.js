@@ -243,35 +243,22 @@ function createPoincareSettings(applet, variableNames, containerId) {
   container.appendChild(details);
 
   const summary = document.createElement('summary');
+	pointsSection.className = 'poincare-settings__summary'
   summary.textContent = 'Settings';
-  summary.style.display = 'flex';
-  summary.style.justifyContent = 'center';
-  summary.style.alignItems = 'center';
-  summary.style.height = '30px'
   details.appendChild(summary);
 
   const menu = document.createElement('div');
-  menu.className = 'menu';
-  menu.style.display = 'flex';
-  menu.style.width = '100%';
-  menu.style.border = '1px solid #ccc';
+  menu.className = 'poincare-settings__menu';
   details.appendChild(menu);
 
   const pointsSection = document.createElement('div');
-  pointsSection.className = 'pointsSection'
-  pointsSection.style.display = 'flex';
-  pointsSection.style.width = '60%';
-  pointsSection.style.gap = '2rem';
-  pointsSection.style.padding = '1rem';
+  pointsSection.className = 'poincare-settings__pointsSection'
   menu.appendChild(pointsSection);
 
   variableNames.forEach(name => {
     console.log('Creating column for ${name}')
     const pointColumn = document.createElement('div');
-    pointColumn.className = 'pointColumn';
-    pointColumn.style.display = 'flex';
-    pointColumn.style.flexDirection = 'column';
-    pointColumn.style.gap = '0.25rem';
+    pointColumn.className = 'poincare-settings__point-column';
 
     console.log('Creating label checkbox for ${name}')
     const label = document.createElement('label');
@@ -303,19 +290,14 @@ function createPoincareSettings(applet, variableNames, containerId) {
   });
 
   const generalSection = document.createElement('div');
-  generalSection.className = 'generalSection'
-  generalSection.style.display = 'flex';
-  generalSection.style.flexDirection = 'column';
-  generalSection.style.padding = '1rem'
-  generalSection.style.borderLeft = '1px solid #ccc';
-  generalSection.style.gap = '0.25rem';
+  generalSection.className = 'poincare-settings__general'
   menu.appendChild(generalSection);
 
   const clearBtn = document.createElement('button');
   clearBtn.textContent = 'Clear all traces';
   clearBtn.addEventListener('click', () => {
-	console.log('Trace clear button clicked')
-        //applet.ZoomIn(-1, 1);
+	  console.log('Trace clear button clicked')
+    //applet.ZoomIn(-1, 1);
   });
 
   const axisLabel = document.createElement('label');
