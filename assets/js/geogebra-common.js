@@ -76,17 +76,18 @@ function setColors(applet, colorMapping) {
 }
   
 function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectName) {
-    try {
+  // get object color from source applet and set it in a target applet  
+  try {
       const hexColor = sourceApplet.getColor(sourceObjectName);
       const [r, g, b] = hexToRgb(hexColor); 
       targetApplet.setColor(targetObjectName, r, g, b);
-      //console.log(`Synced color from ${sourceObjectName} to ${targetObjectName}: RGB(${r}, ${g}, ${b})`);
     } catch (e) {
       console.error(`Error syncing color:`, e);
     }
   }
 
   function syncCoords(sourceApplet, sourcePointName, targetApplet, targetObjectName) {
+    // get vector or point coordinates from source applet and set them in a target applet
     try {
       const x = sourceApplet.getXcoord(sourcePointName);
       const y = sourceApplet.getYcoord(sourcePointName);
@@ -99,10 +100,13 @@ function syncColor(sourceApplet, sourceObjectName, targetApplet, targetObjectNam
   }
 
   function syncValue(sourceApplet, sourceObjectName, targetApplet,targetObjectName) {
-    // get value from controller and set value in poincare
-	const value = sourceApplet.getValue(sourceObjectName);
-	targetApplet.setValue(targetObjectName, value);
-	//console.log(`Updated ${targetObjectName} in Poincare: ${value}`);
+    // get value from source applet and set value in a target applet
+	  try {  
+      const value = sourceApplet.getValue(sourceObjectName);
+	    targetApplet.setValue(targetObjectName, value);
+    }catch(e){
+	    console.error(`Error syncing values:` e);
+    }
   }
 
 const modes = {
@@ -128,20 +132,19 @@ function setMode(applet, modeName) {
   }
 
 function ggbOnInit(param) {
-	console.log(`Апплет загружен: ${param}`);
+  console.log(`Апплет загружен: ${param}`);
 	if (param in appletsLoaded) {
-        appletsLoaded[param] = true;	
-	    checkAllAppletsLoaded();
-    }
-}
-function checkAllAppletsLoaded() {
-    if (Object.values(appletsLoaded).every(loaded => loaded)) {
-        console.log("Все апплеты загружены! Запускаю настройку...");
-        setupAll();
+    appletsLoaded[param] = true;	
+	  checkAllAppletsLoaded();
   }
 }
 
-
+function checkAllAppletsLoaded() {
+  if (Object.values(appletsLoaded).every(loaded => loaded)) {
+    console.log("All applets are loaded! Strat initial setup:");
+    setupAll();
+  }
+}
 
 function createAppletControls(applet, variableNames, containerId) {
   const container = document.getElementById(containerId);
@@ -175,7 +178,7 @@ function createAppletControls(applet, variableNames, containerId) {
     valueDisplay.style.textAlign = 'right';  // чтобы числа красиво выравнивались по правому краю
 
     // Create slider
-    const sliderItself = document.createElement('input');
+    const slider = document.createElement('input');
     slider.type = 'range';
     slider.min = -90;
     slider.max = 90;
@@ -232,109 +235,105 @@ function createAppletControls(applet, variableNames, containerId) {
 }
 
 
-    function createPoincareSettings(applet, variableNames, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
+function createPoincareSettings(applet, variableNames, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
 
-      const details = document.createElement('details');
-      container.appendChild(details);
+  const details = document.createElement('details');
+  container.appendChild(details);
 
-      const summary = document.createElement('summary');
-      summary.textContent = 'Settings';
-      summary.style.display = 'flex';
-      summary.style.justifyContent = 'center';
-      summary.style.alignItems = 'center';
-      summary.style.height = '30px'
-      details.appendChild(summary);
+  const summary = document.createElement('summary');
+  summary.textContent = 'Settings';
+  summary.style.display = 'flex';
+  summary.style.justifyContent = 'center';
+  summary.style.alignItems = 'center';
+  summary.style.height = '30px'
+  details.appendChild(summary);
 
-      const menu = document.createElement('div');
-      menu.className = 'menu';
-      menu.style.display = 'flex';
-      menu.style.width = '100%';
-      menu.style.border = '1px solid #ccc';
-      details.appendChild(menu);
+  const menu = document.createElement('div');
+  menu.className = 'menu';
+  menu.style.display = 'flex';
+  menu.style.width = '100%';
+  menu.style.border = '1px solid #ccc';
+  details.appendChild(menu);
 
-      const pointsSection = document.createElement('div');
-      pointsSection.className = 'pointsSection'
-      pointsSection.style.display = 'flex';
-      pointsSection.style.width = '60%';
-      pointsSection.style.gap = '2rem';
-      pointsSection.style.padding = '1rem';
-      menu.appendChild(pointsSection);
+  const pointsSection = document.createElement('div');
+  pointsSection.className = 'pointsSection'
+  pointsSection.style.display = 'flex';
+  pointsSection.style.width = '60%';
+  pointsSection.style.gap = '2rem';
+  pointsSection.style.padding = '1rem';
+  menu.appendChild(pointsSection);
 
-      variableNames.forEach(name => {
-        console.log('Creating column for ${name}')
-	      const pointColumn = document.createElement('div');
-        pointColumn.className = 'pointColumn';
-        pointColumn.style.display = 'flex';
-        pointColumn.style.flexDirection = 'column';
-        pointColumn.style.gap = '0.25rem';
+  variableNames.forEach(name => {
+    console.log('Creating column for ${name}')
+	  const pointColumn = document.createElement('div');
+    pointColumn.className = 'pointColumn';
+    pointColumn.style.display = 'flex';
+    pointColumn.style.flexDirection = 'column';
+    pointColumn.style.gap = '0.25rem';
 
-        console.log('Creating label checkbox for ${name}')
-        const label = document.createElement('label');
-        const labelCheckbox = document.createElement('input');
-        labelCheckbox.type = 'checkbox';
-        //labelCheckbox.dataset.varname = name;
-        //labelCheckbox.id = `label_${name}`;
-        labelCheckbox.addEventListener('input', () => {
-          applet.setLabelVisible?.(name, labelCheckbox.checked);
-        });
-        label.appendChild(labelCheckbox);
-        label.appendChild(document.createTextNode(' label'));
+    console.log('Creating label checkbox for ${name}')
+    const label = document.createElement('label');
+    const labelCheckbox = document.createElement('input');
+    labelCheckbox.type = 'checkbox';
+    traceCheckbox.dataset.varname = name;
+    traceCheckbox.id = `trace_${name}`;
+    labelCheckbox.addEventListener('input', () => {applet.setLabelVisible?.(name, labelCheckbox.checked); });
+    label.appendChild(labelCheckbox);
+    label.appendChild(document.createTextNode(' label'));
 
-        console.log('Creating trace checkbox for ${name}')
-        const trace = document.createElement('label');
-        const traceCheckbox = document.createElement('input');
-        traceCheckbox.type = 'checkbox';
-        //traceCheckbox.dataset.varname = name;
-        //traceCheckbox.id = `trace_${name}`;
-        traceCheckbox.addEventListener('input', () => {
-          applet.setTrace?.(`${name}trace`, traceCheckbox.checked);
-        });
-        trace.appendChild(traceCheckbox);
-        trace.appendChild(document.createTextNode(' trace'));
+    console.log('Creating trace checkbox for ${name}')
+    const trace = document.createElement('label');
+    const traceCheckbox = document.createElement('input');
+    traceCheckbox.type = 'checkbox';
+    traceCheckbox.dataset.varname = name;
+    traceCheckbox.id = `trace_${name}`;
+    traceCheckbox.addEventListener('input', () => {applet.setTrace?.(`${name}trace`, traceCheckbox.checked);});
+    trace.appendChild(traceCheckbox);
+    trace.appendChild(document.createTextNode(' trace'));
 
-        pointColumn.appendChild(document.createTextNode(name));
-        pointColumn.appendChild(label);
-        pointColumn.appendChild(trace);
+    pointColumn.appendChild(document.createTextNode(name));
+    pointColumn.appendChild(label);
+    pointColumn.appendChild(trace);
 
-        pointsSection.appendChild(pointColumn);
-        label_checkboxes.push(labelCheckbox);
-        trace_checkboxes.push(traceCheckbox);
-      });
+    pointsSection.appendChild(pointColumn);
+    label_checkboxes.push(labelCheckbox);
+    trace_checkboxes.push(traceCheckbox);
+  });
 
-      const generalSection = document.createElement('div');
-      generalSection.className = 'generalSection'
-      generalSection.style.display = 'flex';
-      generalSection.style.flexDirection = 'column';
-      generalSection.style.padding = '1rem'
-      generalSection.style.borderLeft = '1px solid #ccc';
-      generalSection.style.gap = '0.25rem';
-      menu.appendChild(generalSection);
+  const generalSection = document.createElement('div');
+  generalSection.className = 'generalSection'
+  generalSection.style.display = 'flex';
+  generalSection.style.flexDirection = 'column';
+  generalSection.style.padding = '1rem'
+  generalSection.style.borderLeft = '1px solid #ccc';
+  generalSection.style.gap = '0.25rem';
+  menu.appendChild(generalSection);
 
-      const clearBtn = document.createElement('button');
-      clearBtn.textContent = 'Clear all traces';
-      clearBtn.addEventListener('click', () => {
+  const clearBtn = document.createElement('button');
+  clearBtn.textContent = 'Clear all traces';
+  clearBtn.addEventListener('click', () => {
 	console.log('Trace clear button clicked')
         //applet.ZoomIn(-1, 1);
-      });
+  });
 
-      const axisLabel = document.createElement('label');
-      const axisCb = document.createElement('input');
-      axisCb.type = 'checkbox';
-      axisCb.addEventListener('input', () => applet.setAxesVisible?.(-1,axisCb.checked,axisCb.checked,axisCb.checked));
-      axisLabel.appendChild(axisCb);
-      axisLabel.appendChild(document.createTextNode(' show axis'));
+  const axisLabel = document.createElement('label');
+  const axisCb = document.createElement('input');
+  axisCb.type = 'checkbox';
+  axisCb.addEventListener('input', () => applet.setAxesVisible?.(-1,axisCb.checked,axisCb.checked,axisCb.checked));
+  axisLabel.appendChild(axisCb);
+  axisLabel.appendChild(document.createTextNode(' show axis'));
 
-      const gridLabel = document.createElement('label');
-      const gridCb = document.createElement('input');
-      gridCb.type = 'checkbox';
-      gridCb.addEventListener('input', () => applet.setGridVisible?.(-1,gridCb.checked));
-      gridLabel.appendChild(gridCb);
-      gridLabel.appendChild(document.createTextNode(' show grid'));
+  const gridLabel = document.createElement('label');
+  const gridCb = document.createElement('input');
+  gridCb.type = 'checkbox';
+  gridCb.addEventListener('input', () => applet.setGridVisible?.(-1,gridCb.checked));
+  gridLabel.appendChild(gridCb);
+  gridLabel.appendChild(document.createTextNode(' show grid'));
 
-      generalSection.appendChild(clearBtn);
-      generalSection.appendChild(axisLabel);
-      generalSection.appendChild(gridLabel);
-    }
+  generalSection.appendChild(clearBtn);
+  generalSection.appendChild(axisLabel);
+  generalSection.appendChild(gridLabel);
+}
 
