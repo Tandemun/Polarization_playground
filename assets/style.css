@@ -70,6 +70,17 @@ a:hover {
 
 /*=============================================================== Poincare setting menu =============================================================================================================================*/
 /* main menu container */
+.poincare-settings__summary {
+  display: flex;
+  justify-content: center;
+	align-items: center;
+  width: 100%;
+  height: 30px;
+}
+
+
+
+/* main menu container */
 .poincare-settings__menu {
   display: flex;
   width: 100%;
@@ -78,7 +89,7 @@ a:hover {
 }
 
 /* left part with points settings */
-.poincare-settings__points {
+.poincare-settings__pointsSection {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -103,7 +114,7 @@ a:hover {
   padding: 1rem;
   width: 40%;
   border-left: 1px solid #ccc;
-  gap: 0.5rem;
+  gap: 0.25rem;
   box-sizing: border-box;
 }
 
