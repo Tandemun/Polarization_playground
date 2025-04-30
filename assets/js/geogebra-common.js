@@ -158,13 +158,14 @@ function createAppletControls(applet, variableNames, containerId) {
   const controlsWrapper = document.createElement('div');
   controlsWrapper.style.display = 'flex';
   controlsWrapper.style.alignItems = 'center';
-  controlsWrapper.style.gap = '2rem';
+  controlsWrapper.style.gap = '4rem';
   controlsWrapper.style.justifyContent = 'space-between';
   container.appendChild(controlsWrapper);
 
   variableNames.forEach((name, index) => {
     const controlGroup = document.createElement('div');
     controlGroup.style.alignItems = 'center';
+    controlGroup.style.width = '100%';
 
     // Create slider
     const slider = document.createElement('input');
