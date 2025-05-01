@@ -17,18 +17,6 @@
       //menu button behavior
       document.getElementById('menu-toggle').addEventListener('click', () => {document.getElementById('sidebar').classList.toggle('active');});
       
-      // topbar behavior
-      let lastScrollY = window.scrollY;
-      window.addEventListener('scroll', () => {
-        const topbar = document.querySelector('.topbar');
-          if (!topbar) return;
-          if (window.scrollY > lastScrollY) {
-            topbar.classList.add('hidden');  // scroll down — hide
-          } else {
-            topbar.classList.remove('hidden'); // scroll up — show
-          }
-         lastScrollY = window.scrollY;
-      });
       
     </script>
   </body>
