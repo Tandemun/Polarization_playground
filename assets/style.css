@@ -1,7 +1,7 @@
 /*================================== Colors ===============================================================*/
 :root {
-  --bgColor: var(--base3);
-  --t-bgColor: #FFFFFF;
+  --bgColor: #FFFFFF;
+  --t-bgColor: var(--base03);
 }
 
 h1, h2, h3 {  color: var(--base01);}
