@@ -45,7 +45,7 @@ body{
 
 main {
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
   max-width: 800px;
   margin: 0 auto;
   min-height: 100vh;
@@ -88,8 +88,8 @@ h1, h2, h3 {
   background-color: var(--base02);
   padding-top: 20px;
   color: var(--base0);
-  font-family: Arial, sans-serif;
   overflow-y: auto;
+  z-index: 1000;
 }
 
 .sidebar nav ul {
