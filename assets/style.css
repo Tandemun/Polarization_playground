@@ -29,10 +29,14 @@ body{
   justify-content: left;
   padding: 0.5rem 1rem;
   gap: 2rem;
-  border-bottom: 1px solid var(--base1);;
+  border-bottom: 1px solid var(--base1);
   position: sticky;
   top: 0;
   z-index: 1000;
+	transition: transform 0.3s ease;
+}
+.topbar.hidden {
+  transform: translateY(-100%);
 }
 .menu-toggle {
   background: none;
