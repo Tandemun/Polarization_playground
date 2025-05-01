@@ -1,10 +1,17 @@
+/*================================== Colors ===============================================================*/
+h1, h2, h3 {  color: var(--base01);}
+body       {background-color: var(--base03); color: var(--base00);}
+.topbar    {background-color: var(--base03); color: var(--base00);}
+.container {background-color: var(--base3);  color: var(--base00);}
+.sidebar   {background-color: var(--base02); color: var(--base0);}
+.sidebar nav ul li a {color: var(--base2);}
+.sidebar nav ul li a:hover {background-color: var(--base01);}
+.sidebar nav ul li ul li a:hover {background-color: var(--base00);}
 
 
 /* Main content */
 body{
-    color: var(--base00);
     font-family: "Helvetica Neue", sans-serif;
-    background-color: var(--base03);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -14,7 +21,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: left;
-  background-color: var(--base03);
   padding: 0.5rem 1rem;
   gap: 2rem;
   border-bottom: 1px solid var(--base1);;
@@ -37,10 +43,7 @@ body{
 .container {
   display: flex;
   width: 100%;
-  color: var(--base00);
-  background-color: var(--base3);
 }
-
 
 main {
   width: 100%;
@@ -51,12 +54,10 @@ main {
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 	margin-bottom: 40px;
 }
-h1, h2, h3 {
-  color: var(--base01);      
-}
+
 
 
 /* Убираем рамки и фон у апплетов GeoGebra */
@@ -85,9 +86,7 @@ h1, h2, h3 {
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: var(--base02);
   padding-top: 20px;
-  color: var(--base0);
   overflow-y: auto;
   z-index: 1000;
 }
@@ -108,16 +107,12 @@ h1, h2, h3 {
 
 .sidebar nav ul li a {
   text-decoration: none;
-  color: var(--base2);
   font-size: 18px;
   display: block;
   padding: 10px;
   transition: background-color 0.3s;
 }
 
-.sidebar nav ul li a:hover {
-  background-color: var(--base01);
-}
 
 /* Подменю — всегда видно */
 .sidebar nav ul li ul {
@@ -130,12 +125,6 @@ h1, h2, h3 {
 .sidebar nav ul li ul li a {
   padding-left: 20px;
 }
-
-.sidebar nav ul li ul li a:hover {
-  background-color: var(--base00);
-}
-
-
 
 
 /* Адаптация под узкий экран */
@@ -154,7 +143,7 @@ h1, h2, h3 {
 
 
 /*=============================================================== Poincare setting menu =============================================================================================================================*/
-/* main menu container */
+/* menu container title */
 .poincare-settings__summary {
   display: flex;
   justify-content: center;
@@ -162,7 +151,6 @@ h1, h2, h3 {
   width: 100%;
   height: 30px;
 }
-
 
 
 /* main menu container */
