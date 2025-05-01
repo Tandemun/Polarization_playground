@@ -86,14 +86,10 @@ h1 {
 
 /* Адаптация под узкий экран */
 @media (max-width: 1114px) {
-
-  #menu-toggle {
-    display: block;
-  } 
-
-  main {
-      margin-left: 0;
-  }
+  #menu-toggle {display: block;} 
+  main {margin-left: 0;}
+	.sidebar{left: -250}
+	
 }
 
 /* Убираем рамки и фон у апплетов GeoGebra */
