@@ -152,7 +152,7 @@ h1 {
 
 
 /* Адаптация под узкий экран */
-@media (max-width: 1200px) {
+@media (max-width: 1114px) {
 
   .menu-toggle {
     display: block;
