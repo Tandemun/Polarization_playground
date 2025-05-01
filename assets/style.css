@@ -1,26 +1,47 @@
 
 
 /* Main content */
-h1 {
-    text-align: center;
-	margin-bottom: 40px;
-}
-h1, h2, h3 {
-  color: var(--base1);      
-}
-.container {
-  display: flex;
-  margin-left: 250px;
-}
-
 body{
     color: var(--base00);
     font-family: "Helvetica Neue", sans-serif;
-    background-color: var(--base3);
+    background-color: var(--base03);
     display: flex;
     flex-direction: column;
     margin: 0;
 }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: var(--base03);
+  padding: 0.5rem 1rem;
+  gap: 2rem;
+  border-bottom: 1px solid var(--base1);;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* покажем только на узких экранах */
+}
+.site-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  margin-left: 250px;
+  width: 100%;
+  color: var(--base00);
+  background-color: var(--base3);
+}
+
 
 main {
   width: 100%;
@@ -30,19 +51,15 @@ main {
   min-height: 100vh;
 }
 
-
-/* ggb applets container */
-.applets {
-  display: flex;
-  flex-wrap: wrap;
-  /*gap: 2rem;*/
-  justify-content: center;
-  margin-top: 2rem;
+h1 {
+    text-align: center;
+	margin-bottom: 40px;
+}
+h1, h2, h3 {
+  color: var(--base01);      
 }
 
-.applet {
 
-}
 /* Убираем рамки и фон у апплетов GeoGebra */
 .GeoGebraFrame {
   border: none !important;
@@ -60,27 +77,17 @@ main {
   background: transparent !important;
 }
 
-a {
-  color: var(--cyan);
-}
-
-a:hover {
-  color: var(--blue);
-}
-
-
 
 /* ===================================================================Sidebar styles */
 .sidebar {
   position: fixed;
   transition: transform 0.3s ease;
-  top: 0;
   left: 0;
   width: 250px;
   height: 100%;
   background-color: var(--base02);
   padding-top: 20px;
-  color: var(--base2);
+  color: var(--base0);
   font-family: Arial, sans-serif;
   overflow-y: auto;
 }
@@ -125,31 +132,7 @@ a:hover {
   background-color: var(--base00);
 }
 
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  background-color: #eee;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
 
-.site-title {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: none; /* покажем только на узких экранах */
-}
 
 
 /* Адаптация под узкий экран */
