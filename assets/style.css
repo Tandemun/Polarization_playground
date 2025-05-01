@@ -24,6 +24,11 @@ body{
     margin: 0;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -76,19 +81,28 @@ main {
   max-width: 800px;
   margin-left: 250px;
   min-height: 100vh;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
+.sidebar {
+  position: fixed;
+  transition: transform 0.3s ease;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  padding-top: 20px;
+  overflow-y: auto;
+  z-index: 1000;
 }
+  .sidebar.active {
+    transform: translateX(0);
+  }
 
 /* Адаптация под узкий экран */
 @media (max-width: 1114px) {
   #menu-toggle {display: block;} 
   main {margin-left: 0;}
-	.sidebar{left: -250}
+  .sidebar{transform: translateX(-100%);}
 	
 }
 
@@ -111,20 +125,7 @@ h1 {
 
 
 /* ===================================================================Sidebar styles */
-.sidebar {
-  position: fixed;
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
-  left: 0;
-  width: 250px;
-  height: 100%;
-  padding-top: 20px;
-  overflow-y: auto;
-  z-index: 1000;
-}
-  .sidebar.active {
-    transform: translateX(0);
-  }
+
 
 .sidebar nav ul {
   list-style: none;
