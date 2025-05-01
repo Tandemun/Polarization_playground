@@ -39,29 +39,16 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: transform 0.3s ease;
-}
-.topbar.hidden {
-  transform: translateY(-100%);
-}
-#menu-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: none; /* покажем только на узких экранах */
 }
 
-.material-icons {
-    margin: 14px 2px 14px 18px;
-    /*padding: 6px;*/
-    cursor: pointer;
-    height: 36px;
-    float: left;
-    box-sizing: border-box;
-    border-radius: 50%;
-    background-color: transparent;
-    border: none;
+#menu-toggle {
+  color: inherit;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none; /* покажем только на узких экранах */
 }
 
 .site-title {
