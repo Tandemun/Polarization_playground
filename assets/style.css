@@ -55,7 +55,7 @@ body{
     float: left;
     box-sizing: border-box;
     border-radius: 50%;
-	  background-color: transparent;
+    background-color: transparent;
     border: none;
 }
 
@@ -67,6 +67,7 @@ body{
 .container {
   display: flex;
   width: 100%;
+  justify-content: center;
 }
 
 main {
@@ -79,7 +80,7 @@ main {
 
 h1 {
   text-align: center;
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 
@@ -156,11 +157,7 @@ h1 {
 
   .menu-toggle {
     display: block;
-  }
-  main {
-    margin-left: auto;
-    margin-right: auto;
-  }  
+  } 
 
 .container {
     margin-left: auto;
