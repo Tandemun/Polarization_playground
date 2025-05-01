@@ -46,6 +46,17 @@ body{
   cursor: pointer;
   display: none; /* покажем только на узких экранах */
 }
+
+.material-icons {
+    margin: 14px 2px 14px 18px;
+    padding: 6px;
+    cursor: pointer;
+    height: 36px;
+    float: left;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
 .site-title {
   font-size: 1.2rem;
   margin: 0;
