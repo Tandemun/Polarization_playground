@@ -39,7 +39,7 @@ body{
 .topbar.hidden {
   transform: translateY(-100%);
 }
-.menu-toggle {
+#menu-toggle {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -76,6 +76,7 @@ main {
   max-width: 800px;
   margin-left: 250px;
   min-height: 100vh;
+  transition: transform 0.3s ease;
 }
 
 h1 {
@@ -83,7 +84,17 @@ h1 {
   margin-bottom: 40px;
 }
 
+/* Адаптация под узкий экран */
+@media (max-width: 1114px) {
 
+  #menu-toggle {
+    display: block;
+  } 
+
+  main {
+      margin-left: 0;
+  }
+}
 
 /* Убираем рамки и фон у апплетов GeoGebra */
 .GeoGebraFrame {
@@ -152,18 +163,7 @@ h1 {
 }
 
 
-/* Адаптация под узкий экран */
-@media (max-width: 1114px) {
 
-  .menu-toggle {
-    display: block;
-  } 
-
-.container {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 
 
