@@ -6,7 +6,7 @@
 
 h1, h2, h3 {  color: var(--base01);}
 html       {background-color: var(--bgColor);}
-body       {background-color: var(--t-bgColor); color: var(--base00);}
+body       {background-color: var(--bgColor); color: var(--base00);}
 .topbar    {background-color: var(--t-bgColor); color: var(--base00);}
 .container {background-color: var(--bgColor);  color: var(--base00);}
 .sidebar   {background-color: var(--base02); color: var(--base0);}
