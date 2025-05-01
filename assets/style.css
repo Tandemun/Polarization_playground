@@ -7,10 +7,10 @@
 h1, h2, h3 {  color: var(--base01);}
 html       {background-color: var(--bgColor);}
 body       {background-color: var(--bgColor); color: var(--base00);}
-.topbar    {background-color: var(--t-bgColor); color: var(--base00);}
+.topbar    {background-color: var(--base2); color: var(--orange);}
 .container {background-color: var(--bgColor);  color: var(--base00);}
 .sidebar   {background-color: var(--base2); color: var(--orange);}
-.sidebar nav ul li a {color: var(--base2);}
+.sidebar nav ul li a {color: varvar(--orange);}
 .sidebar nav ul li a:hover {background-color: var(--base01);}
 .sidebar nav ul li ul li a:hover {background-color: var(--base00);}
 
