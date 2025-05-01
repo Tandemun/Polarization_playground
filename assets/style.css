@@ -91,6 +91,9 @@ h1, h2, h3 {
   overflow-y: auto;
   z-index: 1000;
 }
+  .sidebar.active {
+    transform: translateX(0);
+  }
 
 .sidebar nav ul {
   list-style: none;
@@ -137,13 +140,6 @@ h1, h2, h3 {
 
 /* Адаптация под узкий экран */
 @media (max-width: 1200px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
 
   .menu-toggle {
     display: block;
