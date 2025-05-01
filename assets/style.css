@@ -73,7 +73,7 @@ main {
   width: 100%;
   padding: 1rem;
   max-width: 800px;
-  margin: 0 auto;
+  margin-left: 250px;
   min-height: 100vh;
 }
 
@@ -157,7 +157,12 @@ h1 {
   .menu-toggle {
     display: block;
   }
-  .container {
+  main {
+    margin-left: auto;
+    margin-right: auto;
+  }  
+
+.container {
     margin-left: auto;
     margin-right: auto;
   }
