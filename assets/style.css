@@ -4,8 +4,7 @@
   --laColor: #82917A;
   --mainColor: #616846;
   --daColor: #7D8B73;
-  --textColor: #202623
-  
+  --textColor: #202623;
 }
 
 h1         {color: var(--mainColor);}
