@@ -145,7 +145,7 @@ The **QWP-HWP-QWP polarization controller** is a fundamental tool in modern opti
     }  
       	
     console.log("Set background colors for applets");
-    const bgColor = getCssVariable("--base3")
+    const bgColor = getCssVariable("--bgColor")
     controller.setGraphicsOptions(-1,{"bgColor":bgColor});
     controller.setGraphicsOptions(1,{"bgColor":bgColor});
     poincare.setGraphicsOptions(-1,{"bgColor":bgColor});
