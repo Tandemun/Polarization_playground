@@ -9,16 +9,15 @@
 
 h1         {color: var(--mainColor);}
 body       {background-color: var(--bgColor); color: var(--textColor);}
-.topbar    {background-color: white; color: var(--mainColor);}
+.topbar    {background-color: var(--laColor); color: var(--mainColor);}
 .sidebar   {background-color: white; color: var(--textColor);}
-.sidebar nav ul li a {color: var(--textColor);}
-.sidebar nav ul li a:hover {background-color: var(--laColor);}
-.sidebar nav ul li ul li a:hover {background-color: var(--laColor);}
+.sidebar nav a {color: var(--textColor);}
+.sidebar nav a:hover {background-color: var(--laColor);}
 
 
 /* Main content */
 body{
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: system-ui;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -52,7 +51,7 @@ h1 {
 }
 
 .site-title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   margin: 0;
 }
 
