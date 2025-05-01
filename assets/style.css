@@ -82,6 +82,7 @@ h1, h2, h3 {
 .sidebar {
   position: fixed;
   transition: transform 0.3s ease;
+  transform: translateX(-100%);
   left: 0;
   width: 250px;
   height: 100%;
