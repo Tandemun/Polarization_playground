@@ -64,7 +64,7 @@ h1 {
 
 main {
   width: 100%;
-  padding: 0.5rem;
+  /*padding: 0.5rem;*/
   max-width: 800px;
   margin-left: 250px;
   min-height: 100vh;
@@ -89,7 +89,10 @@ main {
 /* Адаптация под узкий экран */
 @media (max-width: 1114px) {
   #menu-toggle {display: block;} 
-  main {margin-left: 0;}
+  main {
+	  margin-left: 20px;
+	  margin-right: 20px;
+  }
   .sidebar{transform: translateX(-100%);}
 	
 }
