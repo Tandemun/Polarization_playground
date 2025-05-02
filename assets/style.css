@@ -7,7 +7,7 @@
   --textColor: #202623;
 }
 
-h1         {color: var(--textColor);}
+h1         {color: var(--mainColor);}
 body       {background-color: var(--bgColor); color: var(--textColor);}
 .topbar    {background-color: var(--laColor); color: var(--textColor);}
 .sidebar   {background-color: var(--mainColor); color: white;}
