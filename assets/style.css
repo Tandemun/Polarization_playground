@@ -90,7 +90,7 @@ main {
   }
 
 /* Адаптация под узкий экран */
-@media (max-width: 1120px) {
+@media (max-width: 1300px) {
   #menu-toggle {display: block;} 
   main {
 	  margin-left: 0px;
