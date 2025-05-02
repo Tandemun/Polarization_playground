@@ -11,7 +11,6 @@ h1         {color: var(--textColor);}
 body       {background-color: var(--bgColor); color: var(--textColor);}
 .topbar    {background-color: var(--laColor); color: var(--textColor);}
 .sidebar   {background-color: var(--mainColor); color: white;}
-.sidebar nav a {color: var(--textColor);}
 .sidebar nav a:hover {background-color: var(--laColor);}
 
 
@@ -64,12 +63,12 @@ h1 {
 
 main {
   width: 100%;
-  /*padding: 0.5rem;*/
-  max-width: 800px;
+  padding: 1rem;
+  max-width: 832px;
   margin-left: 250px;
   min-height: 100vh;
   transition: margin-left 0.3s ease;
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
 }
 
 .sidebar {
@@ -87,11 +86,11 @@ main {
   }
 
 /* Адаптация под узкий экран */
-@media (max-width: 1114px) {
+@media (max-width: 1120px) {
   #menu-toggle {display: block;} 
   main {
-	  margin-left: 10px;
-	  margin-right: 10px;
+	  margin-left: 0px;
+	  margin-right: 0px;
   }
   .sidebar{transform: translateX(-100%);}
 	
