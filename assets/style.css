@@ -90,8 +90,8 @@ main {
 @media (max-width: 1114px) {
   #menu-toggle {display: block;} 
   main {
-	  margin-left: 20px;
-	  margin-right: 20px;
+	  margin-left: 10px;
+	  margin-right: 10px;
   }
   .sidebar{transform: translateX(-100%);}
 	
