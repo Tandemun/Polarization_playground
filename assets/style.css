@@ -8,11 +8,11 @@
   --textColor: #202623;
 }
 
-h1         {color: var(--mainColor);}
+h1         {color: var(--textColor);}
 body       {background-color: var(--bgColor); color: var(--textColor);}
 .topbar    {background-color: var(--bgColor); color: var(--textColor);}
 .sidebar   {background-color: var(--bgColor); color: white;}
-.sidebar nav ul li a: {color: var(--mainColor);}
+.sidebar nav ul li a {color: var(--textColor);}
 .sidebar nav a:hover {background-color: var(--laColor);}
 
 
