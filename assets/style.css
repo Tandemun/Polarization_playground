@@ -87,9 +87,9 @@ main {
   transform: translateX(0)
 }
 .sidebar.hidden {transform: translateX(-100%);}
-main.fulscreen{margin-left: 0px;} 
+main.fullscreen{margin-left: 0px;} 
 
-/* Адаптация под узкий экран */
+/* Narrow screen adaptation */
 
 @media (max-width: 1300px) {
   main {margin-left: 0px;}	
