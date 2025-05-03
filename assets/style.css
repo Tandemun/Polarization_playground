@@ -90,7 +90,7 @@ main.fullscreen{margin-left: 0px;}
 
 /* Narrow screen adaptation */
 
-@media (max-width: 864px) {
+@media (max-width: 1200px) {
   main {margin-left: 0px;}	
 }
 
