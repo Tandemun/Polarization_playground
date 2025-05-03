@@ -83,22 +83,22 @@ main {
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 5px 0 17px rgba(0, 0, 0, 0.03);
-  transform: translateX(0)
+  transform: translateX(0) /*Sidebar is visible by default*/
 }
 .sidebar.hidden {transform: translateX(-100%);}
 main.fullscreen{margin-left: 0px;} 
 
 /* Narrow  window adaptation */
 @media (max-width: 1200px) {
-	main {margin-left: 0px;}	
-  .sidebar {transform: translateX(-100%);}
-  .sidebar.hidden {transform: translateX(0);}
+  main {margin-left: 0px;}	
+  .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
+  .sidebar.active {transform: translateX(0);}
 }
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
   .sidebar{width: 100%}
-  .sidebar {transform: translateY(-100%);}
-  .sidebar.hidden {transform: translateY(0);}
+  .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
+  .sidebar.active {transform: translateY(0);}
 }
 
 
