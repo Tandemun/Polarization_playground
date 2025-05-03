@@ -84,35 +84,20 @@ main {
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 5px 0 17px rgba(0, 0, 0, 0.03);
+  transform: translateX(0)
 }
-  .sidebar.active {
-    transform: translateX(0);
-  }
+.sidebar.hidden {transform: translateX(-100%);}
+main.fulscreen{margin-left: 0px;} 
 
 /* Адаптация под узкий экран */
 
-
-@media (min-width: 1600px) { 
-  main {
-	  margin-left: 0px;
-	  margin-right: 0px;
-  }
-}
-
-
 @media (max-width: 1300px) {
-  #menu-toggle {display: block;} 
-  main {
-	  margin-left: 0px;
-	  margin-right: 0px;
-  }
-  .sidebar{transform: translateX(-100%);}	
+  main {margin-left: 0px;}	
 }
-
 
 @media (max-width: 500px) {
-  .sidebar{transform: translateY(-100%); width: 100%}
-  .sidebar.active {transform: translateY(0);}
+  .sidebar{width: 100%}
+  .sidebar.hidden {transform: translateY(-100%);}
 }
 
 
