@@ -90,6 +90,16 @@ main {
   }
 
 /* Адаптация под узкий экран */
+
+
+@media (min-width: 1600px) { 
+  main {
+	  margin-left: 0px;
+	  margin-right: 0px;
+  }
+}
+
+
 @media (max-width: 1300px) {
   #menu-toggle {display: block;} 
   main {
