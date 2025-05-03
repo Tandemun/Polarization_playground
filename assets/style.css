@@ -96,10 +96,19 @@ main {
 	  margin-left: 0px;
 	  margin-right: 0px;
   }
-  .sidebar{transform: translateX(-100%);}
-	
+  .sidebar{transform: translateX(-100%);}	
 }
 
+
+@media (max-width: 499px) {
+  #menu-toggle {display: block;} 
+  main {
+	  margin-left: 0px;
+	  margin-right: 0px;
+  }
+  .sidebar{transform: translateY(-100%); width: 100%}
+  .sidebar.active {transform: translateY(0);}
+}
 
 
 
