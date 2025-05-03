@@ -88,15 +88,17 @@ main {
 .sidebar.hidden {transform: translateX(-100%);}
 main.fullscreen{margin-left: 0px;} 
 
-/* Narrow screen adaptation */
-
+/* Narrow  window adaptation */
 @media (max-width: 1200px) {
-  main {margin-left: 0px;}	
+	main {margin-left: 0px;}	
+  .sidebar {transform: translateX(-100%);}
+  .sidebar.hidden {transform: translateX(0);}
 }
-
+/* Mobile  window adaptation */
 @media (max-width: 500px) {
   .sidebar{width: 100%}
-  .sidebar.hidden {transform: translateY(-100%);}
+  .sidebar {transform: translateY(-100%);}
+  .sidebar.hidden {transform: translateY(0);}
 }
 
 
