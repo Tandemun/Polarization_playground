@@ -90,7 +90,7 @@ main {
   }
 
 /* Адаптация под узкий экран */
-@media (min-width: 500px) and (max-width: 1300px) {
+@media (max-width: 1300px) {
   #menu-toggle {display: block;} 
   main {
 	  margin-left: 0px;
@@ -100,12 +100,7 @@ main {
 }
 
 
-@media (max-width: 499px) {
-  #menu-toggle {display: block;} 
-  main {
-	  margin-left: 0px;
-	  margin-right: 0px;
-  }
+@media (max-width: 500px) {
   .sidebar{transform: translateY(-100%); width: 100%}
   .sidebar.active {transform: translateY(0);}
 }
