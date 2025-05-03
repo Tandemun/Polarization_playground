@@ -90,7 +90,7 @@ main {
   }
 
 /* Адаптация под узкий экран */
-@media (max-width: 1300px) {
+@media (min-width: 500px) and (max-width: 1300px) {
   #menu-toggle {display: block;} 
   main {
 	  margin-left: 0px;
@@ -100,6 +100,13 @@ main {
 	
 }
 
+
+
+
+
+
+
+/* ===================================================================Geogebra  */
 /* Убираем рамки и фон у апплетов GeoGebra */
 .GeoGebraFrame {
   border: none !important;
