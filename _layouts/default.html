@@ -15,6 +15,10 @@
     </div>
     
     <script>
+      function getCssVariable(name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      }
+      
       const menuToggle = document.getElementById('menu-toggle');
       const sidebar = document.getElementById('sidebar');
       const main = document.getElementById('main-content');
@@ -22,16 +26,24 @@
 
 
       //menu button behavior
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        main.classList.toggle('shifted');
-        overlay.classList.toggle('active');
-        menuToggle.textContent = sidebar.classList.contains('active') ? 'close' : 'menu';
+      toggleButton.addEventListener('click', () => {
+        const isWide = window.innerWidth > 1200;
+        const isHidden = sidebar.classList.contains('hidden');
+        const isActive = sidebar.classList.contains('active');
+      
+        // Сброс всех состояний
+        sidebar.classList.remove('hidden', 'active');
+      
+        if (isWide) {
+          if (!isHidden) {sidebar.classList.add('hidden');}
+        } else {
+          if (!isActive) {sidebar.classList.add('active');}
+        }
       });
 
       //overlay click behavior
       overlay.addEventListener('click', () => {
-        sidebar.classList.remove('active');
+        sidebar.classList.add('close');
         main.classList.remove('shifted');
         overlay.classList.remove('active');
         menuToggle.textContent = 'menu';
