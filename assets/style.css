@@ -101,16 +101,16 @@ main.shifted {transform: translateX(0);}
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 5px 0 17px rgba(0, 0, 0, 0.03);
-  transform: translateX(0) /*Sidebar is visible by default*/
 }
-.sidebar.active {transform: translateX(-100%);}
+
+.sidebar{transform: translateX(0);}   /*Sidebar is visible by default*/}
+.sidebar.active {transform: translateX(0);}
+.sidebar.hidden {transform: translateX(-100%);}
 
 /* Narrow  window adaptation */
 @media (max-width: 1200px) {
   main { transform: translateX(0);}	
-  
   .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
-  .sidebar.active {transform: translateX(0);}
 }
 
 /* Mobile  window adaptation */
