@@ -74,7 +74,7 @@ main {
   max-width: 832px;
   transform: translateX(var(--sidebar-width));
   min-height: 100vh;
-  transition: margin-left 0.3s ease;
+  transition: transform 0.3s ease;
   box-sizing: border-box;
 }
 main.shifted {transform: translateX(0);}
@@ -112,14 +112,14 @@ main.shifted {transform: translateX(0);}
 .sidebar.active {transform: translateX(-100%);}
 
 /* Narrow  window adaptation */
-@media (max-width: var(--tablet-breakpoint)) {
+@media (max-width: 1200px) {
   main { transform: translateX(0);}	
   .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateX(0);}
 }
 
 /* Mobile  window adaptation */
-@media var(--mobile-breakpoint)) {
+@media (max-width: 500px) {
   main { transform: translateX(0);}	
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
