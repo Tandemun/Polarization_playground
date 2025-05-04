@@ -78,7 +78,7 @@ main {
 
 
 /* Overlay для Tablet & Small window */
-#overlay {
+.overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
@@ -113,7 +113,6 @@ main {
 
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
-  #overlay.active {display: block;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
