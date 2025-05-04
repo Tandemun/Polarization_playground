@@ -49,10 +49,15 @@ body{
 #menu-toggle {
   color: inherit;
   background: none;
-  border-radius: 50%;
+  border-radius: 10%;
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+menu-toggle:hover {
+  background-color: #82917A; /* цвет кнопки при наведении */
+  transform: scale(1.05); /* небольшой эффект увеличения при наведении */
 }
 
 .site-title {
