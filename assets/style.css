@@ -6,6 +6,11 @@
   --mainColor: #616846;
   --daColor: #7D8B73;
   --textColor: #202623;
+
+  --sidebar-width: 250px;
+  --mobile-breakpoint: 500px;
+  --tablet-breakpoint: 1200px;
+	
 }
 
 h1         {color: var(--textColor);}
@@ -57,7 +62,7 @@ h1 {
   font-weight: bold;
 }
 
-.container {
+.layout {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -67,17 +72,36 @@ main {
   width: 100%;
   padding: 1rem;
   max-width: 832px;
-  margin-left: 250px;
+  transform: translateX(var(--sidebar-width));
   min-height: 100vh;
   transition: margin-left 0.3s ease;
   box-sizing: border-box;
 }
+main.shifted {transform: translateX(0);}
+
+
+/* Overlay для Tablet & Small window */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 900;
+  display: none;
+}
+
+/* Показать overlay */
+#overlay.active {
+  display: block;
+}
+
+
 
 .sidebar {
   position: fixed;
   transition: transform 0.3s ease;
   left: 0;
-  width: 250px;
+  width: var(--sidebar-width);
   height: 100%;
   padding-top: 20px;
   overflow-y: auto;
@@ -85,20 +109,22 @@ main {
   box-shadow: 5px 0 17px rgba(0, 0, 0, 0.03);
   transform: translateX(0) /*Sidebar is visible by default*/
 }
-.sidebar.hidden {transform: translateX(-100%);}
-main.fullscreen{margin-left: 0px;} 
+.sidebar.active {transform: translateX(-100%);}
 
 /* Narrow  window adaptation */
-@media (max-width: 1200px) {
-  main {margin-left: 0px;}	
+@media (max-width: var(--tablet-breakpoint)) {
+  main { transform: translateX(0);}	
   .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateX(0);}
 }
+
 /* Mobile  window adaptation */
-@media (max-width: 500px) {
+@media var(--mobile-breakpoint)) {
+  main { transform: translateX(0);}	
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
+  #menu-toggle {position: absolute; right: 1rem; top: 1rem;}
 }
 
 
