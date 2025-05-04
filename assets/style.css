@@ -90,10 +90,6 @@ main.shifted {transform: translateX(0);}
   display: none;
 }
 
-/* Показать overlay */
-
-
-
 
 .sidebar {
   position: fixed;
