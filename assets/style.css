@@ -55,7 +55,7 @@ body{
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-menu-toggle:hover {
+#menu-toggle:hover {
   background-color: #82917A; /* цвет кнопки при наведении */
   transform: scale(1.05); /* небольшой эффект увеличения при наведении */
 }
