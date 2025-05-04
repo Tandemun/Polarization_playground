@@ -116,8 +116,8 @@ main {
   #overlay.active {display: block;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
-  .sidebar {transform: translateX(0);}
   .sidebar.active {transform: translateY(0);}
+  .sidebar{width: 100%}
   #menu-toggle {position: absolute; right: 1rem; top: 1rem;}
 }
 
