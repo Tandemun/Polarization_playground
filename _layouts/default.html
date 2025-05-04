@@ -37,16 +37,17 @@
         layout.classList.remove('fullscreen');
       
         if (isWide) {
+          menuToggle.textContent = 'menu';
           if (!isHidden) {sidebar.classList.add('hidden');layout.classList.add('fullscreen')}
         } else {
-          if (!isActive) {sidebar.classList.add('active');}
+          menuToggle.textContent = 'menu';
+          if (!isActive) {sidebar.classList.add('active');menuToggle.textContent = 'close';}
         }
       });
 
       //overlay click behavior
       overlay.addEventListener('click', () => {
-        sidebar.classList.add('close');
-        main.classList.remove('shifted');
+        sidebar.classList.remove('active');
         overlay.classList.remove('active');
         menuToggle.textContent = 'menu';
       });
