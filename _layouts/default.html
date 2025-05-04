@@ -9,7 +9,7 @@
       <span class="site-title">Polarization</span>
     </header>
     <div id="overlay"></div>
-    <div class="layout">
+    <div id="layout" class="layout">
       <aside id="sidebar" class="sidebar">{% include sidebar.html %}</aside>
       <main id="main-content">{{ content }}</main>
     </div>
@@ -23,6 +23,7 @@
       const sidebar = document.getElementById('sidebar');
       const main = document.getElementById('main-content');
       const overlay = document.getElementById('overlay');
+      const layout = document.getElementById('layout');
 
 
       //menu button behavior
@@ -33,9 +34,10 @@
       
         // Сброс всех состояний
         sidebar.classList.remove('hidden', 'active');
+        layout.classList.remove('fullscreen');
       
         if (isWide) {
-          if (!isHidden) {sidebar.classList.add('hidden');}
+          if (!isHidden) {sidebar.classList.add('hidden');layout.classList.add('fullscreen')}
         } else {
           if (!isActive) {sidebar.classList.add('active');}
         }
