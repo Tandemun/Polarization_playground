@@ -91,9 +91,7 @@ main.shifted {transform: translateX(0);}
 }
 
 /* Показать overlay */
-#overlay.active {
-  display: block;
-}
+
 
 
 
@@ -114,13 +112,15 @@ main.shifted {transform: translateX(0);}
 /* Narrow  window adaptation */
 @media (max-width: 1200px) {
   main { transform: translateX(0);}	
+  
   .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateX(0);}
 }
 
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
-  main { transform: translateX(0);}	
+  main { transform: translateX(0);}
+  #overlay.active {display: block;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
