@@ -35,13 +35,20 @@
         // Сброс всех состояний
         sidebar.classList.remove('hidden', 'active');
         layout.classList.remove('fullscreen');
+        menuToggle.textContent = 'menu';
+        layout.classList.remove('active');
       
         if (isWide) {
-          menuToggle.textContent = 'menu';
-          if (!isHidden) {sidebar.classList.add('hidden');layout.classList.add('fullscreen')}
+          if (!isHidden) {
+            sidebar.classList.add('hidden');
+            layout.classList.add('fullscreen')
+          }
         } else {
-          menuToggle.textContent = 'menu';
-          if (!isActive) {sidebar.classList.add('active');menuToggle.textContent = 'close';}
+          if (!isActive) {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            menuToggle.textContent = 'close';      
+          }
         }
       });
 
