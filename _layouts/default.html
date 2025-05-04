@@ -20,13 +20,13 @@
       const main = document.getElementById('main-content');
       const overlay = document.getElementById('overlay');
 
-      menuToggle.textContent = sidebar.classList.contains('active') ? 'close' : 'menu';}
-      
+
       //menu button behavior
       menuToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
         main.classList.toggle('shifted');
         overlay.classList.toggle('active');
+        menuToggle.textContent = sidebar.classList.contains('active') ? 'close' : 'menu';
       });
 
       //menu button behavior
