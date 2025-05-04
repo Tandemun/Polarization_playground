@@ -5,21 +5,37 @@
   {% include head.html %}
   <body>
     <header class="topbar">
-      <button id="menu-toggle" class="material-icons">menu</button>
+      <button id="menu-toggle" class="material-icons"aria-label="Toggle menu">menu</button>
       <span class="site-title">Polarization</span>
     </header>
-    <div class="container">
-      <aside>{% include sidebar.html %}</aside>
+    
+    <div class="layout">
+      <aside id="sidebar" class="sidebar">{% include sidebar.html %}</aside>
       <main id="main-content">{{ content }}</main>
     </div>
+    
     <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const main = document.getElementById('main-content');
+      const overlay = document.getElementById('overlay');
+
+      menuToggle.textContent = sidebar.classList.contains('active') ? 'close' : 'menu';}
       
       //menu button behavior
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.getElementById('sidebar').classList.toggle('active');
-        document.getElementById('main-content').classList.toggle('fullscreen')
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        main.classList.toggle('shifted');
+        overlay.classList.toggle('active');
       });
-      
+
+      //menu button behavior
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        main.classList.remove('shifted');
+        overlay.classList.remove('active');
+        menuToggle.textContent = 'menu';
+      });
       
     </script>
   </body>
