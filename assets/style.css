@@ -124,7 +124,7 @@ main {
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
   .logo{left: 16px}
-  .site-title{left: 86px;}
+  .site-title{left: 66px;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
