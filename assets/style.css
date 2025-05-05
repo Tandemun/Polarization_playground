@@ -36,9 +36,7 @@ body{
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: left;
   height: 64px;
-  gap: 2rem;
   position: sticky;
   top: 0;
   z-index: 1100;
@@ -62,7 +60,7 @@ body{
   margin: 0;
   font-weight: bold;
   position: absolute;
-  left: 4rem;
+  left: 5rem;
 }
 
 .layout {
@@ -122,7 +120,7 @@ main {
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
   .sidebar{width: 100%}
-  #menu-toggle {position: absolute; right: 1rem}
+  #menu-toggle {position: absolute; right: 1rem; left: auto;}
   .overlay.active{display: none}
 }
 
