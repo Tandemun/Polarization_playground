@@ -55,12 +55,20 @@ body{
   -webkit-tap-highlight-color: transparent;
 }
 
+.logo {
+  height: 40px;
+  position: absolute;
+  left: 5rem;
+}
+
+
+
 .site-title {
   font-size: 2rem;
   margin: 0;
   font-weight: bold;
   position: absolute;
-  left: 5rem;
+  left: 8rem;
 }
 
 .layout {
