@@ -58,7 +58,7 @@ body{
 .logo {
   height: 40px;
   position: absolute;
-  left: 5rem;
+  left: 250px;
 }
 
 
@@ -68,7 +68,7 @@ body{
   margin: 0;
   font-weight: bold;
   position: absolute;
-  left: 8rem;
+  left: 320px;
 }
 
 .layout {
@@ -123,7 +123,8 @@ main {
 
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
-  .site-title{left: 1rem;}
+  .logo{left: 16px}
+  .site-title{left: 86px;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
