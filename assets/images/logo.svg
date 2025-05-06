@@ -66,9 +66,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="true"
-     inkscape:zoom="8"
-     inkscape:cx="62.25"
-     inkscape:cy="32.375"
+     inkscape:zoom="16"
+     inkscape:cx="23.9375"
+     inkscape:cy="33.6875"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -87,10 +87,10 @@
      inkscape:label="logo"
      transform="translate(-300.00001,-200)">
     <path
-       style="display:inline;fill:#3e6767;fill-opacity:1;stroke:none;stroke-width:2.63415;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 342.63036,203.96695 c -26.75503,-4.51896 -32.93347,58.43622 -4.72941,57.79262 -3.83963,0.49976 -7.33981,2.89672 -11.33971,0.27321 -13.8593,-13.94456 -13.88189,-46.93961 5.86465,-59.40206 -2.57339,-0.23274 -5.45424,-0.0759 -9.25495,0.53845 5.20412,-1.72846 13.86861,-3.7126 19.45942,0.79778 z"
-       id="path15965"
-       sodipodi:nodetypes="cccccc"
+       style="display:inline;fill:#3d6565;fill-opacity:1;stroke:none;stroke-width:2.63415;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 336.69286,202.7482 c -7.04794,4.04771 -12.4921,8.65512 -15.67505,20.03314 -4.14624,14.82143 -0.0834,35.54204 12.13314,39.47823 l -6.58971,-0.22679 c -13.8593,-13.94456 -13.63156,-48.39574 6.17748,-59.73319 z"
+       id="path24029"
+       sodipodi:nodetypes="cscccc"
        inkscape:label="meridian" />
     <path
        style="display:inline;fill:#5d9a9a;fill-opacity:1;stroke:none;stroke-width:2.63415;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -132,5 +132,11 @@
        sodipodi:arc-type="arc"
        d="m 304.0117,244.57684 a 30.685852,30.685572 0 0 1 6.83833,-34.8057 30.685852,30.685572 0 0 1 35.10275,-5.10084"
        inkscape:label="mainLeft" />
+    <path
+       style="display:none;fill:#fdca00;fill-opacity:1;stroke:none;stroke-width:2.63415;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 342.56786,203.9357 c -26.75503,-4.51896 -32.87097,58.46747 -4.66691,57.82387 -3.83963,0.49976 -7.33981,2.89672 -11.33971,0.27321 -13.8593,-13.94456 -13.69406,-47.08324 6.05248,-59.54569 -2.57339,-0.23274 -5.64207,0.0677 -9.44278,0.68208 5.20412,-1.72846 13.80611,-3.74385 19.39692,0.76653 z"
+       id="path15965"
+       sodipodi:nodetypes="cccccc"
+       inkscape:label="meridian" />
   </g>
 </svg>
