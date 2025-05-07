@@ -27,6 +27,7 @@
       const main = document.getElementById('main-content');
       const overlay = document.getElementById('overlay');
       const layout = document.getElementById('layout');
+      const topbar = document.getElementById('topbar');
 
 
       //menu button behavior
@@ -38,6 +39,7 @@
         // Сброс всех состояний
         sidebar.classList.remove('hidden', 'active');
         layout.classList.remove('fullscreen');
+        topbar.classList.remove('fullscreen');
         menuToggle.textContent = 'menu';
         overlay.classList.remove('active');
       
@@ -45,6 +47,7 @@
           if (!isHidden) {
             sidebar.classList.add('hidden');
             layout.classList.add('fullscreen')
+            topbar.classList.add('fullscreen')
           }
         } else {
           if (!isActive) {
