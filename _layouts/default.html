@@ -6,8 +6,10 @@
   <body>
     <header class="topbar">
       <button id="menu-toggle" class="material-icons" aria-label="Toggle menu">menu</button>
-      <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo" class="logo">
-      <img src="{{ '/assets/images/name.svg' | relative_url }}" alt="Name" class="name">
+      <div id="logoName" class="logoName">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo" class="logo">
+        <img src="{{ '/assets/images/name.svg' | relative_url }}" alt="Name" class="name">
+      </div>
     </header>
     <div id="overlay" class="overlay"></div>
     <div id="layout" class="layout">
