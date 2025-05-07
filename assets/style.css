@@ -42,7 +42,9 @@ body{
   z-index: 1100;
   width: 100%;
   box-shadow: 0 5px 17px rgba(0, 0, 0, 0.03);
+  padding-left: var(--sidebar-width);
 }
+.topbar.fullscreen {padding-left: 0;}
 
 #menu-toggle {
   color: inherit;
@@ -55,12 +57,19 @@ body{
   -webkit-tap-highlight-color: transparent;
 }
 
-.logo {
-  height: 40px;
-  position: absolute;
-  left: 250px;
+
+.logoName{
+	height: 40px;
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
 }
 
+.logo {
+  height: 40px;
+}
+  
+	
 
 
 .site-title {
@@ -116,6 +125,7 @@ main {
 /* Narrow  window adaptation */
 @media (max-width: 1200px) {
   .layout { padding-left: 0;}	
+  .topbar { padding-left: 0;}	
   .sidebar {transform: translateX(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateX(0);}
   .overlay.active{display: block}
@@ -123,7 +133,7 @@ main {
 
 /* Mobile  window adaptation */
 @media (max-width: 500px) {
-  .logo{left: 16px}
+  .logoName{margin-left: 16px}
   .site-title{left: 66px;}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
