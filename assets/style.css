@@ -40,7 +40,6 @@ body{
   position: sticky;
   top: 0;
   z-index: 1100;
-  width: 100%;
   box-shadow: 0 5px 17px rgba(0, 0, 0, 0.03);
   padding-left: var(--sidebar-width);
   transition: padding-left 0.3s ease;
