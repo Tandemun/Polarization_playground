@@ -7,9 +7,17 @@
     <header id="topbar" class="topbar">
       <button id="menu-toggle" class="material-icons" aria-label="Toggle menu">menu</button>
       <div id="logoName" class="logoName">
-        <!--<img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo" class="logo"> -->
-        <img src="{{ '/assets/images/name.svg' | relative_url }}" alt="Name" class="name">
-        <span id="page-title" class="page-title">{{page.title}}</span>
+        {% if page.url == '/'%}
+          <img src="{{ '/assets/images/name_big.svg' | relative_url }}" alt="Name" class="name">
+        {% else %}
+          <img src="{{ '/assets/images/name.svg' | relative_url }}" alt="Name" class="name">
+        {% endif %}
+        
+        <span id="page-title" class="page-title">
+          {% if page.url != '/'%}
+            {{page.title}}
+          {% endif %}
+        </span>
       </div>
     </header>
     <div id="overlay" class="overlay"></div>
