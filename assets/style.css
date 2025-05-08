@@ -70,7 +70,10 @@ body{
 }
   
 	
-
+.page-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
 .site-title {
   font-size: 2rem;
@@ -135,6 +138,7 @@ main {
 @media (max-width: 500px) {
   .logoName{margin-left: 16px}
   .site-title{left: 66px;}
+  .page-title{display: none}
   .sidebar{width: 100%}
   .sidebar {transform: translateY(-100%);} /*Sidebar is hidden by default*/
   .sidebar.active {transform: translateY(0);}
