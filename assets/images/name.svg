@@ -7,8 +7,8 @@
    viewBox="0 0 47.257099 16.021339"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="name_2.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="name.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +24,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.9757807"
-     inkscape:cx="-24.363354"
-     inkscape:cy="46.878454"
+     inkscape:cx="-24.027308"
+     inkscape:cy="47.046478"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1" />
   <g
@@ -47,24 +48,24 @@
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="font-weight:bold;font-size:11.2889px;fill:#056161;fill-opacity:1;stroke-width:5.29167"
+         style="font-weight:bold;font-size:11.2889px;fill:#004d4d;fill-opacity:1;stroke-width:5.29167"
          x="67.900085"
          y="69.786194"
          dy="0 -8.5 0 0 0"><tspan
-           style="font-weight:bold;font-size:25.4px;fill:#056161;fill-opacity:1"
+           style="font-weight:bold;font-size:25.4px;fill:#004d4d;fill-opacity:1"
            id="tspan6"
            dy="8.5">O</tspan><tspan
-           style="letter-spacing:-0.264583px;fill:#056161;fill-opacity:1"
+           style="letter-spacing:-0.264583px;fill:#004d4d;fill-opacity:1"
            id="tspan8">ptics</tspan></tspan><tspan
          sodipodi:role="line"
-         style="font-size:11.2889px;fill:#056161;fill-opacity:1;stroke-width:5.29167"
+         style="font-size:11.2889px;fill:#004d4d;fill-opacity:1;stroke-width:5.29167"
          x="67.900085"
          y="101.86369"
          id="tspan2"><tspan
-           style="font-size:25.4px;fill:#056161;fill-opacity:1"
+           style="font-size:25.4px;fill:#004d4d;fill-opacity:1"
            id="tspan7"
            dy="-24"> </tspan><tspan
-           style="letter-spacing:-0.264583px;fill:#056161;fill-opacity:1"
+           style="letter-spacing:-0.264583px;fill:#004d4d;fill-opacity:1"
            id="tspan9">notes</tspan></tspan></text>
   </g>
 </svg>
